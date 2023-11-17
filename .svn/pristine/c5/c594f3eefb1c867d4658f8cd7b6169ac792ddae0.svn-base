@@ -1,0 +1,25 @@
+package kr.or.ddit.vo.owner;
+
+import lombok.Data;
+
+@Data
+public class OwnerVO {
+	private int ownerId;
+	private int ownerNo;
+	private String ownerName;
+	private String ownerBir;
+	private String ownerTel;
+	private String ownerEmail;
+	private String ownerArea;
+	private String ownerDong;
+	private String ownerMoney;
+	private String ownerBuilding;
+	private String ownerBuildingadd;
+	private String ownerExp;
+	private String ownerHopetime;
+	private String ownerInfocontent;
+	private String ownerContentdetail;
+	private String ownerConst;
+	private String ownerTelyn;
+	private String ownerYn;
+}

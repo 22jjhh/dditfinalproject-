@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.head.InspectionMapper">
+
+	<sql id="inspectionSearch">
+		<if test="searchType != null and searchType == 'title' ">
+			and (frcs_id like '%'||#{searchWord}||'%')
+		</if>
+	</sql>
+
+	<resultMap type="inspectionVO" id="inspectionMap">
+		<id property="frcsId" column="frcs_id"/>
+		<id property="ipCode" column="ip_code"/>
+		<result property="frcsId" column="frcs_id"/>
+		<result property="ipCode" column="ip_code"/>
+		<result property="ipStts" column="ip_stts"/>
+		<result property="ipDate" column="ip_date"/>
+		<result property="tableName" column="table_name"/>
+		<result property="stEduFnshYn" column="st_edu_fnsh_yn"/>
+		<collection property="inspectionFileList" resultMap="attachMap"/>
+	</resultMap>
+	
+	<resultMap type="attachVO" id="attachMap">
+		<id property="attachNo" column="ATTACH_NO"/>
+		<result property="attachNo" column="ATTACH_NO"/>
+		<result property="fileNo" column="FILE_NO"/>
+		<result property="attachOrgname" column="ATTACH_ORGNAME"/>
+		<result property="attachSavename" column="ATTACH_SAVENAME"/>
+		<result property="tableName" column="TABLE_NAME"/>
+		<result property="tablePk" column="TABLE_PK"/>
+		<result property="attachMime" column="ATTACH_MIME"/>
+		<result property="attachSize" column="ATTACH_SIZE"/>
+		<result property="thumbImg" column="THUMB_IMG"/>
+	</resultMap>
+
+ 	<select id="selectInspectionCount" parameterType="pagingVO" resultType="int">
+		select count(frcs_id)
+		from frcs_ipmg
+		where 1=1
+		<include refid="inspectionSearch"/>
+	</select>
+
+<!-- 	<select id="selectInspectionList" parameterType="pagingVO" resultType="inspectionVO"> -->
+<!-- 	    select  -->
+<!-- 	        f.frcs_name, -->
+<!-- 	        i.ip_stts, -->
+<!-- 	        i.ip_date, -->
+<!-- 	        i.st_edu_fnsh_yn, -->
+<!-- 	        a.attach_no -->
+<!-- 	    from franchise f -->
+<!-- 	    left join frcs_ipmg i on f.frcs_id = i.frcs_id -->
+<!-- 	    left join attach a on i.frcs_id = a.table_pk -->
+<!-- 	    <![CDATA[ -->
+<!-- 	    where rownum >= #{startRow} and rownum <= #{endRow} -->
+<!-- 	    ORDER BY f.frcs_name -->
+<!-- 	    ]]> -->
+<!-- 	</select> -->
+
+	
+	<select id="selectInspectionList" parameterType="pagingVO" resultType="inspectionVO">
+	    <![CDATA[
+	    SELECT
+	        f.frcs_id,
+	        f.frcs_name,
+	        i.ip_code,
+	        i.ip_stts,
+	        i.ip_date,
+	        a.attach_no
+	    FROM franchise f
+	    LEFT JOIN frcs_ipmg i ON f.frcs_id = i.frcs_id
+	    LEFT JOIN attach a ON i.ip_code = a.table_pk
+	    WHERE rownum >= #{startRow} AND rownum <= #{endRow}
+		ORDER BY f.frcs_name, i.ip_date DESC
+	    ]]>
+	</select>
+	
+	
+	<insert id="inspectionRegister" parameterType="inspectionVO" useGeneratedKeys="true">
+	  <selectKey keyProperty="ipCode" resultType="String" order="BEFORE">
+	   	select 'i' || LPAD(seq_frcsipmg.nextval, 4, '0') FROM dual
+	  </selectKey>
+	  insert into frcs_ipmg (
+	    frcs_id, ip_code, ip_stts, ip_date, table_name
+	  ) values (
+	    #{frcsId}, #{ipCode}, #{ipStts}, #{ipDate}, 'ipmg'
+	  )
+	</insert>
+	
+	<insert id="inspectionAttachRegister" parameterType="attachVO" useGeneratedKeys="true">
+	  <selectKey keyProperty="attachNo" resultType="int" order="BEFORE">
+	   	select seq_attach.nextval, 1 FROM dual
+	  </selectKey>
+	  INSERT INTO attach (
+	    ATTACH_NO, FILE_NO, ATTACH_ORGNAME, ATTACH_SAVENAME, ATTACH_MIME, ATTACH_SIZE, TABLE_NAME, TABLE_PK
+	  )
+	  VALUES (
+	    #{attachNo}, #{fileNo}, #{attachOrgname}, #{attachSavename}, #{attachMime}, #{attachSize}, 'ipmg', #{tablePk}
+	  )
+	</insert>
+	
+	<select id="selectFileInfo" parameterType="int" resultType="attachVO">
+		select
+			 ATTACH_NO, FILE_NO, ATTACH_ORGNAME, ATTACH_SAVENAME, ATTACH_MIME, ATTACH_SIZE, TABLE_NAME, TABLE_PK
+		from attach
+		where ATTACH_NO = #{attachNo}
+	</select>
+	
+	<select id="getDetail" parameterType="string" resultMap="inspectionMap">
+	    SELECT f.frcs_name,
+	           i.frcs_id,
+	           i.ip_code,
+	           i.ip_stts,
+	           i.ip_date
+	    FROM frcs_ipmg i
+	    JOIN franchise f ON i.frcs_id = f.frcs_id
+	    WHERE i.frcs_id = #{frcsId}
+	    ORDER BY i.ip_date DESC
+	</select>
+	
+	<select id="getSearch" parameterType="string" resultType="franchiseVO">
+		select frcsId, frcsName
+		from frcs_ipmg
+		where frcs_name like '%'|| upper(#{searchWord})||'%'or frcs_name like '%'||#{searchWord}||'%'
+	</select>
+
+</mapper>

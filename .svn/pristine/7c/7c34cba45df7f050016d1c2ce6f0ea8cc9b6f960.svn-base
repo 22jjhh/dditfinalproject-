@@ -1,0 +1,23 @@
+package kr.or.ddit.service.owner.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.owner.FrcsInventoryMapper;
+import kr.or.ddit.service.owner.IFrcsInventoryService;
+import kr.or.ddit.vo.owner.FrcsInventoryVO;
+
+@Service
+public class FrcsInventoryServiceImpl implements IFrcsInventoryService{
+
+	@Inject
+	private FrcsInventoryMapper mapper;
+
+	@Override
+	public List<FrcsInventoryVO> getInventList() {
+		return mapper.getInventList();
+	}
+}

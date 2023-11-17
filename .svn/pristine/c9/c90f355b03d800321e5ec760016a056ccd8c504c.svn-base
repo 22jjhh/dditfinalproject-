@@ -1,0 +1,11 @@
+package kr.or.ddit.service.owner;
+
+import java.util.List;
+
+import kr.or.ddit.vo.owner.FrcsMenuVO;
+
+public interface IFrcsMenuService {
+
+	public List<FrcsMenuVO> frcsMenuList();
+
+}

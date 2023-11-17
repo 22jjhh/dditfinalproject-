@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+
+	<typeAliases>
+		
+		<!-- 회원 -->
+		<typeAlias type="kr.or.ddit.vo.member.MemberVO" alias="memberVO"/>
+		<typeAlias type="kr.or.ddit.vo.member.MemberAuthVO" alias="memberAuthVO"/>
+		<typeAlias type="kr.or.ddit.vo.owner.OwnerVO" alias="ownerVO"/>
+		<typeAlias type="kr.or.ddit.vo.member.BoardVO" alias="boardVO"/>
+		<typeAlias type="kr.or.ddit.vo.head.HdBoardAnswerVO" alias="hdBoardAnswer"/>
+		<typeAlias type="kr.or.ddit.vo.member.PaginationInfoVO" alias="pagingVO"/>
+		
+		<!-- 가맹점 -->
+		<typeAlias type="kr.or.ddit.vo.owner.FrcsPublicDuesVO" alias="duesVO"/>
+	</typeAliases>
+	
+</configuration>

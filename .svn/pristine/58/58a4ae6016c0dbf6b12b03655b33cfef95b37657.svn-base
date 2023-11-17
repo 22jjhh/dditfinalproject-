@@ -1,0 +1,21 @@
+package kr.or.ddit.service.head;
+
+import java.util.List;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.vo.head.FeeVO;
+import kr.or.ddit.vo.head.HeadMonthVO;
+import kr.or.ddit.vo.head.HeadSalesTotalVO;
+
+public interface ISalesAnalysisService {
+
+//	public FeeVO headChart();
+
+//	public List<FeeVO> allmonthheadChart();
+
+//	public List<FeeVO> allmonthheadChart1(HeadSalesTotalVO headsalesTotalVO);
+
+	public List<HeadMonthVO> headmonthChart();
+
+
+}

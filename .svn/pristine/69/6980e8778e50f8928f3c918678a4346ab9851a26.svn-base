@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-cente">
+	<div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+		<a href="#hero" class="logo me-auto me-lg-0">
+			<img src="${pageContext.request.contextPath }/resources/assets/img/logo.png" alt="" class="img-fluid" style="width: 130px; height: 40px;">
+		</a>
+
+		<!-- 상단 메뉴바 시작 -->
+		<nav id="navbar" class="navbar order-last order-lg-0">
+			<ul>
+				<li class="me-5">
+					<a class="nav-link scrollto active" href="#hero" id="home">Home</a>
+				</li>
+				<li class="me-5">
+					<a class="nav-link scrollto active" href="#about">브랜드</a>
+				</li>
+				<li class="dropdown me-5">
+					<a href="#menu">
+						<span>메뉴</span> 
+						<i class="bi bi-chevron-down"></i>
+					</a>
+					<ul>
+						<li><a href="#menu1">살얼음 맥주</a></li>
+						<li><a href="#menu2">마른안주</a></li>
+						<li><a href="#menu3">튀김류</a></li>
+						<li><a href="#menu4">안주류</a></li>
+						<li><a href="#menu5">기타류</a></li>
+					</ul>
+				</li>
+				<li class="me-5">
+					<a class="nav-link scrollto" href="#menu">매장</a>
+				</li>
+				<li class="dropdown me-5">
+					<a href="/elly/list.do">
+						<span>공지사항</span>
+						<i class="bi bi-chevron-down"></i>
+					</a>
+					<ul>
+						<li><a href="/elly/list.do">칭찬합니다</a></li>
+						<li><a href="/elly/board2.do">건의합니다</a></li>
+						<li><a href="/elly/board3.do">공지사항</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="nav-link scrollto" href="#menu">창업문의</a>
+				</li>
+			</ul>
+			<i class="bi bi-list mobile-nav-toggle"></i>
+		</nav>
+		<!-- 상단 메뉴바 끝 -->
+		
+		<a href="/elly/login.do" class="book-a-table-btn scrollto d-none d-lg-flex">로그인</a>
+	</div>
+</header>
+<!-- End Header -->

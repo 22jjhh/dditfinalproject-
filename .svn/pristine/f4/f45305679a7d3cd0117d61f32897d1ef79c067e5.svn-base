@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.owner.FrcsInventoryMapper">
+	
+	<!-- 	delVO -->
+	<resultMap type="inventVO" id="inventMap">
+		<id property="frcsId" column="frcs_id"/>	<!-- 프라이머리 키 -->
+		<id property="vdprodCd" column="vdprod_cd"/>	<!-- 프라이머리 키 -->
+		<result property="invntryQy" column="invntry_qy"/>
+		<result property="propryQy" column="propry_qy"/>
+		<result property="lastwrhousngDate" column="lastwrhousng_date"/>
+		<collection property="delList" resultMap="delMap"/>
+	</resultMap>
+	
+	<resultMap type="delVO" id="delMap">
+		<id property="dlivyDate" column="dlivy_date"/>	<!--  프라이머리 키 -->
+		<id property="frcsId" column="frcs_id"/>	<!-- 프라이머리 키 -->
+		<id property="vdprodCd" column="vdprod_cd"/>	<!-- 프라이머리 키 -->
+		<result property="dlivyQy" column="dlivy_qy"/>
+		<result property="dlivyPrice" column="dlivy_price"/>
+	</resultMap>
+	
+	<!-- include 처리를 위한 동적 쿼리 -->
+	<sql id="inventSearch">
+		<if test="searchType !=null and searchType== 'vdprodName'">
+			and (h.vdprod_name like '%'||#{searchWord}||'%')
+		</if>
+		<if test="searchType !=null and searchType== 'vdprodCd'">
+			and (h.vdprod_cd like '%'||#{searchWord}||'%')		
+		</if>
+	</sql>
+
+	<select id="getInventList" parameterType="string" resultType="inventVO">
+		select h.vdprod_cd, h.vdprod_name, f.invntry_qy, f.proprt_qy, h.hdforward_price, f.frcs_id
+		from frcs_inventory f, head_inventory h, frcs_ownership o
+		where f.vdprod_cd = h.vdprod_cd and o.mem_id = #{memId}
+		order by h.vdprod_cd asc
+	</select>
+	
+	<select id="selectInventCount" parameterType="ownerPagingVO" resultType="int">
+		select count(f.vdprod_cd)
+		from frcs_inventory f, head_inventory h, frcs_ownership o
+		where f.vdprod_cd = h.vdprod_cd and o.mem_id = #{memId}
+		<include refid="inventSearch"/>
+	</select>
+	
+	<select id="selectInventList" parameterType="ownerPagingVO" resultType="inventVO">
+		select 
+			b.*
+		from (
+			select 
+				a.*, row_number() over (order by a.vdprod_cd asc) rnum
+			from(
+				select h.vdprod_cd, h.vdprod_name, f.invntry_qy, f.proprt_qy, h.hdforward_price, f.frcs_id
+				from frcs_inventory f, head_inventory h, frcs_ownership o
+				where f.vdprod_cd = h.vdprod_cd and o.mem_id = #{memId}
+				<include refid="inventSearch"/>
+				order by h.vdprod_cd asc
+			)a
+		)b	
+		<![CDATA[	
+			where b.rnum >= #{startRow} and b.rnum <= #{endRow}
+		]]>
+	</select>
+	
+	<update id="inventUpdate" parameterType="inventVO">
+		update FRCS_INVENTORY
+		set INVNTRY_QY = #{invntryQy},
+		    PROPRT_QY = #{proprtQy}
+		where frcs_id = #{frcsId} and vdprod_cd= #{vdprodCd}
+	</update>
+	
+<!-- 	<insert id="deliveryMinInsert" parameterType="inventVO"> -->
+<!-- 		<selectKey keyProperty="dlivyQy" resultType="int" order="AFTER"> -->
+<!-- 			select INVNTRY_QY -->
+<!-- 			from FRCS_INVENTORY  -->
+<!-- 			where frcs_id = #{frcsId} and vdprod_cd= #{vdprodCd} -->
+<!-- 		</selectKey> -->
+<!-- 	</insert> -->
+	
+</mapper>

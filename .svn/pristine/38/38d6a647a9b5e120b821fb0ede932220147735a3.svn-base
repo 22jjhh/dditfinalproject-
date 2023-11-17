@@ -1,0 +1,14 @@
+package kr.or.ddit.mapper.owner;
+
+import java.util.List;
+
+import kr.or.ddit.vo.owner.FrcsInventoryVO;
+import kr.or.ddit.vo.owner.FrcsOrderVO;
+import kr.or.ddit.vo.owner.OwnerPaginationInfoVO;
+
+public interface FrcsOrderMapper {
+
+	public int selectOrderCount(OwnerPaginationInfoVO<FrcsInventoryVO> pagingVO);
+	public List<FrcsInventoryVO> selectOrderList(OwnerPaginationInfoVO<FrcsInventoryVO> pagingVO);
+
+}

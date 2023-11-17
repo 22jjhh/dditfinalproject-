@@ -1,0 +1,23 @@
+package kr.or.ddit.vo.head;
+
+import java.util.Date;
+
+import lombok.Data;
+
+@Data
+public class ProposalVO {
+	
+	private int tableNo;
+	private String memId;
+	private String ansState;
+	private String ansContent;
+	private Date ansDate;
+	private String field;
+	private String boardTitle;
+	private String boardContent;
+	private int boardCount;
+	private Date boardRegdate;
+	private int rnum;
+	private int rnum2;
+
+}

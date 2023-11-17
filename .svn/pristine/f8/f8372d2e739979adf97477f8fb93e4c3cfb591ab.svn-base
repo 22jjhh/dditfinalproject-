@@ -1,0 +1,48 @@
+package kr.or.ddit.service.member.impl;
+
+import java.util.Map;
+
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+
+import kr.or.ddit.service.member.IKakaoPayService;
+import kr.or.ddit.vo.KakaoPayReadyVO;
+
+@Service
+public class KakaoPayServiceImpl implements IKakaoPayService {
+
+    @Override
+    public KakaoPayReadyVO kakaopay(Map<String, String> map) {
+        HttpHeaders headers = new HttpHeaders();
+
+        MultiValueMap<String, String> payParams = new LinkedMultiValueMap<>();
+        
+        // KakaoPay API 요청 데이터 설정
+        payParams.add("cid", "YOUR_CID"); // 대표 상점 CID
+        payParams.add("partner_order_id", "KAO20230318001");
+        payParams.add("partner_user_id", "kakaopayTest");
+        payParams.add("item_name", map.get("item_name"));
+        payParams.add("quantity", map.get("quantity"));
+        payParams.add("total_amount", map.get("total_amount"));
+        payParams.add("tax_free_amount", map.get("tax_free_amount"));
+        payParams.add("approval_url", "http://localhost:8080/pay/success");
+        payParams.add("cancel_url", "http://localhost:8080/pay/cancel");
+        payParams.add("fail_url", "http://localhost:8080/pay/fail");
+
+        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(payParams, headers);
+
+        // KakaoPay API 엔드포인트 URL 수정
+        String url = "https://kapi.kakao.com/v1/payment/ready";
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        // KakaoPay API 요청 및 응답
+        KakaoPayReadyVO result = restTemplate.postForObject(url, request, KakaoPayReadyVO.class);
+
+        return result;
+	}
+}

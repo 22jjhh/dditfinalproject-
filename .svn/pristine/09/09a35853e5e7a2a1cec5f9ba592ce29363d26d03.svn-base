@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.head.StoreMapper">
+
+	<sql id="frcsSearch">
+		<if test="searchStatus != null and searchStatus != '' ">
+			and (frcs_state like '%'||#{searchStatus}||'%')
+		</if>
+		<if test="searchWord != null and searchWord != '' ">
+			and (frcs_name like '%'||#{searchWord}||'%')
+<!-- 			and (frcs_add1 like '%'||#{searchWord}||'%') -->
+		</if>
+	</sql>
+
+	<select id="selectTotalFrcsCount" resultType="int" parameterType="headPagingVO">
+		select count(frcs_name) as cnt
+		from frcs_ownership a, franchise f, member m
+		where m.mem_id = a.mem_id
+		and a.frcs_id = f.frcs_id
+		<include refid="frcsSearch" />
+	</select>
+
+	<select id="selectTotalFrcsList" parameterType="headPagingVO" resultType="totalInfoVO" >
+		select 
+         b.*
+      from (
+         select 
+            a.*, row_number() over (order by A.ip_stts desc) rnum
+         from(
+            SELECT F.*, M.*, A.IP_STTS, A.IP_DATE, A.TABLE_NAME, A.ST_EDU_FNSH_YN
+            FROM 
+            FRCS_IPMG A, MEMBER M, FRANCHISE F, FRCS_OWNERSHIP O
+            WHERE M.MEM_ID = O.MEM_ID 
+            AND O.FRCS_ID = F.FRCS_ID
+            AND A.FRCS_ID = F.FRCS_ID
+<!--             where 1=1 -->
+            <include refid="frcsSearch" />
+            order by ip_stts desc
+         )a
+      )b 
+        <![CDATA[
+				where b.rnum >= #{startRow} and b.rnum <= #{endRow}
+			]]>
+	</select>
+</mapper>

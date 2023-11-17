@@ -1,0 +1,18 @@
+package kr.or.ddit.vo.head;
+
+import lombok.Data;
+
+@Data
+public class DashboardVO {
+
+	private String frcsId;
+	private String frcsName;
+	private String frcsTel;
+	private int frcsorderAmt;
+	private String frcsorderDate;
+	
+	private String frcsPost;
+	private String frcsAdd1;
+	private String frcsAdd2;
+	private String frcsOpdate;
+}

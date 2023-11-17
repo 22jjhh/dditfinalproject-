@@ -1,0 +1,22 @@
+package kr.or.ddit.vo.member;
+
+import java.util.Date;
+import java.util.List;
+
+import kr.or.ddit.vo.member.MemberVO;
+import lombok.Data;
+
+@Data
+public class BoardVO {
+	
+	private int tableNo;
+	private String memId;
+	private String field;
+	private String boardTitle;
+	private String boardContent;
+	private String boardCount;
+	private Date boardRegdate;
+	
+	
+
+}

@@ -1,0 +1,75 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<section class="content-header">
+   <div class="container-fluid">
+      <div class="row mb-2">
+         <div class="col-sm-6">
+            <h1>공지사항 상세보기</h1>
+         </div>
+         <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+               <li class="breadcrumb-item"><a href="#">DDIT HOME</a></li>
+               <li class="breadcrumb-item active">공지사항 상세보기</li>
+            </ol>
+         </div>
+      </div>
+   </div>
+</section>
+
+<section class="content">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card card-primary">
+               <div class="card-header">
+                  <h3 class="card-title">${board.tableNo }</h3>
+                  <div class="card-tools">${board.boardTitle } ${board.boardRegdate } ${board.boardCount }</div>
+               </div>
+               <form id="quickForm" novalidate="novalidate">
+                  <div class="card-body">${board.boardCount }</div>
+                  <div class="card-footer bg-white">
+                     <ul class="mailbox-attachments d-flex align-items-stretch clearfix">
+                     </ul>
+                  </div>
+                  <div class="card-footer">
+                     <button type="button" id="btnList" class="btn btn-primary">목록</button>
+                     <button type="button" id="btnModify" class="btn btn-info">수정</button>
+                     <button type="button" id="btnDelete" class="btn btn-danger">삭제</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <form action="/elly/delete.do" method="post" id="boardForm">
+            <input type="hidden" name="tableNo" value="${board.tableNo }"/>
+            <sec:csrfInput/>
+         </form>
+         <div class="col-md-6"></div>
+      </div>
+   </div>
+</section>
+<script type="text/javascript">
+$(function(){
+   var btnList = $("#btnList");
+   var btnModify = $("#btnModify");
+   var btnDelete = $("#btnDelete");
+   var boardForm = $("#boardForm");
+   
+   btnList.on("click", function(){
+      location.href = "/elly/list.do";
+   });
+   
+   btnModify.on("click", function(){
+	   boardForm.attr("method", "get");
+      boardForm.attr("action", "/elly/update.do");
+      boardForm.submit();
+   });
+   
+   btnDelete.on("click", function(){
+      if(confirm("정말 삭제하시겠습니까?")){
+    	  boardForm.submit();
+      }
+   });
+});
+</script>

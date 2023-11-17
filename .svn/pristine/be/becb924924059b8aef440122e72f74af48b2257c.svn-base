@@ -1,0 +1,57 @@
+package kr.or.ddit.controller.head.foundation;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import kr.or.ddit.service.head.ISalesAreaService;
+import kr.or.ddit.vo.head.TotalInfoVO;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/head")
+public class SalesAreaController {
+	
+	@Inject
+	private ISalesAreaService service;
+	
+	@PreAuthorize("hasRole('ROLE_HEAD')")
+	@RequestMapping(value = "/salesArea.do", method=RequestMethod.GET)
+	public String salesArea(Model model, TotalInfoVO totalInfoVO) {
+		log.info("salesArea() GET -> 시작");
+		
+		TotalInfoVO latestInfoVO = null; // 최신 오픈일자를 가진 TotalInfoVO를 저장할 변수
+		Date latestOpenDate = null; // 최신 오픈일자를 저장할 변수
+		
+		int totalFrcs = 0;
+		List<TotalInfoVO> infoVO = new ArrayList<TotalInfoVO>();
+		infoVO = service.selectAll(totalInfoVO);
+		totalFrcs = service.totalCount();
+		
+		// 최근 오픈매장을 찾기위한 반복문
+		for (TotalInfoVO totalInfoVO2 : infoVO) {
+			Date openDate = totalInfoVO2.getFrcsOpdate(); // 각 TotalInfoVO의 오픈일자를 가져옴
+			
+			// 최신 오픈일자를 비교하여 업데이트
+			if(latestOpenDate == null || openDate.after(latestOpenDate)) {
+				latestOpenDate = openDate;
+				latestInfoVO = totalInfoVO2; // 가장 최신 오픈일자를 가진 totalInfoVO가 저장됨
+			}
+		}
+		
+		model.addAttribute("infoVO", infoVO);
+		model.addAttribute("totalFrcs", totalFrcs);
+		model.addAttribute("latestInfoVO", latestInfoVO);
+		
+		return "head/foundation/salesArea";
+	} 
+}

@@ -1,0 +1,22 @@
+package kr.or.ddit.service.owner.impl;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.owner.SeatMapper;
+import kr.or.ddit.service.owner.ISeatService;
+import kr.or.ddit.vo.owner.FrcsSeatVO;
+
+@Service
+public class SeatServiceImpl implements ISeatService {
+
+	@Inject
+	private SeatMapper mapper;
+	
+	@Override
+	public void register(FrcsSeatVO seat) {
+		mapper.create(seat);
+	}
+
+}

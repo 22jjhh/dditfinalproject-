@@ -1,0 +1,11 @@
+package kr.or.ddit.mapper.owner;
+
+import kr.or.ddit.vo.owner.FrcsSeatVO;
+
+public interface SeatMapper {
+
+	public void seatRegister(FrcsSeatVO seat);
+	public void seatDelete(String frcsId);
+
+
+}

@@ -1,0 +1,70 @@
+package kr.or.ddit.service.owner.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.mapper.owner.FrcsDailyMapper;
+import kr.or.ddit.service.owner.IFrcsDailySaleService;
+import kr.or.ddit.vo.owner.FrcsDailySalesVO;
+import kr.or.ddit.vo.owner.FrcsMenuIngredientVO;
+import kr.or.ddit.vo.owner.FrcsMenuVO;
+
+@Service
+public class FrcsDailySaleServiceImpl implements IFrcsDailySaleService {
+
+	@Inject
+	private FrcsDailyMapper mapper;
+
+	// 가맹점 메뉴 정보
+	@Override
+	public List<FrcsMenuVO> getMenu(String frcsId) {
+		return mapper.getMenu(frcsId);
+	}
+
+	// 일일 매출 등록
+	@Override
+	public ServiceResult insertDailySales(List<FrcsDailySalesVO> salesList) {
+		ServiceResult result = null;
+		
+		for(int i=0; i<salesList.size(); i++) {
+			FrcsDailySalesVO salesVO= salesList.get(i);
+			String frcsId= salesVO.getFrcsId();
+			int status = mapper.insertDailySales(salesVO);	// 일일 메뉴 등록
+
+			if(status > 0) {
+				String menuCd = salesVO.getMenuCd();	// 메뉴코드
+				int menuQy = salesVO.getSelngQy();		// 메뉴판매갯수
+				
+				// 메뉴코드로 필요한 재료들 찾기..
+				List<FrcsMenuIngredientVO> ingredList = mapper.selectMenu(menuCd);
+				
+					for(int j=0; j<ingredList.size(); j++) {
+						FrcsMenuIngredientVO ingredVO = ingredList.get(j);	
+						ingredVO.setFrcsId(frcsId);	
+						ingredVO.setMenuQy(menuQy);	// 메뉴 판매개수
+						
+						mapper.minusInvent(ingredVO);	// 재고 -처리
+						mapper.plusDelivery(ingredVO); // 출고 테이블에 insert
+					}
+					
+					result = ServiceResult.OK;
+			}else {
+				result = ServiceResult.FAILED;
+			}
+		}
+		
+		return result;
+	}
+
+	// 일일 매출 리스트 출력
+	@Override
+	public List<FrcsDailySalesVO> getDailySalesList(String frcsId) {
+		return mapper.getDailySalesList(frcsId);
+	}
+	
+
+}

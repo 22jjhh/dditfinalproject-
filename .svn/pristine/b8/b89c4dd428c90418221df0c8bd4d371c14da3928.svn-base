@@ -1,0 +1,11 @@
+package kr.or.ddit.mapper.owner;
+
+import java.util.List;
+
+import kr.or.ddit.vo.owner.FrcsInventoryVO;
+
+public interface FrcsInventoryMapper {
+
+	public List<FrcsInventoryVO> getInventList();
+
+}

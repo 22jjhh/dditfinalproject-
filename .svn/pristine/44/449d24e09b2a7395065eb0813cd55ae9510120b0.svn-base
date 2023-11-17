@@ -1,0 +1,16 @@
+package kr.or.ddit.service.owner;
+
+import java.util.List;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.vo.owner.FrcsPublicDuesVO;
+
+public interface IFrcsBillService {
+
+	public List<FrcsPublicDuesVO> duesList(String memId);
+	public void duesRegister(FrcsPublicDuesVO duesVO);
+	public ServiceResult duesPaydeCheck(String duesPayde);
+	public String frcsIdInfo(String memId);
+	public void duesRemove(String duesPayde, String frcsId);
+
+}

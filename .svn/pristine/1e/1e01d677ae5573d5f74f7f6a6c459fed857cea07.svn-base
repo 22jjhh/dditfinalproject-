@@ -1,0 +1,21 @@
+package kr.or.ddit.service.owner;
+
+import java.util.List;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.vo.owner.FrcsDailySalesVO;
+import kr.or.ddit.vo.owner.FrcsMenuVO;
+
+public interface IFrcsDailySaleService {
+
+	// 일일 매출 리스트 출력
+	public List<FrcsDailySalesVO> getDailySalesList(String frcsId);
+
+	// 가맹점 메뉴 정보
+	public List<FrcsMenuVO> getMenu(String frcsId);
+
+	// 일일 매출 등록
+	public ServiceResult insertDailySales(List<FrcsDailySalesVO> salesList);
+
+
+}

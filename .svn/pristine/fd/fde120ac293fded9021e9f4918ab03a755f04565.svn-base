@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.head.MenuMapper">
+
+<select id="menuList" parameterType="string" resultType="menuVO">
+	select menu_name, menu_cg, menu_price, menu_rsdate, menu_deldate
+	from menu
+</select>
+
+
+</mapper>

@@ -1,0 +1,30 @@
+package kr.or.ddit.service.head.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.head.FoundationMapper;
+import kr.or.ddit.service.head.ISalesAreaService;
+import kr.or.ddit.vo.head.HeadPaginationInfoVO;
+import kr.or.ddit.vo.head.TotalInfoVO;
+
+@Service
+public class SalesAreaServiceImpl implements ISalesAreaService{
+
+	@Inject
+	private FoundationMapper mapper;
+
+	@Override
+	public int selectFrcsCount(HeadPaginationInfoVO<TotalInfoVO> pagingVO) {
+		return mapper.selectFrcsCount(pagingVO);
+	}
+
+	@Override
+	public List<TotalInfoVO> selectFrcsList(HeadPaginationInfoVO<TotalInfoVO> pagingVO) {
+		return mapper.selectFrcsList(pagingVO);
+	}
+	
+}

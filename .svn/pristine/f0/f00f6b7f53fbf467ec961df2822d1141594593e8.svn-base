@@ -1,0 +1,72 @@
+package kr.or.ddit.service.head.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.head.MenuMapper;
+import kr.or.ddit.service.head.IMenuService;
+import kr.or.ddit.vo.head.HeadPaginationInfoVO;
+import kr.or.ddit.vo.head.MenuVO;
+
+@Service
+public class MenuServiceImpl implements IMenuService {
+	
+	@Inject
+	private MenuMapper menuMapper;
+
+	@Override
+	public int selectMenuCount(HeadPaginationInfoVO<MenuVO> pagingVO) {
+		return menuMapper.selectMenuCount(pagingVO);
+	}
+
+	@Override
+	public List<MenuVO> selectMenuList(HeadPaginationInfoVO<MenuVO> pagingVO) {
+		return menuMapper.selectMenuList(pagingVO);
+	}
+
+	@Override
+	public MenuVO menuDetail(String menuCd) {
+		return menuMapper.menuDetail(menuCd);
+	}
+
+	
+//	@Override
+//	public void menuUpdate(MenuVO menuVO) {
+//		String menuCd = menuVO.getMenuCd();
+//		
+//		menuMapper.menuDelete(menuCd);
+//		menuMapper.menuRegister(menuVO);
+//	}
+
+
+
+	@Override
+	public void menuRegister(MenuVO menuVO) {
+		menuMapper.menuRegister(menuVO);
+	}
+
+	@Override
+	public void menuDelete(String menuCd) {
+		menuMapper.menuDelete(menuCd);
+	}
+
+	@Override
+	public void menuUpdate(MenuVO menuVO) {
+		menuMapper.menuUpdate(menuVO);
+		
+	}
+	
+	@Override
+	public List<MenuVO> getMenuListByCategory(HeadPaginationInfoVO<MenuVO> pagingVO) {
+	    return menuMapper.getMenuListByCategory(pagingVO);
+	}
+
+	@Override
+	public int selectMemberMenuCount(HeadPaginationInfoVO<MenuVO> pagingVO) {
+		return menuMapper.selectMemberMenuCount(pagingVO);
+	}
+
+}

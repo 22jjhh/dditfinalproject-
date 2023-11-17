@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+		
+			<div class="col-md-10 pt-5 pb-5 pe-5 bg-white">
+				<div class="mb-4" style="color: rgb(0, 0, 0); border-bottom: 3px solid;">
+					<h2 class="">예약 내역 조회</h2>
+					<div class="d-flex justify-content-end mb-3">
+						<a href="#">
+							<span>전체</span>
+						</a>
+					</div>
+				</div>
+					<ul class="">
+						<li><a href="">입금/결제 0</a></li>
+						<li><a href="">배송중/픽업대기 0</a></li>
+						<li><a href="">배송완료/픽업완료 0</a></li>
+						<li><a href="">구매확정 38</a></li>
+						<li><a href="">교환 0</a></li>
+						<li><a href="">교환완료 0</a></li>
+						<li><a href="">환불 0</a></li>
+						<li><a href="">환불완료 4</a></li>
+					</ul>
+				<div class="text-center mb-4" style="color: rgb(0, 0, 0);">
+					<table class="" style="width: 100%">
+						<colgroup>
+							<col style="width:*">
+							<col style="width:14.2%">
+							<col style="width:14.2%">
+							<col style="width:14.2%">
+							<col style="width:10.2%">
+							<col style="width:11%">
+						</colgroup>
+						<thead>
+						<tr>
+							<th scope="col">예약지점</th>
+							<th scope="col">이용일자</th>
+							<th scope="col">이용일시</th>
+							<th scope="col">예약인원</th>
+							<th scope="col">접수일자</th>
+							<th scope="col" colspan="2">상태</th>
+						</tr>
+						</thead>
+					</table>
+				</div>
+				<div style="color: rgb(0, 0, 0); border-bottom: 1px solid;"></div>
+
+<%-- 					<c:set value="" var=""/> --%>
+<%-- 					<c:choose> --%>
+<%-- 						<c:when test=""> --%>
+<%-- 						</c:when> --%>
+<%-- 						<c:otherwise> --%>
+<%-- 						</c:otherwise> --%>
+<%-- 					</c:choose> --%>
+				<p class="d-flex justify-content-center align-items-center n-table-none" style="color:rgb(0, 0, 0); height: 400px">
+					<span class="">최근 구매내역이 없습니다.</span>
+				</p>
+				
+				<div class="mb-4" style="color: rgb(0, 0, 0); border-bottom: 1px solid;"></div>
+				<a href="javascript:void(0);" onclick="layerChangeInfo(); return false;" class="ui-layer-btn n-btn-change-info"><i class="ic-22-line-question"></i><span>교환/환불 방법이 궁금하신가요?</span></a>
+			</div>
+		</div>
+	</div>
+</div>

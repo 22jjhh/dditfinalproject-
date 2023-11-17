@@ -1,0 +1,13 @@
+package kr.or.ddit.mapper.head;
+
+import java.util.List;
+
+import kr.or.ddit.vo.head.HeadPaginationInfoVO;
+import kr.or.ddit.vo.head.MenuVO;
+
+public interface MenuMapper {
+
+	public int selectMenuCount(HeadPaginationInfoVO<MenuVO> pagingVO) ;
+	public List<MenuVO> selectMenuList(HeadPaginationInfoVO<MenuVO> pagingVO);
+	public MenuVO menuDetail(String menuCd); 
+}

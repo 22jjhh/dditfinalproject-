@@ -1,0 +1,198 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+			<div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card widget-inline mt-3">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">관리자</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">창업상담관리</a></li>
+                                            <li class="breadcrumb-item active text-decoration-underline">영업지역관리</li>
+                                        </ol>
+                                    </div>
+                                        <h4 class="page-title ms-3">영업지역관리</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row justify-content-xxl-around">
+                            <div class="col-xxl-3 col-md-6">
+                                <div class="card widget-inline" style="width: 410px;">
+                                    <div class="card-body p-3 m-1">
+                                        <div class="row g-0">
+                                            <div class="col-lg-12">
+                                                <div class="card rounded-0 shadow-none m-0">
+                                                    <div class="card-body text-left">
+                                                        <!-- <div class="spinner-grow text-success" role="status"></div> -->
+                                                        <h2><span>전체가맹점수</span></h2>
+                                                        <h3><span style="color:aquamarine">TOTAL : </span>${totalFrcs }</h3>
+                                                        <p class="text-muted font-15 mb-0">최신 오픈매장 : ${latestInfoVO.frcsName }</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end row -->
+                                    </div>
+                                </div> <!-- end card-box-->
+                            </div> <!-- end col-->
+
+                            <div class="col-xxl-4 col-md-6">
+                                <div class="card ribbon-box" style="width: 480px; height: 220px;">
+                                    <div class="card-body p-4">
+                                        <div class="ribbon-two ribbon-two-success"><span>지점 매출</span></div>
+                                        <p class="m-1 mb-sm-2 font-20 text-primary fw-bold"> 안녕하세요 예비 가맹점주님!! </p>
+                                        <p class="m-1 mb-0 font-15 text">1982엘리 할머니 맥주에서는 예비 가맹점주님들께서 결정을 더 손쉽게 하실 수 있도록, 현재 가맹점들의
+                                            지역별 / 지점별 매출분석표를 제공하고있습니다.
+                                        </p>
+                                    </div> <!-- end card-body -->
+                                </div> <!-- end card-->
+                            </div>
+
+
+                        </div><!-- end row-->
+
+
+                        <div class="row">
+                        <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="header-title col-2">
+                                            <h4 class="font-15">가맹점수 : 00</h4>
+                                        </div>
+                                        <div class="header-title col-4">
+                                            <select class="form-select" id="example-select">
+                                                <option>선택해주세요</option>
+                                                <option value="대전">대전광역시</option>
+                                                <option>휴업중</option>
+                                                <option>개점예정</option>
+                                                <option>계약만료</option>
+                                            </select> 
+                                        </div>
+                                    </div>
+                                    <div class="card-body pt-2">
+                                        <div class="table-responsive">
+                                            <table class="table table-centered table-nowrap table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <td>
+                                                            <h5 class="font-14 my-1"><a href="javascript:void(0);" class="text-body">가맹점명</a></h5>
+                                                        </td>
+                                                        <td>
+                                                            <h5 class="font-14 my-1"><a href="javascript:void(0);" class="text-body">가맹점주명</a></h5>
+                                                        </td>
+                                                        <td>
+                                                            <h5 class="font-14 my-1"><a href="javascript:void(0);" class="text-body">주소</a></h5>
+                                                        </td>
+                                                        <td>
+                                                            <h5 class="font-14 my-1"><a href="javascript:void(0);" class="text-body">오픈일자</a></h5>
+                                                        </td>
+                                                        <td>
+                                                            <h5 class="font-14 my-1"><a href="javascript:void(0);" class="text-body">전화번호</a></h5>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <c:set value="${infoVO }" var="infoVO" />
+                                                <c:choose>
+                                                	<c:when test="${empty infoVO }">
+                                                		<tbody>
+	                                                		<tr>
+																<td colspan="5">조회하신 가맹점이 존재하지 않습니다.</td>
+															</tr>
+														</tbody>
+                                                	</c:when>
+                                                	<c:otherwise>
+                                                		<c:forEach items="${infoVO }" var="totalinfoVo">
+                                                			<tbody>
+			                                                    <tr>
+			                                                        <td>
+			                                                            <h5 class="font-14 my-1"><a href="javascript:void(0);" class="text-body">${totalinfoVo.frcsName }</a></h5>
+			                                                        </td>
+			                                                        <td>
+			                                                            <span class="text-muted font-13" style="text-align:center;">${totalinfoVo.memName }</span> <br/>
+			                                                        </td>
+			                                                        <td>
+			                                                            <span class="text-muted font-13" style="text-align: center;">${totalinfoVo.frcsAdd1 }&nbsp;${totalinfoVo.frcsAdd2 }</span>
+			                                                        </td>
+			                                                        <td>
+			                                                            <span class="text-muted font-13" style="text-align: center;"> <fmt:formatDate value="${totalinfoVo.frcsOpdate }" pattern="yyyy-MM-dd"/> </span>
+			                                                        </td>
+			                                                        <td >
+			                                                            <span class="text-muted font-13" style="text-align: center;">${totalinfoVo.frcsTel }</span>
+			                                                        </td>
+			                                                    </tr>
+		                                                	</tbody>
+                                                		</c:forEach>
+                                                	</c:otherwise>
+                                                </c:choose>
+                                            </table>
+                                        </div> <!-- end table-responsive-->
+
+                                    </div> <!-- end card body-->
+                                </div> <!-- end card -->
+                            </div><!-- end col-->
+
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h2 class="header-title">00점 영업매출</h2>
+                                        <div>
+                                            <button type="button" class="btn btn-soft-secondary btn-sm">
+                                                ALL
+                                            </button>
+                                            <button type="button" class="btn btn-soft-primary btn-sm">
+                                                1개월
+                                            </button>
+                                            <button type="button" class="btn btn-soft-secondary btn-sm">
+                                                6개월
+                                            </button>
+                                            <button type="button" class="btn btn-soft-secondary btn-sm">
+                                                1년
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div dir="ltr">
+                                            <div class="chartjs-chart" style="height: 350px;">
+                                                <canvas id="task-area-chart" data-bgColor="#727cf5" data-borderColor="#727cf5"></canvas>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- end card body-->
+                                </div> <!-- end card -->
+                            </div><!-- end col-->
+                        </div>
+                        <!-- end row-->
+
+					<!-- Footer Start -->
+				      <footer class="footer">
+				          <div class="container-fluid">
+				              <div class="row">
+				                  <div class="col-md-6">
+				                      <script>document.write(new Date().getFullYear())</script> © 1982Elly - Beer.com
+				                  </div>
+				                  <div class="col-md-6">
+				                      <div class="text-md-end footer-links d-none d-md-block">
+				                          <a href="javascript: void(0);">About</a>
+				                          <a href="javascript: void(0);">Support</a>
+				                          <a href="javascript: void(0);">Contact Us</a>
+				                      </div>
+				                  </div>
+				              </div>
+				          </div>
+				      </footer>
+				      <!-- end Footer -->
+                    </div> <!-- end container_fluid-->
+                </div> <!-- end content -->
+            </div><!-- end contentPage-->

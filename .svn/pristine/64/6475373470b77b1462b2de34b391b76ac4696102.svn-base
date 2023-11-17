@@ -1,0 +1,16 @@
+package kr.or.ddit.vo.owner;
+
+import java.util.Date;
+
+import lombok.Data;
+
+@Data
+public class FrcsInventoryVO {
+
+	private String frcsId;
+	private String vdprodCd;
+	private int invntryQy;
+	private int proprtQy;
+	private Date lastwrhousngDate;
+	
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.owner.FrcsBillMapper">
+
+<select id="duesList" parameterType="string" resultType="duesVO">
+	select dues_elcty, dues_water, dues_gas, dues_mtht, dues_date, dues_payde, p.frcs_id
+	from publicdues p, member m
+	where p.frcs_id = m.frcs_id and mem_id= #{memId}
+	order by dues_payde desc
+</select>
+
+<insert id="duesRegister" parameterType="duesVO">
+	insert into publicdues (
+		dues_payde, frcs_id, dues_elcty, dues_water, dues_gas, dues_mtht, dues_date
+	) values (
+		 #{duesPayde}, #{frcsId}, #{duesElcty}, #{duesWater}, #{duesGas}, #{duesMtht}, sysdate
+	)
+</insert>
+
+<select id="duesPaydeCheck" parameterType="String" resultType="duesVO">
+	select dues_payde, frcs_id, dues_elcty, dues_water, dues_gas, dues_mtht, dues_date
+ 	from publicdues
+ 	where dues_payde = #{duesPayde}
+</select>
+
+</mapper>

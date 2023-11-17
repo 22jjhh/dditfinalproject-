@@ -1,0 +1,30 @@
+package kr.or.ddit.service.head.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.head.FoundationMapper;
+import kr.or.ddit.service.head.ISalesAreaService;
+import kr.or.ddit.vo.head.TotalInfoVO;
+import kr.or.ddit.vo.owner.FranchiseVO;
+
+@Service
+public class SalesAreaServiceImpl implements ISalesAreaService{
+
+	@Inject
+	private FoundationMapper mapper;
+
+	@Override
+	public int totalCount() {
+		return mapper.totalCount();
+	}
+
+	@Override
+	public List<TotalInfoVO> selectAll(TotalInfoVO totalInfoVO) {
+		return mapper.selectAll(totalInfoVO);
+	}
+	
+}

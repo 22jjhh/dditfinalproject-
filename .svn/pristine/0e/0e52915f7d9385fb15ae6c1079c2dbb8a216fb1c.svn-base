@@ -1,0 +1,10 @@
+package kr.or.ddit.service.owner;
+
+import kr.or.ddit.vo.owner.FrcsSeatVO;
+
+public interface ISeatService {
+
+	public void seatRegister(FrcsSeatVO seat);
+	public void seatDelete(String frcsId);
+
+}

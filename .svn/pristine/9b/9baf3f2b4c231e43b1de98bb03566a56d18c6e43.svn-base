@@ -1,0 +1,68 @@
+package kr.or.ddit.controller.owner;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import kr.or.ddit.service.owner.IFrcsOrderService;
+import kr.or.ddit.vo.owner.FrcsInventoryVO;
+import kr.or.ddit.vo.owner.FrcsOrderVO;
+import kr.or.ddit.vo.owner.OwnerPaginationInfoVO;
+
+@Controller
+@RequestMapping("/owner")
+public class OwnerOrderController {
+	
+	@Inject
+	private IFrcsOrderService service;
+	
+	@PreAuthorize("hasRole('ROLE_OWNER')")
+	@RequestMapping(value = "/order.do", method = RequestMethod.GET)
+	public String orderList(
+			@RequestParam(name="page", required = false, defaultValue = "1") int currentPage,
+			@RequestParam(required = false , defaultValue = "vdprodName") String searchType,
+			@RequestParam(required = false) String searchWord,
+			Model model) {
+		
+		// 사용자 정보 가져오기
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String memId = user.getUsername();
+
+		OwnerPaginationInfoVO<FrcsInventoryVO> pagingVO = new OwnerPaginationInfoVO<FrcsInventoryVO>();
+		
+//		 검색 이뤄지면 아래 실행
+		if(StringUtils.isNotBlank(searchWord)) {
+			pagingVO.setSearchType(searchType);
+			pagingVO.setSearchWord(searchWord);
+			model.addAttribute("searchType",searchType);
+			model.addAttribute("searchWord",searchWord);
+		}
+		
+		pagingVO.setMemId(memId);
+		pagingVO.setCurrentPage(currentPage);	// startRow, endRow, startPage, endPage가 결정
+		int totalRecord = service.selectOrderCount(pagingVO);	// 총 게시글 수
+		
+		pagingVO.setTotalPage(totalRecord);	// totalPage 결정
+		List<FrcsInventoryVO> dataList = service.selectOrderList(pagingVO);	// 한 페이지에 해당하는 10개의 데이터
+		pagingVO.setDataList(dataList);
+		
+		model.addAttribute("pagingVO",pagingVO);
+		
+		return "owner/order/orderList";
+	}
+	
+	@RequestMapping(value="/orderDetail.do", method = RequestMethod.GET)
+	public String orderDetail() {
+		return "owner/order/orderDetail";
+	}
+}

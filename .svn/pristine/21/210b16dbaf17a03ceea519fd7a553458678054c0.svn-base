@@ -1,0 +1,129 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<div class="content-page">
+	<div class="content">
+	
+	    <!-- Start Content-->
+	    <div class="container-fluid">
+	
+	        <!-- start page title -->
+	        <div class="row">
+	            <div class="col-12">
+	                <div class="page-title-box">
+	                    <div class="page-title-right">
+	                        <ol class="breadcrumb m-0">
+	                            <li class="breadcrumb-item"><a href="javascript: void(0);">가맹점페이지</a></li>
+	                            <li class="breadcrumb-item"><a href="javascript: void(0);">게시판</a></li>
+	                            <li class="breadcrumb-item active">1대1문의</li>
+	                        </ol>
+	                    </div>
+	                    <h4 class="page-title">1대1문의</h4>
+	                </div>
+	            </div>
+	        </div>
+	        <!-- end page title -->
+	
+	        <div class="row">
+	            <div class="col-12">
+	                <div class="card">
+	                    <div class="card-body">
+	                    
+	                    	<form id="inqForm" action="/owner/inqInsert.do" method="post" >
+		                    	<!-- 제목 -->
+		                    	<div class="mb-2 mt-2">
+	                                <input type="text" id="inqryTtl" name="inqryTtl" class="form-control" placeholder="문의제목">
+	                            </div>
+		                    
+		                    	<!-- 에디터 -->
+		                        <div id="snow-editor" style="height: 300px;">
+<!-- 		                        	<input type="text" id="inqryCn" name="inqryCn" class="form-control" placeholder="문의내용"> -->
+		                        </div>
+		                  		<input type="hidden" name="frcsId" value="${frcsId }"/>
+		                  		<sec:csrfInput/>
+	                    	</form>
+	                        
+							<!-- 파일업로드 -->
+                            <!-- File Upload -->
+							<form id="inqFileForm" action="/" method="post" class="dropzone mt-2" data-plugin="dropzone" data-previews-container="#file-previews"
+							    data-upload-preview-template="#uploadPreviewTemplate" enctype="multipart/form-data">
+							    <div class="fallback">
+							        <input name="file" type="file" multiple />
+							    </div>
+							
+							    <div class="dz-message needsclick">
+							        <i class="h2 text-muted ri-upload-cloud-2-line"></i>
+							        <h4>Drop files here or click to upload.</h4>
+							    </div>
+							</form>
+							
+							<!-- Preview -->
+							<div class="dropzone-previews mt-3" id="file-previews"></div>
+							
+							<!-- file preview template -->
+							<div class="d-none" id="uploadPreviewTemplate">
+							    <div class="card mt-1 mb-0 shadow-none border">
+							        <div class="p-2">
+							            <div class="row align-items-center">
+							                <div class="col-auto">
+							                    <img data-dz-thumbnail src="#" class="avatar-sm rounded bg-light" alt="">
+							                </div>
+							                <div class="col ps-0">
+							                    <a href="javascript:void(0);" class="text-muted fw-bold" data-dz-name></a>
+							                    <p class="mb-0" data-dz-size></p>
+							                </div>
+							                <div class="col-auto">
+							                    <!-- Button -->
+							                    <a href="" class="btn btn-link btn-lg text-muted" data-dz-remove>
+							                        <i class="ri-close-line"></i>
+							                    </a>
+							                </div>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+							<!-- 파일업로드 끝 -->
+                          
+	
+	                        <div class="col-xl-12 mt-2">
+	                            <div class="text-xl-end mt-xl-0 mt-2">
+	                                <button type="button" class="btn btn-light mb-2 me-2">취소</button>
+	                                <button type="button" class="btn btn-danger mb-2" id="subBtn">등록</button>
+	                            </div>
+	                        </div>
+	                    </div> <!-- end card-body-->
+	                </div> <!-- end card-->
+	            </div> <!-- end col -->
+	        </div>
+	        <!-- end row --> 
+	        
+	    </div> <!-- container -->
+	
+	</div> <!-- content -->
+	
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var subBtn = $("#subBtn");
+	var inqForm = $("#inqForm");
+	
+	subBtn.on("click", function(){
+		var inqryTtl = $("#inqryTtl").val();
+// 		var container = document.getElementById('snow-editor');
+// 		var inqryCn = new Quill("#snow-editor");
+		var inqryCn = $("#snow-editor")
+		
+		if(inqryTtl == null || inqryTtl.trim() == ""){
+			alert("제목을 입력해주세요.");
+			return false;
+		}
+		if(inqryCn.getText().trim() == ""){
+			alert("내용을 입력해주세요.");
+			return false;
+		}
+		
+		inqForm.submit();		
+	});
+});
+</script>

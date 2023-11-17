@@ -1,0 +1,18 @@
+package kr.or.ddit.vo.owner;
+
+import java.util.Date;
+
+import lombok.Data;
+
+@Data
+public class FrcsPublicDuesVO {
+	
+	private Date duesPayde;
+	private String frcsId;
+	private int duesElcty;
+	private int duesWater;
+	private int duesGas;
+	private int mtht;
+	private Date duesDate;
+	
+}

@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+	<div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+		<div class="row">
+			<div class="col-lg-8">
+				<h1>
+					단1%의 거짓도 없습니다! <span>1등 성공 신화!</span>
+				</h1>
+
+				<div class="btns">
+					<a href="#menu" class="btn-menu animated fadeInUp scrollto">메뉴 확인하기</a> 
+					<a href="#book-a-table" class="btn-book animated fadeInUp scrollto">예약 하기</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Hero -->
+
+<main id="main">
+
+	<!-- ======= About Section ======= -->
+	<section id="about" class="about">
+		<div class="container" data-aos="fade-up">
+			<div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+				<h3>Voluptatem dignissimos provident quasi corporis voluptates
+					sit assumenda.</h3>
+				<p class="fst-italic">Lorem ipsum dolor sit amet, consectetur
+					adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+					dolore magna aliqua.</p>
+				<ul>
+					<li>
+						<i class="bi bi-check-circle"></i> 
+						Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</li>
+					<li>
+						<i class="bi bi-check-circle"></i> 
+						Duis aute irure dolor in reprehenderit in voluptate velit.
+					</li>
+					<li>
+						<i class="bi bi-check-circle"></i> 
+						Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.
+					</li>
+				</ul>
+				<p>Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+					cupidatat non proident, sunt in culpa qui officia deserunt mollit
+					anim id est laborum</p>
+			</div>
+		</div>
+	</section>
+	<!-- End About Section -->
+
+</main>

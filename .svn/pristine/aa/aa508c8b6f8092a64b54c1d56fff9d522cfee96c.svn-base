@@ -1,0 +1,41 @@
+package kr.or.ddit.service.member.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.mapper.member.MemberReviewMapper;
+import kr.or.ddit.service.member.IMemberReviewService;
+import kr.or.ddit.vo.member.ReviewVO;
+
+@Service
+public class MemberReviewServiceImpl implements IMemberReviewService {
+
+	@Inject
+	private MemberReviewMapper memberreviewMapper;
+	
+	@Override
+	public ServiceResult create(ReviewVO reviewVO) {
+		
+		ServiceResult result = null;
+		
+		int status = memberreviewMapper.create(reviewVO);
+		
+		if(status > 0) {
+			result = ServiceResult.OK;
+		}else {
+			result = ServiceResult.FAILED;
+		}
+		
+		return result;
+	}
+
+	@Override
+	public List<ReviewVO> myReviewList(String memId) {
+		return memberreviewMapper.myReviewList(memId);
+	}
+
+}

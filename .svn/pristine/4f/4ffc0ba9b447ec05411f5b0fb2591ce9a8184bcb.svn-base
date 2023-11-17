@@ -1,0 +1,206 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!-- Bootstrap Touchspin css -->
+<link href="${pageContext.request.contextPath }/resources/assets/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Bootstrap Touchspin js -->
+<script src="${pageContext.request.contextPath }/resources/assets/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+
+<div class="content-page">
+	<div class="content">
+		<!-- Start Content-->
+		<div class="container-fluid">
+		
+		    <!-- start page title -->
+		    <div class="row">
+		        <div class="col-12">
+		            <div class="page-title-box">
+		                <div class="page-title-right">
+		                    <ol class="breadcrumb m-0">
+		                        <li class="breadcrumb-item"><a href="javascript: void(0);">홈</a></li>
+		                        <li class="breadcrumb-item"><a href="javascript: void(0);">주문 거래 관리</a></li>
+		                        <li class="breadcrumb-item active">자동 발주 관리</li>
+		                    </ol>
+		                </div>
+		                <h4 class="page-title">자동 발주 관리</h4>
+		            </div>
+		        </div>
+		    </div>
+		    <!-- end page title -->
+		
+		    <div class="row">
+		        <div class="col-12">
+		            <div class="card">
+		                <div class="card-body">
+		                    <div class="row mb-2">
+		                        <div class="col-xl-8">
+		                            <form class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+		                                <div class="col-auto">
+		                                    <label for="inputPassword2" class="visually-hidden">Search</label>
+		                                    <input type="search" class="form-control" id="inputPassword2" placeholder="Search">
+		                                </div>
+		                                <div class="col-auto">
+		                                    <div class="d-flex align-items-center">
+		                                        <label for="status-select" class="me-2">Status</label>
+		                                        <select class="form-select" id="status-select">
+		                                            <option selected>선택해주세요</option>
+		                                            <option value="1">제품코드</option>
+		                                            <option value="2">제품명</option>
+		                                        </select>
+		                                    </div>
+		                                </div>
+		                            </form>                            
+		                        </div>
+		                        
+		                        <div class="col-xl-4">
+		                            <div class="text-xl-end mt-xl-0 mt-2">
+		                                <button type="button" class="btn btn-warning">행추가</button>
+		                                <button type="button" class="btn btn-primary">저장</button>
+		                            </div>
+		                        </div><!-- end col-->
+		                    </div>
+		
+		                    <div class="table-responsive">
+		                        <table class="table table-centered table-nowrap mb-0">
+		                            <thead class="table-light">
+		                                <tr>
+		                                    <th style="width: 20px;">
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck1">
+		                                            <label class="form-check-label" for="customCheck1">&nbsp;</label>
+		                                        </div>
+		                                    </th>
+		                                    <th style="text-align:center; width:100px;">제품 코드</th>
+		                                    <th style="text-align:center; width:200px;">제품명</th>
+		                                    <th style="text-align:center; width:150px;">자동발주 기준수량</th>
+		                                    <th style="text-align:center; width:150px;">자동발주 수량</th>
+		                                    <th style="text-align:center; width:150px;">구매가</th>
+		                                    <th style="text-align:center; width:150px;">주문예상금액</th>
+		                                    <th style="text-align:center; width:150px;"></th>
+		                                </tr>
+		                            </thead>
+		                            <tbody id="tbdArea">
+		                                <tr>
+		                                    <td>
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+		                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+		                                        </div>
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	P0001
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	냉동 오징어 1ea
+		                                    </td>
+			                                <td style="text-align:center">
+			                                   	100
+			                                </td>
+		                                    <td style="text-align:center">
+		                                        100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        30000
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	300
+		                                    </td>
+		                                    <td style="text-align:center">
+												<button type="button" class="btn btn-info">수정</button>
+												<button type="button" class="btn btn-danger">삭제</button>
+		                                    </td>
+		                                </tr>
+		                            </tbody>
+		                        </table>
+		                    </div>
+		                    <br>
+								<nav aria-label="Page navigation example">
+   									 <ul class="pagination pagination-rounded mb-0 justify-content-center">
+								        <li class="page-item">
+								            <a class="page-link" href="javascript: void(0);" aria-label="Previous">
+								                <span aria-hidden="true">&laquo;</span>
+								            </a>
+								        </li>
+								        <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a></li>
+								        <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a></li>
+								        <li class="page-item active"><a class="page-link" href="javascript: void(0);">3</a></li>
+								        <li class="page-item"><a class="page-link" href="javascript: void(0);">4</a></li>
+								        <li class="page-item"><a class="page-link" href="javascript: void(0);">5</a></li>
+								        <li class="page-item">
+								            <a class="page-link" href="javascript: void(0);" aria-label="Next">
+								                <span aria-hidden="true">&raquo;</span>
+								            </a>
+								        </li>
+								    </ul>
+								</nav>
+		               
+		                </div> <!-- end card-body-->
+		                
+		            </div> <!-- end card-->
+		        </div> <!-- end col -->
+		    </div>
+		</div> <!-- container -->
+	</div> <!-- content -->
+</div>
+<script type="text/javascript">
+$(function(){
+	$('.btn-warning').on("click", function(){
+		// 행추가 이벤트
+		var str = "<tr>";
+		str += "<td>";
+		str += "<div class='form-check'>";
+		str += "<input type='checkbox' class='form-check-input' id='customCheck2'>";	// id값을 결국에 다르게 줘야할거같은데....
+		str += "<label class='form-check-label' for='customCheck2'>&nbsp;</label>";
+		str += "</div>"
+		str += "</td>";
+		str += "<td style='text-align:center'>";
+		str += "<input type='text' disabled='' placeholder='제품을 검색해주세요'>";
+		
+		// 아이콘 클릭시 모달창 이벤트
+		str += "<a href='javascript: void(0);' class='action-icon'> <i class='uil-search-alt' data-bs-toggle='modal' data-bs-target='#bs-example-modal-lg'></i></a>";
+		str += "<div class='modal fade' id='bs-example-modal-lg' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true'>";
+		str += "<div class='modal-dialog modal-lg'>";
+		str += "<div class='modal-content'>";
+		str += "<div class='modal-header'>";
+		str += "<h4 class='modal-title' id='myLargeModalLabel'>제품 정보 조회</h4>";
+		str += "<button type='button' class='btn-close' data-bs-dismiss='modal' aria-hidden='true'></button>";
+		str += "</div>";
+		str += "<div class='modal-body'>";
+		str += "<div class='mb-3'>";
+		str += "<div class='input-group'>";
+        str += "<input type='text' class='form-control' placeholder='제품코드 또는 제품명을 입력하세요.'>";
+        str += "<button class='btn btn-dark' type='button'>검색</button>";
+        str += "</div></div>";
+        str += "내용..."
+		str += "</div>";
+		str += "</div>";
+		str += "</div>";
+		str += "</div>";
+		// 모달창 끝
+		
+		str += "</td>";
+		str += "<td style='text-align:center'>";
+		str += "<input type='text' disabled=''>";
+		str += "</td>";
+		str += "<td style='text-align:center'>";
+		str += "<input type='text' disabled=''>";
+		str += "</td>";
+		str += "<td style='text-align:center'>";
+		str += "<input type='text' disabled=''>";
+		str += "</td>";
+		str += "<td style='text-align:center'>";
+		str += "</td>";
+		str += "<td style='text-align:center'>";
+		str += "</td>";
+		str += "<td style='text-align:center'>";
+		str += "<button type='button' class='btn btn-info'>수정</button>";
+		str += "<button type='button' class='btn btn-danger'>삭제</button>";
+		str += "</td>";
+		str += "</tr>";
+	
+		$("#tbdArea").append(str);
+	});
+	
+	
+});
+</script>

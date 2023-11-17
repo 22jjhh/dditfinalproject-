@@ -1,0 +1,542 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!-- Bootstrap Touchspin css -->
+<link href="${pageContext.request.contextPath }/resources/assets/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Bootstrap Touchspin js -->
+<script src="${pageContext.request.contextPath }/resources/assets/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+
+<div class="content-page">
+	<div class="content">
+		<!-- Start Content-->
+		<div class="container-fluid">
+		
+		    <!-- start page title -->
+		    <div class="row">
+		        <div class="col-12">
+		            <div class="page-title-box">
+		                <div class="page-title-right">
+		                    <ol class="breadcrumb m-0">
+		                        <li class="breadcrumb-item"><a href="javascript: void(0);">홈</a></li>
+		                        <li class="breadcrumb-item"><a href="javascript: void(0);">주문 거래 관리</a></li>
+		                        <li class="breadcrumb-item active">발주 신청</li>
+		                    </ol>
+		                </div>
+		                <h4 class="page-title">발주 신청</h4>
+		            </div>
+		        </div>
+		    </div>
+		    <!-- end page title -->
+
+		    <div class="row">
+		        <div class="col-12">
+		            <div class="card">
+		                <div class="card-body">
+		                
+		                    <div class="row mb-2">
+		                        <div class="col-xl-9"><h4 class="mt-1 mb-3">발주 가능 리스트</h4></div>
+		                        <div class="col-xl-3">
+		                            <form class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+		                                <div class="col-auto">
+		                                    <div class="d-flex align-items-center">
+		                                        <select class="form-select" id="status-select">
+		                                            <option selected>선택해주세요</option>
+		                                            <option value="1">제품코드</option>
+		                                            <option value="2">제품명</option>
+		                                        </select>
+		                                    </div>
+		                                </div>
+		                                <div class="col-auto">
+		                                    <label for="inputPassword2" class="visually-hidden">Search</label>
+		                                    <input type="search" class="form-control" id="inputPassword2" placeholder="Search">
+		                                </div>
+		                            </form>                            
+		                        </div>
+		                    </div>
+		
+		                    <div class="table-responsive">
+		                    
+		                        <table class="table table-centered table-nowrap mb-0">
+		                            <thead class="table-light">
+		                                <tr>
+		                                    <th style="width: 20px;">
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck1">
+		                                            <label class="form-check-label" for="customCheck1">&nbsp;</label>
+		                                        </div>
+		                                    </th>
+		                                    <th style="text-align:center; width:100px;">제품 코드</th>
+		                                    <th style="text-align:center; width:200px;">제품명</th>
+		                                    <th style="text-align:center; width:150px;">현 재고수량</th>
+		                                    <th style="text-align:center; width:150px;">적정 재고수량</th>
+		                                    <th style="text-align:center; width:150px;">구매가</th>
+		                                    <th style="text-align:center; width:150px;">주문수량</th>
+		                                    <th style="text-align:center; width:150px;">주문예상금액</th>
+		                                    <th style="text-align:center; width:150px;"></th>
+		                                </tr>
+		                            </thead>
+		                            <tbody>
+		                                <tr>
+		                                    <td>
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+		                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+		                                        </div>
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	P0001
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	냉동 오징어 1ea
+		                                    </td>
+			                                <td style="text-align:center">
+			                                   	100
+			                                </td>
+		                                    <td style="text-align:center">
+		                                        100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        30000
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	300
+		                                    </td>
+		                                    <td style="text-align:center">
+												500
+		                                    </td>
+		                                    <td style="text-align:center">
+												<button type="button" class="btn btn-info">추가</button>
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td>
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+		                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+		                                        </div>
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	P0001
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	냉동 오징어 1ea
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                   		100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        30000
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	300
+		                                    </td>
+		                                    <td style="text-align:center">
+												500
+		                                    </td>
+		                                    <td style="text-align:center">
+												<button type="button" class="btn btn-info">추가</button>
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td>
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+		                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+		                                        </div>
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	P0001
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	냉동 오징어 1ea
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                   		100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        30000
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	300
+		                                    </td>
+		                                    <td style="text-align:center">
+												500
+		                                    </td>
+		                                    <td style="text-align:center">
+												<button type="button" class="btn btn-info">추가</button>
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td>
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+		                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+		                                        </div>
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	P0001
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	냉동 오징어 1ea
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                   		100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        30000
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	300
+		                                    </td>
+		                                    <td style="text-align:center">
+												500
+		                                    </td>
+		                                    <td style="text-align:center">
+												<button type="button" class="btn btn-info">추가</button>
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td>
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+		                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+		                                        </div>
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	P0001
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	냉동 오징어 1ea
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                   		100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        30000
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	300
+		                                    </td>
+		                                    <td style="text-align:center">
+												500
+		                                    </td>
+		                                    <td style="text-align:center">
+												<button type="button" class="btn btn-info">추가</button>
+		                                    </td>
+		                                </tr>
+		                            </tbody>
+		                        </table>
+		                    </div>
+		                    <br>
+								<nav aria-label="Page navigation example">
+   									 <ul class="pagination pagination-rounded mb-0 justify-content-center">
+								        <li class="page-item">
+								            <a class="page-link" href="javascript: void(0);" aria-label="Previous">
+								                <span aria-hidden="true">&laquo;</span>
+								            </a>
+								        </li>
+								        <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a></li>
+								        <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a></li>
+								        <li class="page-item active"><a class="page-link" href="javascript: void(0);">3</a></li>
+								        <li class="page-item"><a class="page-link" href="javascript: void(0);">4</a></li>
+								        <li class="page-item"><a class="page-link" href="javascript: void(0);">5</a></li>
+								        <li class="page-item">
+								            <a class="page-link" href="javascript: void(0);" aria-label="Next">
+								                <span aria-hidden="true">&raquo;</span>
+								            </a>
+								        </li>
+								    </ul>
+								</nav>
+		       		         </div> <!-- end card-body-->
+		       		  	</div> <!-- end card-->
+		     	   </div> <!-- end col -->
+			</div>
+			
+			<!-- 발주 물품 내역 -->
+			<div class="row">
+		        <div class="col-12">
+		            <div class="card">
+		                <div class="card-body">
+		                	<div class="row mb-2">
+		                        <div class="col-xl-11"><h4 class="mt-1 mb-3">발주 물품 내역</h4></div>
+		                        <div class="col-xl-1">
+	                            <!-- Center modal -->
+									<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#centermodal">발주하기</button>
+									<div class="modal fade" id="centermodal" tabindex="-1" role="dialog" aria-hidden="true">
+									    <div class="modal-dialog modal-dialog-centered">
+									        <div class="modal-content">
+									            <div class="modal-header">
+									                <h4 class="modal-title" id="myCenterModalLabel">발주내역확인</h4>
+									                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+									            </div>
+									            <div class="modal-body">
+									            	내용<br/>
+									            	내용<br/>
+									            	내용<br/>
+									            	내용<br/>
+									            	내용<br/>
+									            	내용<br/>
+									            	내용<br/>
+									            	내용<br/>
+									            	내용<br/>
+									            	내용<br/>
+									            	내용<br/>
+									            	내용<br/>
+									            	내용<br/>
+									            </div>
+									            <div class="modal-footer">
+						             		   <button type="button" class="btn btn-light" data-bs-dismiss="modal">닫기</button>
+						               		   <button type="button" class="btn btn-primary">발주하기</button>
+						            </div>
+									        </div><!-- /.modal-content -->
+									    </div><!-- /.modal-dialog -->
+									</div><!-- /.modal -->
+		                        </div>
+		                    </div>
+		                  	  <div class="table-responsive">
+		                        <table class="table table-centered table-nowrap mb-0">
+		                            <thead class="table-light">
+		                                <tr>
+		                                    <th style="width: 20px;">
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck1">
+		                                            <label class="form-check-label" for="customCheck1">&nbsp;</label>
+		                                        </div>
+		                                    </th>
+		                                    <th style="text-align:center; width:100px;">제품 코드</th>
+		                                    <th style="text-align:center; width:200px;">제품명</th>
+		                                    <th style="text-align:center; width:150px;">현 재고수량</th>
+		                                    <th style="text-align:center; width:150px;">적정 재고수량</th>
+		                                    <th style="text-align:center; width:150px;">구매가</th>
+		                                    <th style="text-align:center; width:150px;">주문수량</th>
+		                                    <th style="text-align:center; width:150px;">주문예상금액</th>
+		                                    <th style="text-align:center; width:150px;"></th>
+		                                </tr>
+		                            </thead>
+		                            <tbody>
+		                                <tr>
+		                                    <td>
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+		                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+		                                        </div>
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	P0001
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	냉동 오징어 1ea
+		                                    </td>
+			                                <td style="text-align:center">
+			                                   	100
+			                                </td>
+		                                    <td style="text-align:center">
+		                                        100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        30000
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	300
+		                                    </td>
+		                                    <td style="text-align:center">
+												500
+		                                    </td>
+		                                    <td style="text-align:center">
+												<button type="button" class="btn btn-info">수정</button>
+												<button type="button" class="btn btn-danger">삭제</button>		
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td>
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+		                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+		                                        </div>
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	P0001
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	냉동 오징어 1ea
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                   		100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        30000
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	300
+		                                    </td>
+		                                    <td style="text-align:center">
+												500
+		                                    </td>
+		                                    <td style="text-align:center">
+												<button type="button" class="btn btn-info">수정</button>
+												<button type="button" class="btn btn-danger">삭제</button>
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td>
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+		                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+		                                        </div>
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	P0001
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	냉동 오징어 1ea
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                   		100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        30000
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	300
+		                                    </td>
+		                                    <td style="text-align:center">
+												500
+		                                    </td>
+		                                    <td style="text-align:center">
+												<button type="button" class="btn btn-info">수정</button>
+												<button type="button" class="btn btn-danger">삭제</button>												
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td>
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+		                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+		                                        </div>
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	P0001
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	냉동 오징어 1ea
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                   		100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        30000
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	300
+		                                    </td>
+		                                    <td style="text-align:center">
+												500
+		                                    </td>
+		                                    <td style="text-align:center">
+												<button type="button" class="btn btn-info">수정</button>
+												<button type="button" class="btn btn-danger">삭제</button>												
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td>
+		                                        <div class="form-check">
+		                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+		                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+		                                        </div>
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	P0001
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	냉동 오징어 1ea
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                   		100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        100
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                        30000
+		                                    </td>
+		                                    <td style="text-align:center">
+		                                    	300
+		                                    </td>
+		                                    <td style="text-align:center">
+												500
+		                                    </td>
+		                                    <td style="text-align:center">
+												<button type="button" class="btn btn-info">수정</button>
+												<button type="button" class="btn btn-danger">삭제</button>		
+		                                    </td>
+		                                </tr>
+		                            </tbody>
+		                        </table>
+		                    </div>
+		                    <br>
+		       		         </div> <!-- end card-body-->
+		       		  	</div> <!-- end card-->
+		     	   </div> <!-- end col -->
+			    </div>
+			</div>
+		</div> <!-- container -->
+	</div> <!-- content -->
+<script type="text/javascript">
+$(function(){
+	$('.btn-danger').on("click", function(){
+		
+		// 버튼 텍스트값
+		var btnText = $(this).text();
+		var str = "";
+		
+		if(btnText== "수정"){
+			// 텍스트가 수정이면 
+			$(this).text("변경");
+			$(this).attr("class", "btn btn-primary");
+			
+			// 버튼이 눌린 row 정보
+			var tr = $(this).parent().parent();	// <tr>
+		   	console.log(tr);
+		   	var td = tr.children();	// <td>
+		   	console.log(td);
+		   	
+		   	// 현 재고수량
+		   	console.log(td[3]);
+		   	
+		   	var invent = td[3];
+		   	console.log(td[3]);
+//	 	   	console.log(td[8].find('button').text());
+		}
+		
+		if(btnText=="변경"){
+			$(this).text("수정");
+			$(this).attr("class", "btn btn-danger");
+		}
+		
+
+	   	
+	});
+				
+});
+</script>

@@ -1,0 +1,33 @@
+package kr.or.ddit.controller.head.store;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import kr.or.ddit.service.head.ISalesAnalysisService;
+import kr.or.ddit.vo.head.FeeVO;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/head")
+public class SalesAnalysisController {
+	
+	@Inject
+	private ISalesAnalysisService service;
+
+	@RequestMapping(value = "/salesAnalysis.do", method=RequestMethod.GET)
+	public String storeDetails(Model model) {
+		
+		FeeVO feeVO = service.headChart();
+		
+		model.addAttribute("feeVO", feeVO);
+		
+		return "head/store/salesAnalysis";
+	} 
+}

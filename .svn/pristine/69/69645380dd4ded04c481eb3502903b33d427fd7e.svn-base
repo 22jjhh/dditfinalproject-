@@ -1,0 +1,13 @@
+package kr.or.ddit.vo.head;
+
+import lombok.Data;
+
+@Data
+public class HeadSalesTotalVO {
+
+	private int frcsAmt; 
+	private int frcsRowal; 
+	private int orderAmt; 
+	private int frcsorderAmt; 
+	private int selngPrice; 
+}

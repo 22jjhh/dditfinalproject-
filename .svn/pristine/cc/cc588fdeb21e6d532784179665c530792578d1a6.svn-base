@@ -1,0 +1,30 @@
+package kr.or.ddit.mapper.owner;
+
+import java.util.List;
+
+import kr.or.ddit.vo.owner.FrcsDailySalesVO;
+import kr.or.ddit.vo.owner.FrcsMenuIngredientVO;
+import kr.or.ddit.vo.owner.FrcsMenuVO;
+
+public interface FrcsDailyMapper {
+
+	// 일일 매출 리스트 출력
+	public List<FrcsDailySalesVO> getDailySalesList(String frcsId);
+
+	// 가맹점 메뉴 정보
+	public List<FrcsMenuVO> getMenu(String frcsId);
+
+	// 가맹점 일일 매출 등록
+	public int insertDailySales(FrcsDailySalesVO salesVO);
+
+	// 메뉴 별 재료 조회
+	public List<FrcsMenuIngredientVO> selectMenu(String menuCd);
+
+	// 재고 마이너스 처리
+	public void minusInvent(FrcsMenuIngredientVO ingredVO); 
+	
+	// 출고 테이블 insert
+	public void plusDelivery(FrcsMenuIngredientVO ingredVO);
+
+
+}

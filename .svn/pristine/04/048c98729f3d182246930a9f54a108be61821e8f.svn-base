@@ -1,0 +1,53 @@
+package kr.or.ddit.controller.owner;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.service.owner.ISeatService;
+import kr.or.ddit.vo.owner.FrcsSeatVO;
+
+@Controller
+@RequestMapping("/owner")
+public class OwnerSeatController {
+	
+	@Inject
+	private ISeatService service;
+
+	@RequestMapping(value="/seat.do", method = RequestMethod.GET )
+	public String ownerSeatContent(Model model) {
+//		List<FrcsSeatVO> frcsSeatList = service.frcsSeatList();
+//		model.addAttribute("list", frcsSeatList);
+		return "owner/info/seatContent";
+	}
+	
+//	@RequestMapping(value="/seat.do", method = RequestMethod.POST )
+//	public String ownerSeatRegister(FrcsSeatVO seatVO, Model model) {
+//		service.register(seatVO);
+//		return "owner/info/notiles/seatArrangement";
+//	}
+	
+	@RequestMapping(value="/seatArrangement.do", method = RequestMethod.GET )
+	public String ownerSeatArrangement() {
+		return "owner/info/notiles/seatArrangement";
+	}
+	
+	@RequestMapping(value="/seatArrangement.do", method = RequestMethod.POST )
+	public String ownerSeatRegister(@RequestBody List<FrcsSeatVO> seatDataList) {
+		
+//		service.register(seatDataList);
+		return "owner/info/notiles/seatArrangement";
+	}
+	
+}

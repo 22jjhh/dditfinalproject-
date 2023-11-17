@@ -1,0 +1,31 @@
+package kr.or.ddit.service.owner.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.owner.FrcsOrderMapper;
+import kr.or.ddit.service.owner.IFrcsOrderService;
+import kr.or.ddit.vo.owner.FrcsInventoryVO;
+import kr.or.ddit.vo.owner.FrcsOrderVO;
+import kr.or.ddit.vo.owner.OwnerPaginationInfoVO;
+
+@Service
+public class FrcsOrderServiceImpl implements IFrcsOrderService{
+	
+	@Inject
+	private FrcsOrderMapper mapper;
+
+	@Override
+	public int selectOrderCount(OwnerPaginationInfoVO<FrcsInventoryVO> pagingVO) {
+		return mapper.selectOrderCount(pagingVO);
+	}
+
+	@Override
+	public List<FrcsInventoryVO> selectOrderList(OwnerPaginationInfoVO<FrcsInventoryVO> pagingVO) {
+		return mapper.selectOrderList(pagingVO);
+	}
+
+}

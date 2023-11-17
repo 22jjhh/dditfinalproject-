@@ -1,0 +1,31 @@
+package kr.or.ddit.controller.member;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import kr.or.ddit.service.owner.IFrcsMenuService;
+import kr.or.ddit.vo.owner.FrcsMenuVO;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/elly")
+public class ResMemberController {
+
+	@Inject
+	private IFrcsMenuService service;
+	
+	@RequestMapping(value = "/store/res.do", method = RequestMethod.GET)
+	public String mapForm(String frcsId, Model model) {
+		List<FrcsMenuVO> frcsMenuList = service.resfrcsMenuList(frcsId);
+		model.addAttribute("list", frcsMenuList);
+		model.addAttribute("frcsId", frcsId);
+		return "mainhome/store/resForm";
+	}
+}

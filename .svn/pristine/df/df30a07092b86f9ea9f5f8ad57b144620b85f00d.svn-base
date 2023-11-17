@@ -1,0 +1,30 @@
+package kr.or.ddit.service.owner.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.owner.FrcsOfficialDocMapper;
+import kr.or.ddit.service.owner.IFrcsOfficialDocService;
+import kr.or.ddit.vo.owner.FrcsOfficialDocVO;
+import kr.or.ddit.vo.owner.OwnerPaginationInfoVO;
+
+@Service
+public class FrcsOfficialDocServiceImpl implements IFrcsOfficialDocService {
+
+	@Inject
+	private FrcsOfficialDocMapper mapper;
+	
+	@Override
+	public int selectOfldcCount(OwnerPaginationInfoVO<FrcsOfficialDocVO> pagingVO) {
+		return mapper.selectOfldcCount(pagingVO);
+	}
+
+	@Override
+	public List<FrcsOfficialDocVO> selectOfldcList(OwnerPaginationInfoVO<FrcsOfficialDocVO> pagingVO) {
+		return mapper.selectOfldcList(pagingVO);
+	}
+
+}

@@ -1,0 +1,14 @@
+package kr.or.ddit.service.head;
+
+import java.util.List;
+
+import kr.or.ddit.vo.head.HeadPaginationInfoVO;
+import kr.or.ddit.vo.head.MenuVO;
+
+public interface IMenuService {
+
+	public int selectMenuCount(HeadPaginationInfoVO<MenuVO> pagingVO);
+	public List<MenuVO> selectMenuList(HeadPaginationInfoVO<MenuVO> pagingVO);
+	public MenuVO selectMenu(String menuCd);
+
+}

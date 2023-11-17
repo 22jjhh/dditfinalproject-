@@ -1,0 +1,11 @@
+package kr.or.ddit.service.member;
+
+import java.util.Map;
+
+import kr.or.ddit.vo.KakaoPayReadyVO;
+
+public interface IKakaoPayService {
+
+	public KakaoPayReadyVO kakaopay(Map<String, String> map);
+
+}

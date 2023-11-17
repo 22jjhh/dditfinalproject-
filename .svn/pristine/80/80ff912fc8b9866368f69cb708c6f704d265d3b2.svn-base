@@ -1,0 +1,19 @@
+package kr.or.ddit.mapper.owner;
+
+import java.util.List;
+
+import kr.or.ddit.vo.member.MenuListVO;
+import kr.or.ddit.vo.member.ResVO;
+import kr.or.ddit.vo.owner.FrcsMenuVO;
+
+public interface FrcsMenuMapper {
+
+	public List<FrcsMenuVO> frcsMenuList();
+
+	public List<FrcsMenuVO> resfrcsMenuList(String frcsId);
+
+	public int resRegister(ResVO resVO);
+
+	public void menuInsert(MenuListVO menuListVO);
+
+}

@@ -1,0 +1,29 @@
+package kr.or.ddit.service.owner.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.owner.FrcsMenuMapper;
+import kr.or.ddit.service.owner.IFrcsMenuService;
+import kr.or.ddit.vo.owner.FrcsMenuVO;
+
+@Service
+public class FrcsMenuServiceImpl implements IFrcsMenuService {
+
+	@Inject
+	private FrcsMenuMapper mapper;
+
+	@Override
+	public List<FrcsMenuVO> frcsMenuList() {
+		return mapper.frcsMenuList();
+	}
+
+	@Override
+	public List<FrcsMenuVO> resfrcsMenuList(String frcsId) {
+		return mapper.resfrcsMenuList(frcsId);
+	}
+
+}

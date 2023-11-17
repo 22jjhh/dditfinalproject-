@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/assets/images/favicon.ico">
+
+        <!-- Daterangepicker css -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/vendor/daterangepicker/daterangepicker.css">
+
+        <!-- Vector Map css -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css">
+
+        <!-- Theme Config Js -->
+        <script src="${pageContext.request.contextPath }/resources/assets/js/hyper-config.js"></script>
+
+        <!-- App css -->
+        <link href="${pageContext.request.contextPath }/resources/assets/css/app-saas.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+        <!-- Icons css -->
+        <link href="${pageContext.request.contextPath }/resources/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <script>document.write(new Date().getFullYear())</script> © Hyper - Coderthemes.com
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md-end footer-links d-none d-md-block">
+                                    <a href="javascript: void(0);">About</a>
+                                    <a href="javascript: void(0);">Support</a>
+                                    <a href="javascript: void(0);">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>

@@ -1,0 +1,40 @@
+package kr.or.ddit.service.owner.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.mapper.owner.FrcsInquiryMapper;
+import kr.or.ddit.service.owner.IFrcsInquiryService;
+import kr.or.ddit.vo.owner.FrcsInquiryVO;
+
+@Service
+public class FrcsInquiryServiceImpl implements IFrcsInquiryService {
+
+	@Inject
+	private FrcsInquiryMapper mapper;
+	
+	@Override
+	public List<FrcsInquiryVO> frcsInqList(String frcsId) {
+		return mapper.frcsInqList(frcsId);
+	}
+
+	@Override
+	public ServiceResult inqInsert(HttpServletRequest req, FrcsInquiryVO frcsInqVO) {
+		ServiceResult result = null;
+		int status = mapper.inqInsert(frcsInqVO);
+		if(status > 0) {
+//			List<BoardFileVO> boardFileList = boardVO.getBoardFileList();
+//			FileUploadUtils.boardFileUpload(boardFileList, boardVO.getBoNo(), req, boardMapper);
+			result = ServiceResult.OK;
+		}else {
+			result = ServiceResult.FAILED;
+		}
+		return result;
+	}
+
+}

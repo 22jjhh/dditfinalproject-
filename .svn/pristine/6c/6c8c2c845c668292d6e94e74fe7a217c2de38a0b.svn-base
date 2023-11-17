@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.head.MenuMapper">
+
+	<resultMap type="menuVO" id="menuMap">
+		<id property="menuCd" column="menu_cd"/>
+		<result property="menuCd" column="menu_cd"/>
+		<result property="menuName" column="menu_name"/>
+		<result property="menuPrice" column="menu_price"/>
+		<result property="menuCg" column="menu_cg"/>
+		<result property="menuDes" column="menu_des"/>
+		<result property="menuState" column="menu_state"/>
+		<result property="menuRsdate" column="menu_rsdate"/>
+		<result property="menuDeldate" column="menu_deldate"/>
+		<result property="tableName" column="table_name"/>
+		<collection property="menuFileList" resultMap="attachMap"/>
+	</resultMap>
+	
+	<resultMap type="attachVO" id="attachMap">
+		<id property="attachNo" column="ATTACH_NO"/>
+		<result property="attachNo" column="ATTACH_NO"/>
+		<result property="fileNo" column="FILE_NO"/>
+		<result property="attachOrgname" column="ATTACH_ORGNAME"/>
+		<result property="attachSavename" column="ATTACH_SAVENAME"/>
+		<result property="tableName" column="TABLE_NAME"/>
+		<result property="tablePk" column="TABLE_PK"/>
+		<result property="attachMime" column="ATTACH_MIME"/>
+		<result property="attachSize" column="ATTACH_SIZE"/>
+		<result property="thumbImg" column="THUMB_IMG"/>
+	</resultMap>
+
+
+ 	<select id="selectMenuCount" parameterType="pagingVO" resultType="int">
+		select count(menu_cd)
+		from head_menu
+	</select>
+
+	<select id="selectMenuList" parameterType="pagingVO" resultType="menuVO">
+		select menu_cd, menu_name, menu_cg, menu_price, menu_rsdate, menu_des
+		from head_menu
+	</select>
+	
+<!-- 	<select id="menuDetail" parameterType="string" resultMap="menuMap"> -->
+<!-- 	    select -->
+<!-- 	        hm.menu_cd, hm.menu_cg, hm.menu_name, hm.menu_des, hm.menu_price, hm.table_name, -->
+<!-- 	        a.attach_no, a.file_no, a.attach_orgname, a.attach_savename, a.table_pk, a.attach_mime, a.attach_size, a.thumb_img -->
+<!-- 	    from head_menu hm left outer join attach a on(hm.table_name = a.table_name) -->
+<!-- 	    where hm.menu_cd = #{menuCd} -->
+<!-- 	    and hm.table_name = 'menu' -->
+<!-- 	</select> -->
+	
+	<select id="menuDetail" parameterType="string" resultMap="menuMap">
+	    select menu_cd, menu_name, menu_cg, menu_price, menu_des
+	    from head_menu
+	    where menu_cd = #{menuCd}
+	</select>
+		
+	
+   <select id="selectMenuFile" parameterType="int" resultType="attachVO">
+		select
+			ATTACH_NO, FILE_NO, ATTACH_ORGNAME, ATTACH_SAVENAME, ATTACH_MIME, 
+			ATTACH_SIZE, TABLE_NAME
+		from attach
+		where ATTACH_NO = #{attachNo}
+	</select>
+	
+	<insert id="menuRegister" parameterType="menuVO">
+		insert into head_menu (
+			menu_cd, menu_name, menu_cg, menu_des, menu_price, menu_rsdate, menu_state
+		) values (
+			 #{menuCd}, #{menuName}, #{menuCg}, #{menuDes}, #{menuPrice}, sysdate, '활성'
+		)
+	</insert>
+	
+	<update id="menuUpdate" parameterType="menuVO">
+		update head_menu
+		set
+			menu_cd = #{menuCd},
+			menu_name = #{menuName},
+			menu_cg = #{menuCg},
+			menu_des = #{menuDes},
+			menu_price = #{menuPrice},
+			menu_rsdate = sysdate,
+			menu_state = '활성'
+			where menu_cd= #{menuCd} 
+	</update>
+	
+	<delete id="menuDelete" parameterType="map">
+		delete from head_menu
+		where menu_cd = #{menuCd}
+	</delete>
+	
+<!-- 	<select id="selectMenuList" parameterType="pagingVO" resultType="menuVO"> -->
+<!-- 	select hm.menu_cd, hm.menu_name, hm.menu_price, hm.menu_cg, hm.menu_state, -->
+<!--        a.attach_no, a.attach_orgname, a.attach_savename, a.attach_mime, a.attach_size, a.thumb_img -->
+<!-- 	from head_menu hm -->
+<!-- 	left join attach a on a.table_pk = hm.menu_cd and a.table_name = hm.table_name; -->
+<!-- 	</select> -->
+
+</mapper>

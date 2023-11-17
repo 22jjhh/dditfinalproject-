@@ -1,0 +1,12 @@
+package kr.or.ddit.service.owner.impl;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.owner.FrcsBillMapper;
+import kr.or.ddit.service.owner.IFrcsBillService;
+
+@Service
+public class FrcsBillServiceImpl implements IFrcsBillService {
+
+	private FrcsBillMapper mapper;
+}

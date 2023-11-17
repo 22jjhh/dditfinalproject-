@@ -1,0 +1,14 @@
+package kr.or.ddit.service.member;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.vo.member.MemberVO;
+
+public interface IMemberService {
+
+	public ServiceResult create(MemberVO memberVO);
+
+	public ServiceResult idCheck(String memId);
+
+	public MemberVO loginCheck(MemberVO memberVO);
+
+}

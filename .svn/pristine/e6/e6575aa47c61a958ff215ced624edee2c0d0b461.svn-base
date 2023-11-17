@@ -1,0 +1,15 @@
+package kr.or.ddit.service.head;
+
+import java.util.List;
+
+import kr.or.ddit.vo.head.HeadPaginationInfoVO;
+import kr.or.ddit.vo.head.TotalInfoVO;
+
+
+public interface ISalesAreaService {
+
+	public int selectFrcsCount(HeadPaginationInfoVO<TotalInfoVO> pagingVO);
+
+	public List<TotalInfoVO> selectFrcsList(HeadPaginationInfoVO<TotalInfoVO> pagingVO);
+	
+}

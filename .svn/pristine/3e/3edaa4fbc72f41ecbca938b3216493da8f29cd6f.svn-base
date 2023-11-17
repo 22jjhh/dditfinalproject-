@@ -1,0 +1,14 @@
+package kr.or.ddit.service.owner;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.vo.owner.FrcsReservationVO;
+
+@Service
+public interface IFrcsReservationService {
+
+	public List<FrcsReservationVO> frcsResvList(String frcsId);
+
+}

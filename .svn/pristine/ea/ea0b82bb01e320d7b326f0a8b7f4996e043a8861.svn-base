@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.owner.FrcsDailyMapper">
+	
+	<select id="getMenu" parameterType="string" resultType="frcsMenuVO">
+		select h.menu_cd, sale_yn, frcs_id, h.menu_name, menu_price, menu_cg
+		from frcs_menu f, head_menu h
+		where frcs_id = #{frcsid} and h.menu_cd= f.menu_cd	
+	</select>
+	
+	<insert id="insertDailySales" parameterType="salesVO" useGeneratedKeys="true">
+		<selectKey keyProperty="selngNo" resultType="string" order="BEFORE">
+			 select 'A'|| to_char(seq_dailysell.nextval, 'FM000000') from dual
+		</selectKey>
+		insert into dailyselling (
+			selng_no, selng_date, selng_price, selng_qy, menu_cd, frcs_id
+		)values(
+			#{selngNo}, sysdate, #{selngPrice}, #{selngQy}, #{menuCd}, #{frcsId}
+		)
+	</insert>
+	
+	<select id="getDailySalesList" parameterType="string" resultType="salesVO">
+	    select selng_price, selng_qy, h.menu_cd, frcs_id, selng_date, h.menu_name
+		from dailyselling d, head_menu h 
+		where frcs_id = #{frcsId} and h.menu_cd= d.menu_cd and to_char(selng_date,'yy/MM/dd') = to_char(sysdate,'yy/MM/dd')
+	</select>
+	
+	<!-- 메뉴별 재료 조회 -->
+	<select id="selectMenu" parameterType="string" resultType="ingredVO">
+		select menu_cd, h.vdprod_cd, ingre_qy, hdforward_price
+		from menu_ingredient m, head_inventory h
+		where menu_cd = #{menuCd} and h.vdprod_cd = m.vdprod_cd
+	</select>
+	
+	<!-- 재고 마이너스 처리 -->
+	<update id="minusInvent" parameterType="ingredVO">
+		update frcs_inventory
+   			 set invntry_qy =  invntry_qy-(#{ingreQy}*#{menuQy})
+   		 where frcs_id = #{frcsId} and vdprod_cd = #{vdprodCd}
+	</update>
+	
+	<insert id="plusDelivery" parameterType="ingredVO">
+		insert into delivery(
+			dlivy_date, frcs_id, vdprod_cd, dlivy_qy, dlivy_price
+		)values(
+			sysdate, #{frcsId}, #{vdprodCd}, #{menuQy}, #{hdforwardPrice}
+		)
+	</insert>
+</mapper>

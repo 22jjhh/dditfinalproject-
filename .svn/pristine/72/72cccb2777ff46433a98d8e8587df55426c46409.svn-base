@@ -1,0 +1,21 @@
+package kr.or.ddit.controller.owner;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+@RequestMapping("/owner")
+public class OwnerSeatController {
+
+	@RequestMapping(value="/seat.do", method = RequestMethod.GET )
+	public String ownerSeatContent() {
+		return "owner/seat/content";
+	}
+	
+	@RequestMapping(value="/seatArrangement.do", method = RequestMethod.GET )
+	public String ownerSeatArrangement() {
+		return "owner/seat/notiles/seatArrangement";
+	}
+	
+}

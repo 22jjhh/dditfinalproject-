@@ -1,0 +1,20 @@
+package kr.or.ddit.service.head;
+
+import java.util.List;
+
+import kr.or.ddit.vo.head.HeadPaginationInfoVO;
+import kr.or.ddit.vo.head.VendorVO;
+
+public interface ICustomerService {
+
+	public int selectTotalVendorCount(HeadPaginationInfoVO<VendorVO> pagingVO);
+
+	public List<VendorVO> selectTotalVendorList(HeadPaginationInfoVO<VendorVO> pagingVO);
+
+	public List<VendorVO> selectCategoryList(VendorVO vendorVO);
+
+	public VendorVO selectVendorName(VendorVO vendorVO);
+	
+
+	
+}

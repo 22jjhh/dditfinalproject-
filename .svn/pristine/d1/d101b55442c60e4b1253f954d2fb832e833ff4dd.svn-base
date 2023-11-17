@@ -1,0 +1,89 @@
+package kr.or.ddit.controller.member;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.service.member.IMyCouponService;
+import kr.or.ddit.service.owner.IFrcsMenuService;
+import kr.or.ddit.service.owner.ISeatService;
+import kr.or.ddit.vo.member.MyCouponVO;
+import kr.or.ddit.vo.member.ResVO;
+import kr.or.ddit.vo.owner.FrcsMenuVO;
+import kr.or.ddit.vo.owner.FrcsSeatVO;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/elly")
+public class ResMemberController {
+
+	@Inject
+	private IFrcsMenuService menuService;
+	
+	@Inject
+	private ISeatService seatService;
+	
+	@Inject
+	private IMyCouponService mycouponService;
+	
+	@PreAuthorize("hasRole('ROLE_MEMBER')")
+	@RequestMapping(value = "/store/res.do", method = RequestMethod.GET)
+	public String mapForm(String memId, String frcsId, Model model) {
+		
+		// 메뉴 리스트 조회 기능
+		List<FrcsMenuVO> frcsMenuList = menuService.resfrcsMenuList(frcsId);
+		model.addAttribute("menulist", frcsMenuList);
+		
+		// 좌석 리스트 조회 기능
+		List<FrcsSeatVO> frcsSeatList = seatService.frcsSeatList(frcsId);
+		model.addAttribute("seatlist", frcsSeatList);
+		model.addAttribute("frcsId", frcsId);
+		
+		// 쿠폰 리스트 조회 기능
+		List<MyCouponVO> couponList = mycouponService.myCouponList(memId);
+		int mycouponCnt = couponList.size();
+		model.addAttribute("couponList", couponList);
+		model.addAttribute("mycouponCnt", mycouponCnt);
+		
+		
+		return "mainhome/store/resForm";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/store/res.do", method = RequestMethod.POST)
+	public ResponseEntity<ServiceResult> frcsOrder(@RequestBody ResVO resVO) {
+
+		ServiceResult result = menuService.resRegister(resVO);
+	    
+		return new ResponseEntity<ServiceResult>(result, HttpStatus.OK);
+	}
+	
+//	@PreAuthorize("hasRole('ROLE_MEMBER')")
+//	@ResponseBody
+//	@RequestMapping(value = "/store/mycoupon.do")
+//	public ResponseEntity<List<MyCouponVO>> myCouponList(@RequestBody Map <String,String> map){
+//		
+//		List<MyCouponVO> result = new ArrayList<>();
+//		
+//		String memId = map.get("memId").toString();
+//
+//		result = mycouponService.myCouponList(memId);
+//		
+//		return new ResponseEntity<List<MyCouponVO>>(result, HttpStatus.OK);
+//	}
+	
+}

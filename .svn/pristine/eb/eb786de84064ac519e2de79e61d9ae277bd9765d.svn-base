@@ -1,0 +1,103 @@
+package kr.or.ddit.controller.member;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import kr.or.ddit.service.member.ICompliBoardService;
+import kr.or.ddit.vo.member.BoardVO;
+import kr.or.ddit.vo.member.PaginationInfoVO;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/elly")
+public class MypageController {
+	
+	@Inject
+	private ICompliBoardService compliboardService;
+	
+
+	@PreAuthorize("hasRole('ROLE_MEMBER')")
+	@RequestMapping(value = "/mypage.do" , method = RequestMethod.GET)
+	public String MypageForm(
+			@RequestParam(name = "page", required = false, defaultValue = "1")int currentPage,
+			String memId, Model model
+			){
+		
+		PaginationInfoVO<BoardVO> pagingVO = new PaginationInfoVO<BoardVO>();
+				
+		pagingVO.setCurrentPage(currentPage);  
+		int totalRecord = compliboardService.selectBoardCount(pagingVO); //총 게시글 수
+		
+		pagingVO.setTotalRecord(totalRecord); //totalPage 결정
+		List<BoardVO> dataList = compliboardService.myBoardList(pagingVO);
+		
+		List<BoardVO> mydataList = new ArrayList<>();
+		for(BoardVO board : dataList) {
+			if(memId.equals(board.getMemId())) {
+				mydataList.add(board);
+			}
+		}
+		
+		pagingVO.setDataList(mydataList);
+		
+		model.addAttribute("pagingVO", pagingVO);
+		
+		return "mypage/member/mypage/home";
+	}
+	
+	
+	@PreAuthorize("hasRole('ROLE_MEMBER')")
+	@RequestMapping(value = "/mypage.do" , method = RequestMethod.POST)
+	public String MypageSearch(
+			@RequestParam(name = "page", required = false, defaultValue = "1")int currentPage,
+			@RequestParam(required = false) String searchStatus,
+			@RequestParam(required = false) String searchWord,
+			String memId, Model model
+			){
+		
+		PaginationInfoVO<BoardVO> pagingVO = new PaginationInfoVO<BoardVO>();
+			
+		
+		if(StringUtils.isNotBlank(searchStatus)) {
+			pagingVO.setSearchStatus(searchStatus);
+			model.addAttribute("searchStatus", searchStatus);
+		}
+		
+		if(StringUtils.isNotBlank(searchWord)) {
+			pagingVO.setSearchWord(searchWord);
+			model.addAttribute("searchWord", searchWord);
+		}
+		
+		pagingVO.setCurrentPage(currentPage);  
+		int totalRecord = compliboardService.selectBoardCount(pagingVO); //총 게시글 수
+		
+		pagingVO.setTotalRecord(totalRecord); //totalPage 결정
+		List<BoardVO> dataList = compliboardService.myBoardList(pagingVO);
+		
+		List<BoardVO> mydataList = new ArrayList<>();
+		for(BoardVO board : dataList) {
+			if(memId.equals(board.getMemId())) {
+				mydataList.add(board);
+			}
+		}
+		
+		pagingVO.setDataList(mydataList);
+		
+		model.addAttribute("totalRecord", totalRecord);
+		model.addAttribute("pagingVO", pagingVO);
+		
+		return "mypage/member/mypage/home";
+	}
+	
+}

@@ -1,0 +1,184 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!-- Start Content-->
+<div class="content-page">
+	<div class="content">
+		<!-- Start Content-->
+		<div class="container-fluid">
+
+            <!-- start page title -->
+		<div class="col-sm-12 card widget-inline mt-3" style="height:100px;">
+			<div class="row ">
+					<div class="card-body col-4 align-items-center">
+						<div class="col-sm-6 page-title text-primary font-24 ms-3 fw-bold">가맹점조회</div>
+						<div class="col-sm-12 page-title-sub text-muted font-14 ms-3">전국 가맹점을 조회합니다.</div>
+					</div>
+					<div class="card-body col-6 fw-bold font-22 d-flex justify-content-end align-items-center me-5">
+						매장관리 / &nbsp;<span class="text-decoration-underline">가맹점조회</span>
+					</div>
+				</div>
+			</div>
+            <!-- end page title -->
+
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="card">
+						<div class="card-body">
+							<!-- <h1 class="header-title mb-3 font-20">가맹점조회</h1> -->
+							<div id="gmaps-basic" class="gmaps"></div>
+						</div>
+						<!-- end card-body-->
+					</div>
+					<!-- end card-->
+				</div>
+				<!-- end col-->
+			</div>
+			<!-- end row-->
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-body">
+							<!-- 좌측 컨텐츠 -->
+							<div class="col-12">
+								<h4 class="operation-status">
+									운영상태 : &nbsp;&nbsp;&nbsp; <span style="color: green;"><i
+										class="fas fa-square"></i></span>&nbsp;&nbsp;운영중 <span
+										style="color: orange;"><i class="fas fa-square"></i></span>&nbsp;&nbsp;휴업중
+									<span style="color: aquamarine;"><i
+										class="fas fa-square"></i></span>&nbsp;&nbsp;개점예정 <span
+										style="color: black;"><i class="fas fa-square"></i></span>&nbsp;&nbsp;계약만료
+								</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-body">
+							<!-- 우측 컨텐츠 -->
+							<div class="row">
+								<div class="col-md-3">
+									<select class="form-select" id="example-select">
+										<option>전체</option>
+										<option>운영중</option>
+										<option>휴업중</option>
+										<option>개점예정</option>
+										<option>계약만료</option>
+									</select>
+								</div>
+								<div class="col-md-9">
+									<div class="input-group">
+										<input type="search" class="form-control"
+											placeholder="검색하기..." id="top-search">
+										<button class="btn btn-primary" type="submit"
+											style="background-color: #abb2b8;">검색</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="header">총 건수 : 2</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <button class="btn btn-sm btn-success">엑셀다운로드</button>
+              <button class="btn btn-sm btn-success ms-2">엑셀업로드</button>
+            </div>
+          </div>
+					<table class="table mt-3" style="text-align: center;">
+						<thead>
+							<tr>
+								<th>순번</th>
+								<th>가맹점명</th>
+								<th>가맹점주명</th>
+								<th>위치</th>
+								<th>운영상태</th>
+								<th>금월점검점수</th>
+								<th>매장전화번호</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>new가맹점</td>
+								<td><a href="/head/storeDetails.do">이정민</a></td>
+								<td>대전 서구 갈마동 222-3</td>
+								<td><span style="color: aquamarine;"><i
+										class="fas fa-square"></i></span></td>
+								<td>5</td>
+								<td>042-432-2222</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>서울논현점</td>
+								<td>차수연</td>
+								<td>서울특별시 강남구 논현동 강남대로 502 3층</td>
+								<td><span style="color: green;"><i
+										class="fas fa-square"></i></span></td>
+								<td>3</td>
+								<td>02-745-3423</td>
+							</tr>
+						</tbody>
+					</table>
+        
+                <nav>
+						<ul class="pagination justify-content-center">
+							<li class="page-item"><a class="page-link"
+								href="javascript: void(0);" aria-label="Previous"> <span
+									aria-hidden="true">&laquo;</span>
+							</a></li>
+							<li class="page-item"><a class="page-link"
+								href="javascript: void(0);">1</a></li>
+							<li class="page-item"><a class="page-link"
+								href="javascript: void(0);">2</a></li>
+							<li class="page-item"><a class="page-link"
+								href="javascript: void(0);">3</a></li>
+							<li class="page-item"><a class="page-link"
+								href="javascript: void(0);">4</a></li>
+							<li class="page-item"><a class="page-link"
+								href="javascript: void(0);">5</a></li>
+							<li class="page-item"><a class="page-link"
+								href="javascript: void(0);" aria-label="Next"> <span
+									aria-hidden="true">&raquo;</span>
+							</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+        
+
+    </div>
+      <!-- End Content-->
+
+      <!-- Footer Start -->
+      <footer class="footer">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-6">
+                      <script>document.write(new Date().getFullYear())</script> © Hyper - Coderthemes.com
+                  </div>
+                  <div class="col-md-6">
+                      <div class="text-md-end footer-links d-none d-md-block">
+                          <a href="javascript: void(0);">About</a>
+                          <a href="javascript: void(0);">Support</a>
+                          <a href="javascript: void(0);">Contact Us</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </footer>
+      <!-- end Footer -->
+		</div>
+		<!-- container -->
+	</div>
+	<!-- end -->
+

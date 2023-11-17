@@ -1,0 +1,9 @@
+package kr.or.ddit.service.owner;
+
+import kr.or.ddit.vo.owner.FranchiseVO;
+
+public interface IFrcsMyPageService {
+
+	public FranchiseVO detail(String frcsId);
+
+}

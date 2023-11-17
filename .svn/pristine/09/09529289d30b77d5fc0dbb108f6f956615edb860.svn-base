@@ -1,0 +1,15 @@
+package kr.or.ddit.mapper.owner;
+
+import java.util.List;
+
+import kr.or.ddit.vo.owner.FrcsPublicDuesVO;
+
+public interface FrcsBillMapper {
+
+	// 공과금 납부내역 조회
+	public List<FrcsPublicDuesVO> duesList(String memId);
+	
+	// 공과금 등록
+	public void duesRegister(FrcsPublicDuesVO duesVO);
+
+}

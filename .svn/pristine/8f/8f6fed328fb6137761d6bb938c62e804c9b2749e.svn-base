@@ -1,0 +1,126 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>좌석 배치하기</title>
+
+	<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+	<style>
+	    body {
+	      display: flex;
+	      flex-direction: column;
+	      justify-content: center;
+	      align-items: center;
+	    }
+	
+	    #boxspace { 
+	            width: 800px; 
+	            height: 100px;
+	            border:1px solid lightgray; 
+	            border-radius: 10px;
+	            display: flex;
+	            justify-content: center;
+	            align-items: center;
+	            position: relative;
+	            margin-bottom: 10px;
+	    }
+	
+	    #seatspace { 
+	            background: #fafafd; 
+	            width: 800px; 
+	            height: 600px;
+	            border:1px solid lightgray; 
+	            border-radius: 10px;
+	            display: flex;
+	    }
+	
+	    .box {
+	        position: absolute;
+	        user-select: none;
+	        transform: translate(-50%, -50%);
+	        border-radius: 10px;
+	        display: flex;
+	        justify-content: center;
+	        align-items: center;
+	    }
+	
+	    .resize-handler {
+	        height: 10px;
+	        width: 10px;
+	        background-color: lightgray;
+	        position: absolute;
+	        border-radius: 100px;
+	        border: 1px solid #ffffff;
+	        user-select: none;
+	        display: none;
+	    }
+	    .resize-handler:hover {background-color: #0000cc;}
+	    .resize-handler.rotate {cursor: url('https://findicons.com/files/icons/1620/crystal_project/16/rotate_ccw.png'), auto;}
+	
+	    :root {
+	        /* id-1 */
+	        --left-1: 65px;
+	        --top-1: 50px;
+	        --width-1: 75px;
+	        --height-1: 75px;
+	        --bg-1: yellow;
+	        --zi-1: 1;
+	
+	        /* id-2 */
+	        --left-2: 200px;
+	        --top-2: 50px;
+	        --width-2: 150px;
+	        --height-2: 75px;
+	        --bg-2: pink;
+	        --zi-2: 2;
+	
+	        /* id-3 */
+	        --left-3: 450px;
+	        --top-3: 50px;
+	        --width-3: 300px;
+	        --height-3: 75px;
+	        --bg-3: skyblue;
+	        --zi-3: 3;
+	
+	        /* id-4 */
+	        --left-4: 700px;
+	        --top-4: 27px;
+	        --width-4: 150px;
+	        --height-4: 30px;
+	        --bg-4: lightgray;
+	        --zi-4: 4;
+	    }
+	  </style>
+
+</head>
+<body>
+
+	<div id="boxspace">
+        <div class="box" data-id="1" style="left: var(--left-1); top: var(--top-1); z-index: var(--zi-1); width: var(--width-1); height: var(--height-1); background-color: var(--bg-1);"><P>T201</P></div>
+        <div class="box" data-id="2" style="left: var(--left-2); top: var(--top-2); z-index: var(--zi-2); width: var(--width-2); height: var(--height-2); background-color: var(--bg-2);"><P>T401</P></div>
+        <div class="box" data-id="3" style="left: var(--left-3); top: var(--top-3); z-index: var(--zi-3); width: var(--width-3); height: var(--height-3); background-color: var(--bg-3);"><P>R01</P></div>
+        <div class="box" data-id="4" style="left: var(--left-4); top: var(--top-4); z-index: var(--zi-4); width: var(--width-4); height: var(--height-4); background-color: var(--bg-4);"><P>출입구</P></div>
+    </div>
+    <div id="seatspace"></div>
+    <button type="button" class="btn btn-primary" id="subBtn">저장</button>
+
+</body>
+
+	<script src="${pageContext.request.contextPath }/resources/assets/js/seat-arrangement.js"></script>
+	<script>
+	    $('.box').boxModeling({
+	        rotate: true,
+	        // resize: true,
+	        move: true,
+	    });
+	</script>
+
+</html>

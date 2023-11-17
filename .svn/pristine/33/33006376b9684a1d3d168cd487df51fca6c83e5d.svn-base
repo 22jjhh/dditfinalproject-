@@ -1,0 +1,173 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="content-page">
+  <div class="content">
+
+      <!-- Start Content-->
+      <div class="container-fluid">
+      
+      	<div class="row">
+              <div class="col-12">
+                  <div class="page-title-box">                                    
+                      <h4 class="page-title"><span class="text-primary">${frcs.frcsName }</span> 관리자님 환영합니다!</h4>
+                  </div>
+              </div>
+          </div>
+
+		<div class="row">
+	        <div class="col-xxl-9">
+	            <div class="row">
+	                <div class="col-sm-6 col-xl-3 mb-3">
+	                    <div class="card mb-0 h-100">
+	                            
+                            <div class="card-body text-center">
+                            	<a href="/owner/resv.do" class="link-primary">
+					               <i class="ri-calendar-2-line text-muted font-24"></i>
+					               <h2><span>${resvCount }</span></h2>
+					               <p class="text-muted font-15 mb-0">금일 예약 현황</p>
+				               </a>
+				           	</div>
+	                            
+	                    </div> <!-- end card -->
+	                </div> <!-- end col -->
+	
+	                <div class="col-sm-6 col-xl-3 mb-3">
+	                    <div class="card mb-0 h-100">
+	                         
+	                    	<div class="card-body text-center">
+		                        <a href="/owner/review.do" class="link-primary">
+									<i class="ri-chat-smile-3-line text-muted font-24"></i>
+									<h2><span>${reviewCount }</span></h2>
+									<p class="text-muted font-15 mb-0">새로운 리뷰</p>
+					           	</a>
+				           	</div>
+<!-- 	                            <h4 class="header-title">Admin Template</h4> -->
+<!-- 	                            <h5 class="text-muted fw-normal mt-0 text-truncate" title="Campaign Sent">New Task Assign</h5> -->
+	
+	                    </div> <!-- end card -->
+	                </div> <!-- end col -->
+	
+	                <div class="col-sm-6 col-xl-3 mb-3">
+	                    <div class="card mb-0 h-100">
+	                        <div class="card-body text-center">
+	                        	<a href="/owner/tradingList.do" class="link-primary">
+									<i class="ri-arrow-left-right-line text-muted font-24"></i>
+									<h2><span>${tradCnt }</span></h2>
+									<p class="text-muted font-15 mb-0">받은 트레이딩 요청</p>
+				                </a>
+				           	</div>
+	                    </div> <!-- end card -->
+	                </div> <!-- end col -->
+	
+	                <div class="col-sm-6 col-xl-3 mb-3">
+	                    <div class="card mb-0 h-100">
+	                        <div class="card-body text-center">
+	                        	<a href="/owner/doc.do" class="link-primary">
+					                <i class="ri-mail-send-line text-muted font-24"></i>
+					                <h2><span>2</span></h2>
+					                <p class="text-muted font-15 mb-0">금일 받은 공문</p>
+					                <!-- 공문데이터 확인해보고 입력하기 -->
+				                </a>
+				           	</div>
+	                    </div> <!-- end card -->
+	                </div> <!-- end col -->
+	            </div> <!-- end row -->
+	
+	            <div class="row">
+	                <div class="col-xl-4">
+	                    <div class="card">
+	                        <div class="card-body">
+	                            <h4 class="header-title">차트?최근리뷰?...</h4>
+	
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="col-xl-8">
+	                    <div class="card">
+	                        <div class="card-header d-flex justify-content-between align-items-center">
+	                            <h4 class="header-title">뭘넣을지 생각해보기</h4>
+	                            
+	                           
+	                            
+	                        </div>
+	
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        
+	        <div class="col-xxl-3">
+	            <div class="card">
+	                <div class="card-header d-flex justify-content-between align-items-center">
+	                    <h4 class="header-title">선주 공과금 파트??</h4>
+	                    <div class="dropdown">
+	                        <a href="#" class="dropdown-toggle arrow-none card-drop p-0" data-bs-toggle="dropdown" aria-expanded="false">
+	                            <i class="mdi mdi-dots-vertical"></i>
+	                        </a>
+	                        <div class="dropdown-menu dropdown-menu-end">
+	                            <a href="javascript:void(0);" class="dropdown-item">Refresh Report</a>
+	                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="alert alert-warning border-0 rounded-0" role="alert">
+	                    <i class="uil-folder-heart me-1 h4 align-middle"></i> <b>38</b> Total Admin & Client Projects
+	                </div>
+	
+	                <div class="card-body pt-1">
+	                    <div class="d-flex align-items-center border border-light rounded p-2 mb-2">
+	                        <div class="flex-shrink-0 me-2">
+	                            <i class="mdi mdi-account-group widget-icon rounded-circle"></i>
+	                        </div>
+	                        <div class="flex-grow-1">
+	                            <h5 class="fw-semibold my-0">Project Discssion</h5>
+	                            <p class="mb-0">6 Person</p>
+	                        </div>
+	                        <a href="javasript:void(0)" class="text-muted" data-bs-toggle="tooltip" data-bs-placement="top" title="Info"><i class="mdi mdi-information-outline h4  my-0"></i></a>
+	                    </div>
+	                    
+	                    <div class="d-flex align-items-center border border-light rounded p-2 mb-2">
+	                        <div class="flex-shrink-0 me-2">
+	                            <i class="mdi mdi-progress-pencil widget-icon rounded-circle bg-warning-lighten text-warning"></i>
+	                        </div>
+	                        <div class="flex-grow-1">
+	                            <h5 class="fw-semibold my-0">In Progress</h5>
+	                            <p class="mb-0">16 Projects</p>
+	                        </div>
+	                        <a href="javasript:void(0)" class="text-muted" data-bs-toggle="tooltip" data-bs-placement="top" title="Info"><i class="mdi mdi-information-outline h4  my-0"></i></a>
+	                    </div>
+	
+	                    <div class="d-flex align-items-center border border-light rounded p-2 mb-2">
+	                        <div class="flex-shrink-0 me-2">
+	                            <i class="mdi mdi-checkbox-marked-circle-outline widget-icon rounded-circle bg-danger-lighten text-danger"></i>
+	                        </div>
+	                        <div class="flex-grow-1">
+	                            <h5 class="fw-semibold my-0">Completed Projects</h5>
+	                            <p class="mb-0">24</p>
+	                        </div>
+	                        <a href="javasript:void(0)" class="text-muted" data-bs-toggle="tooltip" data-bs-placement="top" title="Info"><i class="mdi mdi-information-outline h4  my-0"></i></a>
+	                    </div>
+	
+	                    <div class="d-flex align-items-center border border-light rounded p-2">
+	                        <div class="flex-shrink-0 me-2">
+	                            <i class="mdi mdi-send widget-icon rounded-circle bg-success-lighten text-success"></i>
+	                        </div>
+	                        <div class="flex-grow-1">
+	                            <h5 class="fw-semibold my-0">Delivery Projects</h5>
+	                            <p class="mb-0">20</p>
+	                        </div>
+	                        <a href="javasript:void(0)" class="text-muted" data-bs-toggle="tooltip" data-bs-placement="top" title="Info"><i class="mdi mdi-information-outline h4  my-0"></i></a>
+	                    </div>
+	                    
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+        <!-- end row -->
+
+      </div>
+      <!-- container -->
+
+  </div>
+  <!-- content -->
+</div>
+

@@ -1,0 +1,1005 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+	<div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+		<div class="row">
+			<div class="col-lg-8">
+				<h1>
+					단1%의 거짓도 없습니다! <span>1등 성공 신화!</span>
+				</h1>
+
+				<div class="btns">
+					<a href="#menu" class="btn-menu animated fadeInUp scrollto">메뉴 확인하기</a> 
+					<a href="#book-a-table" class="btn-book animated fadeInUp scrollto">예약 하기</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Hero -->
+
+
+<main class="content">
+	<!-- ANCHOR Common Mypage -->
+	<div id="commonMypage">
+		<section class="common-mypage__sc-5trtbg-0 hNGEpQ">
+			<h1 class="common-mypage__sc-5trtbg-1 cOPbLJ">
+				<a href="https://www.musinsa.com/app/mypage">My Page</a>
+			</h1>
+			<div class="common-mypage__sc-5trtbg-2 dYNmgC">
+				<a href="https://www.musinsa.com/app/cart">장바구니</a><a
+					href="https://www.musinsa.com/app/cs">고객센터</a><a
+					href="https://www.musinsa.com/auth/logout">로그아웃</a>
+			</div>
+			<div class="common-mypage__sc-5trtbg-3 JsGLX">
+				<div class="common-mypage__sc-wme82i-0 jtRvce"></div>
+				<div class="common-mypage__sc-1loaj4c-0 dZrJws">
+					<div class="common-mypage__sc-1loaj4c-1 hvkAAt">
+						<strong>아몰라앙</strong><a
+							href="https://www.musinsa.com/member/mypage">회원정보변경</a>
+					</div>
+					<div class="common-mypage__sc-1loaj4c-2 gqpLyi">
+						<em>LV.5 실버</em><span>가입일 : 2015.06.08</span>
+					</div>
+					<p class="common-mypage__sc-1loaj4c-3 ckspLf">
+						이*준님 다음 등급인 골드까지 285,774점 남았습니다.<a
+							href="https://www.musinsa.com/member/benefit">등급혜택 &gt;</a>
+					</p>
+				</div>
+				<div class="common-mypage__sc-1m1vyak-0 fJZyji">
+					<a href="https://www.musinsa.com/billing/point"><svg width="38"
+							height="38" viewBox="0 0 38 38" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M12.6667 15.0667L16.4667 23.8555L19.0001 17.2639L21.5334 23.8555L25.3334 15.0667"
+								stroke="white"></path>
+							<path d="M11.3999 18.8333H26.5999" stroke="white"></path>
+							<path
+								d="M5.06665 19.9843C5.65768 27.0734 11.6594 32.6444 18.9761 32.6444C26.6845 32.6444 32.9333 26.461 32.9333 18.8333C32.9333 11.2057 26.6845 5.02222 18.9761 5.02222C11.6594 5.02222 5.65768 10.5932 5.06665 17.6824"
+								stroke="white"></path></svg><em>적립금 &gt;</em><strong>11,160</strong></a><a
+						href="https://www.musinsa.com/member/point"><svg width="38"
+							height="38" viewBox="0 0 38 38" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M16.7834 25.7389L16.7834 13.8111H20.2369C21.8274 13.8111 23.1168 15.1005 23.1168 16.691V16.691C23.1168 18.2815 21.8274 19.5708 20.2369 19.5708H16.7834"
+								stroke="white"></path>
+							<path
+								d="M5.06665 19.9843C5.65768 27.0734 11.6594 32.6444 18.9761 32.6444C26.6845 32.6444 32.9333 26.461 32.9333 18.8333C32.9333 11.2057 26.6845 5.02222 18.9761 5.02222C11.6594 5.02222 5.65768 10.5932 5.06665 17.6824"
+								stroke="white"></path></svg><em>포인트 &gt;</em><strong>21,400</strong></a><a
+						href="https://www.musinsa.com/app/contents/coupon_online/my"><svg
+							width="38" height="38" viewBox="0 0 38 38" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M5.06665 28.8778H4.56665V29.3778H5.06665V28.8778ZM32.9333 28.8778V29.3778H33.4333V28.8778H32.9333ZM32.9333 21.3444H33.4333V20.8444H32.9333V21.3444ZM32.9333 16.3222V16.8222H33.4333V16.3222H32.9333ZM32.9333 8.78888L33.4333 8.78888V8.28888H32.9333V8.78888ZM5.06665 8.78888V8.28888H4.56665V8.78888H5.06665ZM5.06665 16.3222H4.56665V16.8222H5.06665V16.3222ZM5.06665 21.3444V20.8444H4.56665V21.3444H5.06665ZM25.3333 28.3778H5.06665V29.3778H25.3333V28.3778ZM32.9333 28.3778H25.3333V29.3778H32.9333V28.3778ZM32.4333 21.3444L32.4333 28.8778H33.4333L33.4333 21.3444H32.4333ZM32.9333 20.8444C31.8062 20.8444 30.9 19.9399 30.9 18.8333H29.9C29.9 20.5005 31.2622 21.8444 32.9333 21.8444V20.8444ZM30.9 18.8333C30.9 17.7268 31.8062 16.8222 32.9333 16.8222V15.8222C31.2622 15.8222 29.9 17.1662 29.9 18.8333H30.9ZM32.4333 8.78888L32.4333 16.3222H33.4333L33.4333 8.78888L32.4333 8.78888ZM25.3333 9.28888H32.9333V8.28888H25.3333V9.28888ZM5.06665 9.28888H25.3333V8.28888H5.06665V9.28888ZM5.56665 16.3222V8.78888H4.56665V16.3222H5.56665ZM8.09998 18.8333C8.09998 17.1662 6.73775 15.8222 5.06665 15.8222V16.8222C6.19379 16.8222 7.09998 17.7268 7.09998 18.8333H8.09998ZM5.06665 21.8444C6.73775 21.8444 8.09998 20.5005 8.09998 18.8333H7.09998C7.09998 19.9399 6.19379 20.8444 5.06665 20.8444V21.8444ZM5.56665 28.8778V21.3444H4.56665V28.8778H5.56665ZM24.8333 8.78888V11.3H25.8333V8.78888H24.8333ZM25.8333 28.8778V26.3667H24.8333V28.8778H25.8333Z"
+								fill="white"></path>
+							<path
+								d="M19.6333 15.0667H17.7C15.6197 15.0667 13.9333 16.753 13.9333 18.8333V18.8333C13.9333 20.9136 15.6197 22.6 17.7 22.6H19.6333"
+								stroke="white"></path>
+							<path d="M25.3333 13.8111L25.3333 17.5778" stroke="white"></path>
+							<path d="M25.3333 20.0889L25.3333 23.8555" stroke="white"></path></svg><em>쿠폰
+							&gt;</em><strong>147</strong></a><a
+						href="https://www.musinsa.com/goods/mypage/review/write-review"><svg
+							width="38" height="38" viewBox="0 0 38 38" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M31.6666 31.3889H17.7333M6.33325 24.4617L24.6781 6.27777L31.6666 13.205L13.3218 31.3889H6.33325V24.4617Z"
+								stroke="white"></path></svg><em>후기작성 &gt;</em><strong>0</strong></a>
+				</div>
+			</div>
+		</section>
+		<nav class="common-mypage__sc-1xdf2j1-0 efRKwE">
+			<h2 class="common-mypage__sc-1xdf2j1-1 ldXGXJ">Mypage Navigation
+				Menus</h2>
+			<span class="common-mypage__sc-1xdf2j1-2 fCDpjF">바로접속 ON</span>
+			<div class="common-mypage__sc-1xdf2j1-3 ckQMyv">
+				<h3>나의 쇼핑 활동</h3>
+				<a href="https://www.musinsa.com/app/mypage/order_list_opt"
+					class="common-mypage__sc-13c5psb-0 dhFOel">주문 내역 조회</a><a
+					href="https://www.musinsa.com/goods/mypage/review/write-review"
+					class="common-mypage__sc-13c5psb-0 dhFOel">구매후기</a><a
+					href="https://www.musinsa.com/event/raffles/my-entries"
+					class="common-mypage__sc-13c5psb-0 dhFOel">래플 응모내역</a><a
+					href="https://www.musinsa.com/app/mypage/qa"
+					class="common-mypage__sc-13c5psb-0 dhFOel">상품문의</a><a
+					href="https://www.musinsa.com/app/mypage/counsel"
+					class="common-mypage__sc-13c5psb-0 dhFOel">1:1문의</a><a
+					href="https://www.musinsa.com/app/mypage/viewed_goods"
+					class="common-mypage__sc-13c5psb-0 dhFOel">최근 본 상품</a><a
+					href="https://www.musinsa.com/app/mypage/favorite_goods"
+					class="common-mypage__sc-13c5psb-0 dhFOel">좋아요</a><a
+					href="https://www.musinsa.com/app/mypage/mysize_new"
+					class="common-mypage__sc-13c5psb-0 dhFOel">나의 맞춤 정보</a>
+				<button type="button"
+					class="common-mypage__sc-13c5psb-0-button gaBTLS">무신사페이 관리</button>
+				<a
+					href="https://www.musinsa.com/app/campaign/event/musinsa_hyundaicard/129?eventCode=MSS05"
+					class="common-mypage__sc-13c5psb-0 dhFOel">무신사 현대카드 보기</a><a
+					href="https://www.musinsa.com/app/mypage/shop_order_list"
+					class="common-mypage__sc-13c5psb-0 dhFOel">매장 결제 내역</a><a
+					href="https://www.musinsa.com/member/benefit"
+					class="common-mypage__sc-13c5psb-0 dhFOel">회원 혜택</a>
+			</div>
+			<div class="common-mypage__sc-1xdf2j1-3 ckQMyv">
+				<h3>커뮤니티</h3>
+				<a href="https://www.musinsa.com/member/board"
+					class="common-mypage__sc-13c5psb-0 dhFOel">게시물/스크랩/댓글</a>
+			</div>
+		</nav>
+	</div>
+	<script
+		src="//static.msscdn.net/static/common-mypage/1.0.0/common-mypage-pc.js"></script>
+
+	<!-- contents -->
+	<section class="mypage-cont mypage-main">
+		<h1 class="hidden">마이페이지</h1>
+
+		<!-- 주문내역 조회 -->
+		<section class="n-section-block first list-block">
+			<header class="n-section-title">
+				<h2 class="tit">주문내역 조회</h2>
+				<ul class="state">
+					<li><a
+						href="/app/mypage/order_list_opt?state_type=ord_1&amp;ord_state=1^5^10">입금/결제
+							0</a></li>
+					<li><a
+						href="/app/mypage/order_list_opt?state_type=ord_2&amp;ord_state=20^30^35">배송중/픽업대기
+							0</a></li>
+					<li><a
+						href="/app/mypage/order_list_opt?state_type=ord_3&amp;ord_state=40">배송완료/픽업완료
+							0</a></li>
+					<li><a
+						href="/app/mypage/order_list_opt?state_type=ord_4&amp;ord_state=50">구매확정
+							38</a></li>
+					<!--[D]환불 교환-->
+					<li><a
+						href="/app/mypage/order_list_opt?state_type=exchange&amp;ord_state=40^50">교환
+							0</a></li>
+					<li><a
+						href="/app/mypage/order_list_opt?state_type=clm_2&amp;ord_state=60^26">교환완료
+							0</a></li>
+					<li><a
+						href="/app/mypage/order_list_opt?state_type=clm_3&amp;ord_state=41^51">환불
+							0</a></li>
+					<li><a
+						href="/app/mypage/order_list_opt?state_type=clm_4&amp;ord_state=61">환불완료
+							4</a></li>
+				</ul>
+				<a href="/app/mypage/order_list_opt" class="n-link">전체</a>
+			</header>
+
+			<table class="n-table table-col">
+				<colgroup>
+					<col style="width: *">
+					<col style="width: 14.2%">
+					<col style="width: 14.2%">
+					<col style="width: 14.2%">
+					<col style="width: 10.2%">
+					<col style="width: 11%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">상품정보</th>
+						<th scope="col">주문일자</th>
+						<th scope="col">주문번호</th>
+						<th scope="col">주문금액(수량)</th>
+						<th scope="col" colspan="2">주문 상태</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+
+			<p class="n-table-none">
+				<span>최근 구매내역이 없습니다.</span>
+			</p>
+
+			<a href="javascript:void(0);"
+				onclick="layerChangeInfo(); return false;"
+				class="ui-layer-btn n-btn-change-info"><i
+				class="ic-22-line-question"></i><span>교환/환불 방법이 궁금하신가요?</span></a>
+		</section>
+		<!-- //주문내역 조회 -->
+
+		<!-- 장바구니 -->
+		<a id="cart_area"></a>
+		<section class="n-section-block cart-block">
+			<header class="n-section-title">
+				<h2 class="tit">장바구니</h2>
+				<div class="tab-group ui-tab-btn" data-tab="Mycart" id="">
+					<div class="tab-btn">
+						<a href="#cartDelivery" onclick="toggleShopInfo('DELIVERY')"
+							class="ui-btn is-active">택배배송 0</a>
+					</div>
+					<div class="tab-btn">
+						<a href="#cartShopPickup" onclick="toggleShopInfo('SHOP_PICKUP')"
+							class="ui-btn">무탠픽업 0</a>
+					</div>
+				</div>
+
+				<!--[D] 매장 픽업일 경우에만 노출 -->
+				<!--//[D] 매장 픽업일 경우에만 노출 -->
+				<a href="/app/cart" class="n-link">전체</a>
+			</header>
+
+			<!-- tab -->
+			<div class="ui-tab-cont" data-tab="Mycart">
+				<div class="ui-cont is-active" id="cartDelivery">
+					<table class="n-table table-col">
+						<colgroup>
+							<col style="width: 3.62%">
+							<col style="width: *">
+							<col style="width: 9.5%">
+							<col style="width: 12%">
+							<col style="width: 9.5%">
+							<col style="width: 17.3%">
+							<col style="width: 12%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col"><input type="checkbox"
+									class="n-check check-only chk_cart_all"
+									id="myCheckAll_cartDelivery"> <label
+									for="myCheckAll_cartDelivery">전체 선택</label></th>
+								<th scope="col">상품정보</th>
+								<th scope="col">상품금액</th>
+								<th scope="col">수량</th>
+								<th scope="col">주문금액</th>
+								<th scope="col">배송 형태/배송비</th>
+								<th>&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+
+					<p class="n-table-none">
+						<span>장바구니에 담긴 상품이 없습니다.</span>
+					</p>
+
+				</div>
+				<div class="ui-cont" id="cartShopPickup">
+					<table class="n-table table-col">
+						<colgroup>
+							<col style="width: 3.62%">
+							<col style="width: *">
+							<col style="width: 9.5%">
+							<col style="width: 12%">
+							<col style="width: 9.5%">
+							<col style="width: 12%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col"><input type="checkbox"
+									class="n-check check-only chk_cart_all"
+									id="myCheckAll_cartShopPickup"> <label
+									for="myCheckAll_cartShopPickup">전체 선택</label></th>
+								<th scope="col">상품정보</th>
+								<th scope="col">상품금액</th>
+								<th scope="col">수량</th>
+								<th scope="col">주문금액</th>
+								<th>&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+
+					<p class="n-table-none">
+						<span>장바구니에 담긴 상품이 없습니다.</span>
+					</p>
+
+				</div>
+			</div>
+
+
+			<div class="n-btn-group">
+				<div class="btn-left">
+					<a href="#" class="n-btn btn-sm btn-default"
+						onclick="Cart.deleteSelect(); return false;">선택삭제</a>
+				</div>
+				<a href="#" class="n-btn btn-lg btn-accent"
+					onclick="sel_goods_order(); return false;">결제하기</a>
+			</div>
+		</section>
+		<!-- //장바구니 -->
+
+		<!-- 쿠폰 -->
+		<section class="n-section-block">
+			<header class="n-section-title">
+				<h2 class="tit">
+					쿠폰 <em>147장</em>
+				</h2>
+				<a href="/app/mypage/coupon_available" class="n-link">전체</a>
+			</header>
+
+			<table class="n-table table-col">
+				<colgroup>
+					<col style="width: 12.6%">
+					<col style="width: *">
+					<col style="width: 12.6%">
+					<col style="width: 12.6%">
+					<col style="width: 15.8%">
+					<col style="width: 11%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">쿠폰번호</th>
+						<th scope="col">쿠폰명</th>
+						<th scope="col">할인율(액)</th>
+						<th scope="col">적용 범위</th>
+						<th scope="col">유효기간</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>84489</td>
+						<td class="left">서브리믹 특별 쿠폰</td>
+						<td>15%</td>
+						<td>일부 상품</td>
+						<td>23.10.06 - 23.10.18<span class="n-coupon-expire">12일
+								남음</span></td>
+						<td>
+							<button type="button" class="n-btn w100 btn-sm btn-default"
+								onclick="location.href='/app/contents/coupon_products/?coupon_no=84489'">적용상품
+								보기</button>
+						</td>
+					</tr>
+					<tr>
+						<td>85572</td>
+						<td class="left"><span
+							class="n-label label-coupon-expire label-soon">만료 임박</span><strong
+							class="n-txt-primary">[브랜드전용]</strong> 10월 연휴 쇼핑 지원 15% 쿠폰</td>
+						<td>15%</td>
+						<td>일부 상품</td>
+						<td>23.10.06 - 23.10.09<span class="n-coupon-expire">3일
+								남음</span></td>
+						<td>
+							<button type="button" class="n-btn w100 btn-sm btn-default"
+								onclick="location.href='/app/contents/coupon_products/?coupon_no=85572'">적용상품
+								보기</button>
+						</td>
+					</tr>
+					<tr>
+						<td>85571</td>
+						<td class="left"><span
+							class="n-label label-coupon-expire label-soon">만료 임박</span>10월 연휴
+							쇼핑 지원 10% 쿠폰</td>
+						<td>10%</td>
+						<td>일부 상품</td>
+						<td>23.10.06 - 23.10.09<span class="n-coupon-expire">3일
+								남음</span></td>
+						<td>
+							<button type="button" class="n-btn w100 btn-sm btn-default"
+								onclick="location.href='/app/contents/coupon_products/?coupon_no=85571'">적용상품
+								보기</button>
+						</td>
+					</tr>
+					<tr>
+						<td>85570</td>
+						<td class="left"><span
+							class="n-label label-coupon-expire label-soon">만료 임박</span>10월 연휴
+							쇼핑 지원 10% 쿠폰</td>
+						<td>10%</td>
+						<td>일부 상품</td>
+						<td>23.10.06 - 23.10.09<span class="n-coupon-expire">3일
+								남음</span></td>
+						<td>
+							<button type="button" class="n-btn w100 btn-sm btn-default"
+								onclick="location.href='/app/contents/coupon_products/?coupon_no=85570'">적용상품
+								보기</button>
+						</td>
+					</tr>
+					<tr>
+						<td>85569</td>
+						<td class="left"><span
+							class="n-label label-coupon-expire label-soon">만료 임박</span><strong
+							class="n-txt-primary">[브랜드전용]</strong> 10월 연휴 쇼핑 지원 20% 쿠폰</td>
+						<td>20%</td>
+						<td>일부 상품</td>
+						<td>23.10.06 - 23.10.09<span class="n-coupon-expire">3일
+								남음</span></td>
+						<td>
+							<button type="button" class="n-btn w100 btn-sm btn-default"
+								onclick="location.href='/app/contents/coupon_products/?coupon_no=85569'">적용상품
+								보기</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+		</section>
+		<!-- //쿠폰 -->
+
+		<!-- 좋아요 -->
+		<section class="n-section-block">
+			<header class="n-section-title">
+				<h2 class="tit">좋아요</h2>
+				<div class="tab-group ui-tab-btn" data-tab="myLike"
+					id="like_btn_area">
+					<div class="tab-btn">
+						<a href="#myLikePrd" class="ui-btn is-active" type="goods">상품</a>
+					</div>
+					<div class="tab-btn">
+						<a href="#myLikeBrd" class="ui-btn" type="brand">브랜드</a>
+					</div>
+				</div>
+
+				<a id="likeLink" href="javascript:like_link();" class="n-link">전체</a>
+			</header>
+
+			<div class="ui-tab-cont" data-tab="myLike">
+				<!-- 좋아요 - 상품 -->
+				<div id="myLikePrd" class="ui-cont is-active">
+					<h3 class="hidden">상품</h3>
+
+					<ul class="n-list-row">
+						<li class="n-prd-row"><a href="/app/goods/2495075/0"
+							class="img-block"> <img
+								src="//image.msscdn.net/images/goods_img/20220418/2495075/2495075_16804863546216_100.jpg"
+								alt="라퍼지스토어 [Package][23SS Ver.] 클래식 테이퍼드 와이드 원턱 린넨 팬츠_9Color">
+						</a>
+							<ul class="info">
+								<li class="brand"><a
+									href="https://www.musinsa.com/brands/lafudgestore">라퍼지스토어</a></li>
+								<li class="name"><a href="/app/goods/2495075/0">[Package][23SS
+										Ver.] 클래식 테이퍼드 와이드 원턱 린넨 팬츠_9Color</a></li>
+								<li class="price"><del>72,000원</del> <span>43,900원</span> <em>39%</em>
+								</li>
+								<li class="like"><div class="n-like like-sm">
+										<i class="ico ico-sm ico-like2-on">좋아요</i> 78,550
+									</div></li>
+							</ul> <input type="checkbox" class="n-check" id="check_2495075"
+							data-goods_url="/app/goods/2495075/0" data-goods_no="2495075"
+							data-goods_sub="0 " data-wish_no=""
+							data-goods_name="[Package][23SS Ver.] 클래식 테이퍼드 와이드 원턱 린넨 팬츠_9Color">
+							<label for="check_2495075">선택</label></li>
+						<li class="n-prd-row"><a href="/app/goods/2690278/0"
+							class="img-block"> <img
+								src="//image.msscdn.net/images/goods_img/20220801/2690278/2690278_1_100.jpg"
+								alt="스포티앤리치 공용 엑서사이즈 맨투맨 - 민트 / CR461TU">
+						</a>
+							<ul class="info">
+								<li class="brand"><a
+									href="https://www.musinsa.com/brands/sportynrich">스포티앤리치</a></li>
+								<li class="name"><a href="/app/goods/2690278/0">공용
+										엑서사이즈 맨투맨 - 민트 / CR461TU</a></li>
+								<li class="price"><del>216,000원</del> <span>138,000원</span>
+									<em>36%</em></li>
+								<li class="like"><div class="n-like like-sm">
+										<i class="ico ico-sm ico-like2-on">좋아요</i> 237
+									</div></li>
+							</ul> <input type="checkbox" class="n-check" id="check_2690278"
+							data-goods_url="/app/goods/2690278/0" data-goods_no="2690278"
+							data-goods_sub="0 " data-wish_no=""
+							data-goods_name="공용 엑서사이즈 맨투맨 - 민트 / CR461TU"> <label
+							for="check_2690278">선택</label></li>
+						<li class="n-prd-row"><a href="/app/goods/1778912/0"
+							class="img-block"> <img
+								src="//image.msscdn.net/images/goods_img/20210204/1778912/1778912_1_100.jpg"
+								alt="디스이즈네버댓 PERTEX® SP Reversible Jacket Grey">
+						</a>
+							<ul class="info">
+								<li class="brand"><a
+									href="https://www.musinsa.com/brands/thisisneverthat">디스이즈네버댓</a></li>
+								<li class="name"><a href="/app/goods/1778912/0">PERTEX®
+										SP Reversible Jacket Grey</a></li>
+								<li class="price"><del>189,000원</del> <span>75,600원</span>
+									<em>60%</em></li>
+								<li class="like"><div class="n-like like-sm">
+										<i class="ico ico-sm ico-like2-on">좋아요</i> 3,977
+									</div></li>
+							</ul> <input type="checkbox" class="n-check" id="check_1778912"
+							data-goods_url="/app/goods/1778912/0" data-goods_no="1778912"
+							data-goods_sub="0 " data-wish_no=""
+							data-goods_name="PERTEX® SP Reversible Jacket Grey"> <label
+							for="check_1778912">선택</label></li>
+						<li class="n-prd-row"><a href="/app/goods/2759490/0"
+							class="img-block"> <img
+								src="//image.msscdn.net/images/goods_img/20220831/2759490/2759490_2_100.jpg"
+								alt="챔피온 [Champion X thisisneverthat] Reverse Weave® (블루택) 11.5oz 기모 밴딩조거팬츠 (NAVY) CKPA2FN01N2">
+						</a>
+							<ul class="info">
+								<li class="brand"><a
+									href="https://www.musinsa.com/brands/champion">챔피온</a></li>
+								<li class="name"><a href="/app/goods/2759490/0">[Champion
+										X thisisneverthat] Reverse Weave® (블루택) 11.5oz 기모 밴딩조거팬츠
+										(NAVY) CKPA2FN01N2</a></li>
+								<li class="price"><span>189,000원</span></li>
+								<li class="like"><div class="n-like like-sm">
+										<i class="ico ico-sm ico-like2-on">좋아요</i> 190
+									</div></li>
+							</ul> <input type="checkbox" class="n-check" id="check_2759490"
+							data-goods_url="/app/goods/2759490/0" data-goods_no="2759490"
+							data-goods_sub="0 " data-wish_no=""
+							data-goods_name="[Champion X thisisneverthat] Reverse Weave® (블루택) 11.5oz 기모 밴딩조거팬츠 (NAVY) CKPA2FN01N2">
+							<label for="check_2759490">선택</label></li>
+						<li class="n-prd-row"><a href="/app/goods/2704962/0"
+							class="img-block"> <img
+								src="//image.msscdn.net/images/goods_img/20220808/2704962/2704962_16902601668481_100.jpg"
+								alt="예일 (23FW) WARM+ UP QUILTING JACKET BLACK">
+						</a>
+							<ul class="info">
+								<li class="brand"><a
+									href="https://www.musinsa.com/brands/yale">예일</a></li>
+								<li class="name"><a href="/app/goods/2704962/0">(23FW)
+										WARM+ UP QUILTING JACKET BLACK</a></li>
+								<li class="price"><del>99,000원</del> <span>59,000원</span> <em>40%</em>
+								</li>
+								<li class="like"><div class="n-like like-sm">
+										<i class="ico ico-sm ico-like2-on">좋아요</i> 42,947
+									</div></li>
+							</ul> <input type="checkbox" class="n-check" id="check_2704962"
+							data-goods_url="/app/goods/2704962/0" data-goods_no="2704962"
+							data-goods_sub="0 " data-wish_no=""
+							data-goods_name="(23FW) WARM+ UP QUILTING JACKET BLACK">
+							<label for="check_2704962">선택</label></li>
+						<li class="n-prd-row"><a href="/app/goods/2802717/0"
+							class="img-block"> <img
+								src="//image.msscdn.net/images/goods_img/20220919/2802717/2802717_1_100.jpg"
+								alt="오아이오아이 A DAY OF US SWEATPANTS [LIGHT BLUE]">
+						</a>
+							<ul class="info">
+								<li class="brand"><a
+									href="https://www.musinsa.com/brands/5252byoioi">오아이오아이</a></li>
+								<li class="name"><a href="/app/goods/2802717/0">A DAY
+										OF US SWEATPANTS [LIGHT BLUE]</a></li>
+								<li class="price"><span>89,000원</span></li>
+								<li class="like"><div class="n-like like-sm">
+										<i class="ico ico-sm ico-like2-on">좋아요</i> 367
+									</div></li>
+							</ul> <input type="checkbox" class="n-check" id="check_2802717"
+							data-goods_url="/app/goods/2802717/0" data-goods_no="2802717"
+							data-goods_sub="0 " data-wish_no=""
+							data-goods_name="A DAY OF US SWEATPANTS [LIGHT BLUE]"> <label
+							for="check_2802717">선택</label></li>
+						<li class="n-prd-row"><a href="/app/goods/2302746/0"
+							class="img-block"> <img
+								src="//image.msscdn.net/images/goods_img/20220112/2302746/2302746_3_100.jpg"
+								alt="브라운브레스 TAG NYLON PANTS - BLACK">
+						</a>
+							<ul class="info">
+								<li class="brand"><a
+									href="https://www.musinsa.com/brands/brownbreath">브라운브레스</a></li>
+								<li class="name"><a href="/app/goods/2302746/0">TAG
+										NYLON PANTS - BLACK</a></li>
+								<li class="price"><del>59,000원</del> <span>29,500원</span> <em>50%</em>
+								</li>
+								<li class="like"><div class="n-like like-sm">
+										<i class="ico ico-sm ico-like2-on">좋아요</i> 3,516
+									</div></li>
+							</ul> <input type="checkbox" class="n-check" id="check_2302746"
+							data-goods_url="/app/goods/2302746/0" data-goods_no="2302746"
+							data-goods_sub="0 " data-wish_no=""
+							data-goods_name="TAG NYLON PANTS - BLACK"> <label
+							for="check_2302746">선택</label></li>
+						<li class="n-prd-row"><a href="/app/goods/2326443/0"
+							class="img-block"> <img
+								src="//image.msscdn.net/images/goods_img/20220125/2326443/2326443_1_100.jpg"
+								alt="예일 2 TONE ARCH SWEAT PANTS GRAY">
+						</a>
+							<ul class="info">
+								<li class="brand"><a
+									href="https://www.musinsa.com/brands/yale">예일</a></li>
+								<li class="name"><a href="/app/goods/2326443/0">2 TONE
+										ARCH SWEAT PANTS GRAY</a></li>
+								<li class="price"><del>69,000원</del> <span>55,200원</span> <em>20%</em>
+								</li>
+								<li class="like"><div class="n-like like-sm">
+										<i class="ico ico-sm ico-like2-on">좋아요</i> 4,476
+									</div></li>
+							</ul> <input type="checkbox" class="n-check" id="check_2326443"
+							data-goods_url="/app/goods/2326443/0" data-goods_no="2326443"
+							data-goods_sub="0 " data-wish_no=""
+							data-goods_name="2 TONE ARCH SWEAT PANTS GRAY"> <label
+							for="check_2326443">선택</label></li>
+					</ul>
+
+				</div>
+				<!-- //좋아요 - 상품 -->
+
+				<!-- 좋아요 - 브랜드 -->
+				<div id="myLikeBrd" class="ui-cont">
+					<h3 class="hidden">브랜드</h3>
+
+
+					<p class="n-table-none">
+						<span> 좋아하는 브랜드가 없습니다. <br> 브랜드를 추가해보세요.
+						</span>
+					</p>
+				</div>
+				<!-- //좋아요 - 브랜드 -->
+			</div>
+		</section>
+		<!-- //좋아요 -->
+
+		<!-- 상품문의 -->
+		<section class="n-section-block">
+			<header class="n-section-title">
+				<h2 class="tit">상품문의</h2>
+				<a href="/app/mypage/qa" class="n-link">전체</a>
+			</header>
+
+			<table class="n-table table-col">
+				<colgroup>
+					<col style="width: 26%">
+					<col style="width: *">
+					<col style="width: 12.6%">
+					<col style="width: 12.6%">
+					<col style="width: 12.6%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">상품정보</th>
+						<th scope="col">내용</th>
+						<th scope="col">문의 유형</th>
+						<th scope="col">작성일</th>
+						<th scope="col">처리 상태</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 문의 영역 -->
+					<tr>
+						<td>
+							<div class="n-prd-row">
+								<a href="/app/goods/1126628/0" class="img-block"> <img
+									src="//image.msscdn.net/images/goods_img/20190823/1126628/1126628_2_100.jpg"
+									alt="Deep One Tuck Denim Pants [Black]">
+								</a>
+								<ul class="info">
+									<li class="brand"><a
+										href="https://www.musinsa.com/brands/xero">제로</a></li>
+									<li class="name"><a href="/app/goods/1126628/0">Deep
+											One Tuck Denim Pants [Black]</a></li>
+									<li></li>
+								</ul>
+							</div>
+						</td>
+						<td class="left"><a href="#myCont" class="my-question">세탁기에
+								넣고 돌려도 되나요</a></td>
+						<td>상품상세문의</td>
+						<td>2020.05.18</td>
+						<td><span class="state txt-danger"> <span
+								class="state txt-info"> 답변 완료 </span>
+								<div class="btn-set inline"></div>
+						</span></td>
+					</tr>
+
+					<!-- 내용 영역 -->
+					<tr class="my-faq answer" name="myCont">
+						<!-- [D] 답변이 있을 경우에만 my-faq에 클래스 "answer" 추가 -->
+						<td>&nbsp;</td>
+						<td class="left" colspan="3">세탁기에 넣고 세제 빨래해도 되나요?</td>
+						<td>&nbsp;</td>
+					</tr>
+
+					<!-- 답변 영역 -->
+					<tr class="my-faq">
+						<td>제로 담당자</td>
+						<td class="left" colspan="3">
+							<div class="answer">
+								안녕하세요 고객님 ^^ <br> <br> 본 상품의 경우는 한번 워싱을 진행한 제품 입니다 그러나
+								세제를 넣어 세탁기에 막 돌리시면 <br> <br> 이염이 발생 합니다 ( 데님 물빠짐) 이점은
+								감수 하셔서 진행 해주셔야 합니다 <br> <br> 변형이 약하게 원하시면 뒤집어서 손세탁 추천
+								드립니다 <br> <br> 감사합니다 ^^
+							</div>
+						</td>
+						<td>20.05.18 09:47</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="n-prd-row">
+								<a href="/app/goods/1349986/0" class="img-block"> <img
+									src="//image.msscdn.net/images/goods_img/20200313/1349986/1349986_2_100.jpg"
+									alt="슈펜 x 비슬로우 독일군 내추럴 가죽 스니커즈 BYSS20S66">
+								</a>
+								<ul class="info">
+									<li class="brand"><a
+										href="https://www.musinsa.com/brands/shoopen">슈펜</a></li>
+									<li class="name"><a href="/app/goods/1349986/0">슈펜 x
+											비슬로우 독일군 내추럴 가죽 스니커즈 BYSS20S66</a></li>
+									<li></li>
+								</ul>
+							</div>
+						</td>
+						<td class="left"><a href="#myCont" class="my-question">300
+								사이즈 문의</a></td>
+						<td>사이즈</td>
+						<td>2020.04.13</td>
+						<td><span class="state txt-danger"> <span
+								class="state txt-info"> 답변 완료 </span>
+								<div class="btn-set inline"></div>
+						</span></td>
+					</tr>
+
+					<!-- 내용 영역 -->
+					<tr class="my-faq answer" name="myCont">
+						<!-- [D] 답변이 있을 경우에만 my-faq에 클래스 "answer" 추가 -->
+						<td>&nbsp;</td>
+						<td class="left" colspan="3">300 사이즈는 언제쯤 출고 되나요..?</td>
+						<td>&nbsp;</td>
+					</tr>
+
+					<!-- 답변 영역 -->
+					<tr class="my-faq">
+						<td>슈펜 담당자</td>
+						<td class="left" colspan="3">
+							<div class="answer">
+								안녕하세요 고객님 슈펜입니다<br> 현재 300사이즈는 예정에 없으나<br> 추후 공지 될
+								예정입니다<br> 감사합니다
+							</div>
+						</td>
+						<td>20.04.14 10:12</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="n-prd-row">
+								<a href="/app/goods/92119/0" class="img-block"> <img
+									src="//image.msscdn.net/images/goods_img/20140514/92119/92119_1_100.jpg"
+									alt="THE BEST WAY 풋볼 티셔츠 - 블랙">
+								</a>
+								<ul class="info">
+									<li class="brand"><a
+										href="https://www.musinsa.com/brands/vannworks">밴웍스</a></li>
+									<li class="name"><a href="/app/goods/92119/0">THE BEST
+											WAY 풋볼 티셔츠 - 블랙</a></li>
+									<li></li>
+								</ul>
+							</div>
+						</td>
+						<td class="left"><a href="#myCont" class="my-question">XL사이즈
+								재입고 언제되나요?</a></td>
+						<td>재입고</td>
+						<td>2015.06.16</td>
+						<td><span class="state txt-danger"> <span
+								class="state txt-info"> 답변 완료 </span>
+								<div class="btn-set inline"></div>
+						</span></td>
+					</tr>
+
+					<!-- 내용 영역 -->
+					<tr class="my-faq answer" name="myCont">
+						<!-- [D] 답변이 있을 경우에만 my-faq에 클래스 "answer" 추가 -->
+						<td>&nbsp;</td>
+						<td class="left" colspan="3">XL 사이즈 재입고 언제쯤 되나요?</td>
+						<td>&nbsp;</td>
+					</tr>
+
+					<!-- 답변 영역 -->
+					<tr class="my-faq">
+						<td>밴웍스 담당자</td>
+						<td class="left" colspan="3">
+							<div class="answer">
+								<p>안녕하세요 고객님^^</p>
+								<br>
+								<p>재입고 예정 없는 제품입니다.</p>
+								<br>
+								<p>도움을 드리지 못해 죄송합니다.&nbsp;</p>
+							</div>
+						</td>
+						<td>15.06.16 13:26</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+		</section>
+		<!-- //상품문의 -->
+
+		<!-- 1:1문의 -->
+		<section class="n-section-block">
+			<header class="n-section-title">
+				<h2 class="tit">1:1문의</h2>
+				<a href="/app/mypage/counsel" class="n-link">전체</a>
+			</header>
+
+			<table class="n-table table-col">
+				<colgroup>
+					<col style="width: 12.6%">
+					<col style="width: *">
+					<col style="width: 12.6%">
+					<col style="width: 12.6%">
+					<col style="width: 12.6%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">문의 유형</th>
+						<th scope="col">내용</th>
+						<th scope="col">주문번호</th>
+						<th scope="col">작성일</th>
+						<th scope="col">처리 상태</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 문의 영역 -->
+					<tr list_cnt="0">
+						<td>교환/취소(반품)-취소/반품(환불)</td>
+						<td class="left"><a href="javascript:void(0);"
+							class="my-question">환불요청</a></td>
+						<td>202207111752360001</td>
+						<td>2022.07.27</td>
+						<td><span class="state txt-info">답변 완료</span></td>
+					</tr>
+
+					<!-- 내용 영역 -->
+					<tr class="my-faq answer list_cnt_0" name="myCont">
+						<td>&nbsp;</td>
+						<td class="left" colspan="2">환불 선불로 택배 기사님이 가져가시는걸로 했는데<br>
+							<br> 왜 물품을 안 가져가시죠?
+						</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+
+					<!-- 답변 영역 -->
+					<tr class="my-faq list_cnt_0 ">
+						<td>무신사 스토어<br>CS 담당자
+						</td>
+						<td class="left" colspan="2">
+							<div class="answer">
+								안녕하세요. 패션을 사랑하는 무신사 CS입니다.<br> <br> 문의하신 상품의 브랜드는 [자동
+								회수 서비스 지원 브랜드]입니다.<br> 환불 접수 과정에서 반품 방법을 '회수해 주세요'로 선택하시면<br>
+								환불 접수와 함께 택배사 반품 예약 접수가 완료되며<br> 평일 기준 1~3일 내에 택배 기사님 연락 후
+								방문하여 수거 진행됩니다.<br> <br> 그러나, 문의하신 주문 건은 환불 접수 과정에서 <br>
+								반품 방법을 '회수해 주세요'가 아닌 '직접 보낼게요'로 접수해 주셔서<br> 택배사 회수 예약 접수가
+								진행되지 않았던 것으로 확인됩니다.<br> <br> 현재 주문 건은 환불 요청 취소하신 것으로
+								확인됩니다.<br> 결제하신 배송비도 함께 환불 처리 되었으니 확인 부탁드립니다.<br> 추가
+								문의 사항이 있으신 경우 언제든지 고객센터 통하여 문의해 주시면 친절한 상담 도와드리겠습니다.<br> <br>
+								※ 배송비 실 결제 취소(환불)까지는 대행사를 통하여 최종 환불 진행되므로 영업일 기준 1~3일 정도 소요되는 점
+								참고 부탁드립니다.<br> <br> 문의하신 사항 외에 서비스 이용 관련 내용은 FAQ를 통해
+								상세하게 확인하실 수 있어요!<br> FAQ ▶ <a
+									href="https://www.musinsa.com/app/cs/faq"
+									title="https://www.musinsa.com/app/cs/faq"
+									style="color: #3498db;">https://www.musinsa.com/app/cs/faq</a><br>
+								<br> 회원님의 편안한 쇼핑을 위해 최선을 다하겠습니다.<br> 감사합니다.
+							</div>
+						</td>
+						<td>22-07-27 17:31</td>
+						<td><span class="state txt-info">답변 완료</span></td>
+					</tr>
+					<!-- 문의 영역 -->
+					<tr list_cnt="1">
+						<td>배송-배송 일반</td>
+						<td class="left"><a href="javascript:void(0);"
+							class="my-question">물품 출고완료가 되있는데 왜 배송은 아직도 출발을 안했죠?</a></td>
+						<td>202101021727250001</td>
+						<td>2021.01.06</td>
+						<td><span class="state txt-info">답변 완료</span></td>
+					</tr>
+
+					<!-- 내용 영역 -->
+					<tr class="my-faq answer list_cnt_1" name="myCont">
+						<td>&nbsp;</td>
+						<td class="left" colspan="2">물품 출고완료가 되있는데 왜 배송은 아직도 출발을 안했죠?<br>
+							<br> 지금 CJ대한통운 코로나 확진자 발생해서 택배 회사 휴업하는거 같은데<br> <br>
+							다른 배송 업체 변경 가능할까요?
+						</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+
+					<!-- 답변 영역 -->
+					<tr class="my-faq list_cnt_1 ">
+						<td>무신사 스토어<br>CS 담당자
+						</td>
+						<td class="left" colspan="2">
+							<div class="answer">
+								안녕하세요. 무신사 스토어 고객센터입니다.<br> <br> 문의하신 상품 현재 출고 완료되어 이동
+								중 상태로 확인됩니다.<br> <br> 아래 경로를 참고하여 확인해 주시면 감사하겠습니다.<br>
+								<br> ▶ 앱 : 마이페이지 → 주문/배송조회 → 구매확정에서 배송조회 클릭하여 확인 <br>
+								▶ PC : 마이페이지 → 주문 내역 조회 → 배송조회 클릭하여 확인<br> <br> ※ 참고
+								사항<br> - 출고 완료 이후 택배사 내부 사정에 의해 운송장 흐름 조회까지 시간이 다소 소요될 수
+								있습니다.<br> - 출고 완료된 택배사 홈페이지를 통해 직접 운송장 흐름 조회 시 보다 정확한 확인이
+								가능합니다.<br> - 상품 실수령은 택배사 영업소 물량 사정에 따라 달라질 수 있습니다.<br>
+								<br> 다른 불편사항이나 도움이 필요하시다면 1:1 문의 또는 고객센터(1544-7199)로 문의
+								부탁드립니다. <br> <br> 신속하고 안전한 배송을 위해 최선을 다하는 무신사 스토어가
+								되겠습니다.
+							</div>
+						</td>
+						<td>21-01-06 13:08</td>
+						<td><span class="state txt-info">답변 완료</span></td>
+					</tr>
+					<!-- 문의 영역 -->
+					<tr list_cnt="2">
+						<td>교환/취소(반품)-취소/반품(환불)</td>
+						<td class="left"><a href="javascript:void(0);"
+							class="my-question">환불 주소가 어디인가요?</a></td>
+						<td>202005102145388279</td>
+						<td>2020.05.15</td>
+						<td><span class="state txt-info">답변 완료</span></td>
+					</tr>
+
+					<!-- 내용 영역 -->
+					<tr class="my-faq answer list_cnt_2" name="myCont">
+						<td>&nbsp;</td>
+						<td class="left" colspan="2">환불 주소가 어디인가요?</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+
+					<!-- 답변 영역 -->
+					<tr class="my-faq list_cnt_2 ">
+						<td>무신사 스토어<br>CS 담당자
+						</td>
+						<td class="left" colspan="2">
+							<div class="answer">
+								안녕하세요. 무신사 스토어 고객센터입니다.<br> <br> 입력해 주신 반송 정보 확인되어
+								안내드립니다.<br> <br> 교환 및 환불 처리 과정은 아래와 같습니다.<br> <br>
+								▶ 상품 반송지 도착(반송장 번호를 통해서 위치 확인 가능) → 검수 작업(영업일 기준 약 2~3일 소요) → 교환
+								상품 준비 또는 환불<br> <br> 현재, 택배사 사정에 의해 반송이 지연되는 경우가 있을 수
+								있습니다.<br> <br> ▶ 반송장 조회 시 상품이 도착했으나, 3일 이상 지연된 경우 '상품
+								도착 후 3일 이상 지연 건'이라는 제목으로 재문의 부탁드립니다.<br> <br> ※ 상품 도착
+								여부 및 도착 날짜는 반품 시 받으신 반송장 번호를 통해 확인 가능하며, 반송장 번호를 모르시는 경우 택배사
+								고객센터를 통해서 확인 가능합니다. <br> 또한, 재문의 시 반송장 번호와 함께 문의 시 보다 빠른
+								확인이 가능합니다.<br> <br> 신속한 처리를 위하여 최선을 다하도록 하겠습니다. 감사합니다.
+							</div>
+						</td>
+						<td>20-05-15 15:45</td>
+						<td><span class="state txt-info">답변 완료</span></td>
+					</tr>
+					<!-- 문의 영역 -->
+					<tr list_cnt="3">
+						<td>교환/취소(반품)-취소/반품(환불)</td>
+						<td class="left"><a href="javascript:void(0);"
+							class="my-question">환불하려하는데 우체국 통해서 직접 택배 붙여야하나요?</a></td>
+						<td>202005102145388279</td>
+						<td>2020.05.14</td>
+						<td><span class="state txt-info">답변 완료</span></td>
+					</tr>
+
+					<!-- 내용 영역 -->
+					<tr class="my-faq answer list_cnt_3" name="myCont">
+						<td>&nbsp;</td>
+						<td class="left" colspan="2">환불하려하는데 우체국 통해서 직접 택배 붙여야하나요?</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+
+					<!-- 답변 영역 -->
+					<tr class="my-faq list_cnt_3 ">
+						<td>무신사 스토어<br>CS 담당자
+						</td>
+						<td class="left" colspan="2">
+							<div class="answer">
+								안녕하세요. 무신사 스토어 고객센터입니다. <br> <br> 번거로우시겠지만, 택배 반품 신청은
+								고객님께서 직접 진행해주셔야 합니다. <br> <br> 해당 상품은 무신사 스토어 주소가 아닌
+								구매하신 브랜드의 본사에서 출고된 상품으로, 해당 브랜드의 반송지로 보내주셔야 합니다. 이점 참고 부탁드리며,<br>
+								<br> 아래 ①, ②의 두 가지 방법 중 선택하여 반품 부탁드립니다.<br> <br>
+								① 최초 이용된 계약 택배사를 통한 반품 <br> - ARS or 홈페이지 → 반품 접수 → 최초 부여된
+								운송장 번호 → 착불(신용) 선택 → 최초 결제 금액에서 왕복 배송비를 차감하여 환불 처리 진행<br> -
+								전화번호는 최초 '수령자' 정보의 휴대폰 번호 입력하시면 됩니다.<br> - 반품 예약 시 반송지는
+								자동으로 입력됩니다.<br> <br> ② 편의점, 우체국 방문 등 기타 택배사를 자유롭게 선택하여
+								반품<br> - 택배사 자유 선택 → 선불 접수 → 최초 결제 금액에서 편도 배송비를 차감하여 환불 처리
+								진행<br> - 타 택배 이용에 의한 신규 접수 시 거리나 무게에 따라서 운임 책정되므로 최초 배송비와
+								다를 수 있습니다.<br> <br> ▶ 고객 사유에 의한 환불 시 최초 결제 금액에서 왕복
+								배송비를 차감하여 환불 처리가 진행됩니다.<br> - 배송비를 상품에 동봉하실 경우 분실될 위험이 있으므로
+								권장하지 않습니다.<br> - 도서산간지역 또는 해외배송 상품은 반품 비용이 추가로 발생될 수 있습니다.<br>
+								- 배송비는 구매하신 상품의 브랜드 별로 차이가 있을 수 있습니다.<br> <br> ▶ 배송비
+								확인 방법<br> - PC : 마이페이지 → 주문내역 조회 → 주문번호 클릭 → 상품정보(옵션/수량) →
+								판매자 정보 클릭<br> - 앱 : 마이페이지 → 주문/배송조회 → 판매자 정보 클릭 <br> <br>
+								▶ 택배 반품 완료 후 반송장 입력 방법 <br> - PC : 마이페이지 → 주문내역 조회 → 요청 사항
+								클릭(교환,환불) → 반송장 입력 <br> - 앱 : 마이페이지 → 취소/교환/환불 내역 → 요청 사항
+								클릭(교환,환불) → 반송장 입력 <br> <br> ▶ 유의사항 (<a
+									href="http://store.musinsa.com/app/cs/faq/9?view_no=105"
+									title="http://store.musinsa.com/app/cs/faq/9?view_no=105"
+									style="color: #3498db;">http://store.musinsa.com/app/cs/faq/9?view_no=105</a>)<br>
+								- 상품의 손상, 착용, 훼손 흔적 발생 시 교환 및 환불 처리가 불가<br> - 품목이 신발일 경우
+								브랜드 박스가 손상되지 않도록 이중으로 포장하여 반품<br> - 구입처, 희망 처리 방안 메모 동봉 시 좀
+								더 신속한 처리 가능합니다. (구입처 : 무신사, 환불 희망)<br> <br> 해당 상품이
+								반송지(물류센터)에 도착 후 검수 과정을 거쳐 처리되기 때문에 시일이 다소 소요되는 점 양해 부탁드립니다.<br>
+								<br> 다른 불편사항이나 도움이 필요하시다면 고객센터(1544-7199)로 문의 부탁드립니다.
+							</div>
+						</td>
+						<td>20-05-15 10:10</td>
+						<td><span class="state txt-info">답변 완료</span></td>
+					</tr>
+				</tbody>
+			</table>
+
+		</section>
+		<!-- //1:1문의 -->
+	</section>
+	<!-- //contents -->
+</main>

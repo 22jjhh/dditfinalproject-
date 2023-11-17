@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.owner.FrcsOrderMapper">
+	
+	<select id="selectOrderCount" parameterType="ownerPagingVO" resultType="int">
+		select count(f.vdprod_cd)
+		from frcs_inventory f, head_inventory h, frcs_ownership o
+		where f.vdprod_cd = h.vdprod_cd and o.mem_id = #{memId}
+	</select>
+
+	<select id="selectOrderList" parameterType="ownerPagingVO" resultType="inventVO">
+		select 
+			b.*
+		from (
+			select 
+				a.*, row_number() over (order by a.vdprod_cd asc) rnum
+			from(
+				select h.vdprod_cd, h.vdprod_name, f.invntry_qy, f.proprt_qy, h.hdforward_price, f.frcs_id
+				from frcs_inventory f, head_inventory h, frcs_ownership o
+				where f.vdprod_cd = h.vdprod_cd 
+				and o.mem_id = #{memId}
+			    order by vdprod_cd asc
+			)a
+		)b	
+		<![CDATA[	
+			where b.rnum >= #{startRow} and b.rnum <= #{endRow}
+		]]>
+	</select>
+</mapper>

@@ -1,0 +1,317 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<body>
+    		<!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">창업상담관리</a></li>
+                                            <li class="breadcrumb-item active">가맹상담관리</li>
+                                        </ol>
+                                    </div>
+                                    <h4 class="page-title">가맹상담관리</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                        </div>
+                
+                                        <div class="table-responsive">
+                                            <table class="table table-centered w-100 dt-responsive nowrap" id="products-datatable">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th class="all">이름</th>
+                                                        <th>연락처</th>
+                                                        <th>이메일</th>
+                                                        <th>연락여부</th>
+                                                        <th>계약현황</th>
+                                                        <th style="width: 85px;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            	차은우
+                                                        </td>
+                                                        <td>
+                                                            010-1237-1234
+                                                        </td>
+                                                        <td>
+                                                            asdf@naver.com
+                                                        </td>
+                                                        <td>
+                                                            X
+                                                        </td>
+                    
+                                                        <td>
+                                                            <span class="badge bg-success">계약완료</span>
+                                                        </td>
+                    
+                                                        <td class="table-action">
+                                                            <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#bs-example-modal-lg"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            	차은우
+                                                        </td>
+                                                        <td>
+                                                            010-1237-1234
+                                                        </td>
+                                                        <td>
+                                                            asdf@naver.com
+                                                        </td>
+                                                        <td>
+                                                            X
+                                                        </td>
+                    
+                                                        <td>
+                                                            <span class="badge bg-success">계약완료</span>
+                                                        </td>
+                    
+                                                        <td class="table-action">
+                                                            <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            	차은우
+                                                        </td>
+                                                        <td>
+                                                            010-1237-1234
+                                                        </td>
+                                                        <td>
+                                                            asdf@naver.com
+                                                        </td>
+                                                        <td>
+                                                            X
+                                                        </td>
+                    
+                                                        <td>
+                                                            <span class="badge bg-success">계약완료</span>
+                                                        </td>
+                    
+                                                        <td class="table-action">
+                                                            <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            	차은우
+                                                        </td>
+                                                        <td>
+                                                            010-1237-1234
+                                                        </td>
+                                                        <td>
+                                                            asdf@naver.com
+                                                        </td>
+                                                        <td>
+                                                            X
+                                                        </td>
+                    
+                                                        <td>
+                                                            <span class="badge bg-success">계약완료</span>
+                                                        </td>
+                    
+                                                        <td class="table-action">
+                                                            <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            	차은우
+                                                        </td>
+                                                        <td>
+                                                            010-1237-1234
+                                                        </td>
+                                                        <td>
+                                                            asdf@naver.com
+                                                        </td>
+                                                        <td>
+                                                            X
+                                                        </td>
+                    
+                                                        <td>
+                                                            <span class="badge bg-success">계약완료</span>
+                                                        </td>
+                    
+                                                        <td class="table-action">
+                                                            <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            	차은우
+                                                        </td>
+                                                        <td>
+                                                            010-1237-1234
+                                                        </td>
+                                                        <td>
+                                                            asdf@naver.com
+                                                        </td>
+                                                        <td>
+                                                            X
+                                                        </td>
+                    
+                                                        <td>
+                                                            <span class="badge bg-success">계약완료</span>
+                                                        </td>
+                    
+                                                        <td class="table-action">
+                                                            <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <nav>
+											    <ul class="pagination justify-content-center">
+											        <li class="page-item">
+											            <a class="page-link" href="javascript: void(0);" aria-label="Previous">
+											                <span aria-hidden="true">&laquo;</span>
+											            </a>
+											        </li>
+											        <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a></li>
+											        <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a></li>
+											        <li class="page-item active"><a class="page-link" href="javascript: void(0);">3</a></li>
+											        <li class="page-item"><a class="page-link" href="javascript: void(0);">4</a></li>
+											        <li class="page-item"><a class="page-link" href="javascript: void(0);">5</a></li>
+											        <li class="page-item">
+											            <a class="page-link" href="javascript: void(0);" aria-label="Next">
+											                <span aria-hidden="true">&raquo;</span>
+											            </a>
+											        </li>
+											    </ul>
+											</nav>
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->        
+                        
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+                </div>
+    <!-- 모달 창 -->
+    <div class="modal fade" id="bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myLargeModalLabel">상세보기</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row g-2">
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">이름</label>
+	                            <input type="text" class="form-control" id="recipient-name">
+	                        </div>
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">생년월일</label>
+	                            <input type="text" class="form-control" id="recipient-name">
+	                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">연락처</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">이메일</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="row g-2">
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">창업희망지역</label>
+	                            <input type="text" class="form-control" id="recipient-name">
+	                        </div>
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">창업희망상세지역</label>
+	                            <input type="text" class="form-control" id="recipient-name">
+	                        </div>
+	                    </div>
+	                    <div class="row g-2">
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">예상창업비용</label>
+	                            <input type="text" class="form-control" id="recipient-name">
+	                        </div>
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">상가보유유무</label>
+	                            <input type="text" class="form-control" id="recipient-name">
+	                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">상가주소</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="row g-2">
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">창업경험</label>
+	                            <input type="text" class="form-control" id="recipient-name">
+	                        </div>
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">상담희망시간</label>
+	                            <input type="text" class="form-control" id="recipient-name">
+	                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">문의구분</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">문의내용</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                        <hr/>
+                        <div class="row g-2">
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">계약현황</label>
+	                            <input type="text" class="form-control" id="recipient-name">
+	                        </div>
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">연락여부</label>
+	                            <input type="text" class="form-control" id="recipient-name">
+	                        </div>
+                        </div>
+                        <div class="row g-2">
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">문서1</label>
+	                            <input type="file" class="form-control" id="recipient-name">
+	                        </div>
+	                        <div class="mb-3 col-md-6">
+	                            <label for="recipient-name" class="col-form-label">문서2</label>
+	                            <input type="file" class="form-control" id="recipient-name">
+	                        </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">등록</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">목록</button>
+                    <button type="button" class="btn btn-primary">승인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+              
+                
+</body>    

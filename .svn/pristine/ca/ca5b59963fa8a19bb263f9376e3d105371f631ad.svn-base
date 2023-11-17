@@ -1,0 +1,24 @@
+package kr.or.ddit.vo.owner;
+
+import java.util.Date;
+
+import kr.or.ddit.vo.AttachVO;
+import lombok.Data;
+
+@Data
+public class FrcsMenuVO {
+	private String menuCd;
+	private String frcsId;
+	private String saleYn;
+	
+	public String menuName;
+	public int menuPrice;
+	public String menuDes;
+	public String menuCg;
+	public String menuState;
+	public Date menuRsdate;
+	public Date menuDeldate;
+	public String tableName;
+	
+	public AttachVO attachVO;
+}

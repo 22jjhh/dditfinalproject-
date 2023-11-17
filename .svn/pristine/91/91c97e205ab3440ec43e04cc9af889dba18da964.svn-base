@@ -1,0 +1,54 @@
+package kr.or.ddit.service.owner.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.mapper.owner.FrcsInventoryMapper;
+import kr.or.ddit.service.owner.IFrcsInventoryService;
+import kr.or.ddit.vo.owner.FrcsInventoryVO;
+import kr.or.ddit.vo.owner.OwnerPaginationInfoVO;
+
+@Service
+public class FrcsInventoryServiceImpl implements IFrcsInventoryService{
+
+	@Inject
+	private FrcsInventoryMapper mapper;
+
+	@Override
+	public List<FrcsInventoryVO> getInventList(String memId) {
+		return mapper.getInventList(memId);
+	}
+
+	@Override
+	public int selectInventCount(OwnerPaginationInfoVO<FrcsInventoryVO> pagingVO) {
+		return mapper.selectInventCount(pagingVO);
+	}
+
+	@Override
+	public List<FrcsInventoryVO> selectInventList(OwnerPaginationInfoVO<FrcsInventoryVO> pagingVO) {
+		return mapper.selectInventList(pagingVO);
+	}
+
+	@Override
+	public ServiceResult inventUpdate(FrcsInventoryVO inventVO) {
+		ServiceResult result = null;
+		int status = mapper.inventUpdate(inventVO);
+		if(status > 0) {
+			result = ServiceResult.OK;
+			// update 성공하면 출고 현황에도 반영
+			mapper.deliveryMinInsert(inventVO);
+		}else {
+			result = ServiceResult.FAILED;
+		}
+		return result;
+	}
+
+//	@Override
+//	public void deliveryMinInsert(FrcsInventoryVO frcsVO) {
+//		mapper.deliveryMinInsert(frcsVO);
+//	}
+}

@@ -1,0 +1,197 @@
+package kr.or.ddit.controller.owner;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.controller.MediaUtils;
+import kr.or.ddit.service.owner.IFrcsEmployeeService;
+import kr.or.ddit.service.owner.IFrcsIdService;
+import kr.or.ddit.vo.AttachVO;
+import kr.or.ddit.vo.owner.FrcsEmployeeVO;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/owner")
+public class OwnerEmployeeController {
+	
+	@Inject
+	private IFrcsEmployeeService service;
+	
+	@Inject
+	private IFrcsIdService idService;
+	
+	@PreAuthorize("hasRole('ROLE_OWNER')")
+	@RequestMapping(value="/emp.do", method = RequestMethod.GET )
+	public String ownerEmpList(Model model) {
+		String frcsId = idService.getFrcsId();
+		List<FrcsEmployeeVO> frcsEmpList = service.frcsEmpList(frcsId);
+		model.addAttribute("empList", frcsEmpList);
+//		log.info("파일 나와랏"+ frcsEmpList.get(0).getEmpFileList());
+		
+//		List<FrcsEmployeeVO> frcsEmpFileList = service.frcsEmpFileList(frcsId);
+//		model.addAttribute("frcsEmpFileList", frcsEmpFileList);
+//		log.info("파일 나와랏"+ frcsEmpFileList);
+		
+		List<FrcsEmployeeVO> profile = new ArrayList<FrcsEmployeeVO>();
+		
+		for (FrcsEmployeeVO feVO : frcsEmpList) {
+			String empCd = feVO.getFrcsEmpCd();
+			log.debug("empCd 확인하기 -> {}", empCd);
+			FrcsEmployeeVO empVO = service.selectEmp(empCd);
+			
+			profile.add(empVO);
+		}
+		log.debug("profile 확인하기 -> {}", profile);
+		
+		model.addAttribute("profile", profile);
+//		String frcsEmpCd = 
+//		
+//		model.addAttribute("empVO", empVO);
+//		log.info("파일 나와랏" + empVO); 
+
+		
+		return "owner/employee/empList";
+	}
+	
+	@RequestMapping(value = "/empInsert.do", method = RequestMethod.POST)
+	public String ownerEmpInsert(
+			HttpServletRequest req,
+			RedirectAttributes ra,
+			FrcsEmployeeVO frcsEmpVO, Model model) {
+		
+		String goPage = "";
+		Map<String, String> errors = new HashMap<String, String>();
+		if(StringUtils.isBlank(frcsEmpVO.getFrcsEmpNm())) {
+			errors.put("frcsEmpNm", "이름을 입력해주세요.");
+		}
+		if(StringUtils.isBlank(frcsEmpVO.getFrcsEmpTelno())) {
+			errors.put("frcsEmpTelno", "연락처를 입력해주세요.");
+		}
+		if(frcsEmpVO.getFrcsEmpBrdt() == null) {
+			errors.put("frcsEmpTelno", "생년월일을 입력해주세요.");
+		}
+		if(frcsEmpVO.getFrcsEmpSalary() <= 0) {
+			errors.put("frcsEmpSalary", "급여를 입력해주세요.");
+		}
+		
+		if(errors.size() > 0 ) {
+			model.addAttribute("errors", errors);
+			model.addAttribute("frcsEmpVO", frcsEmpVO);
+			goPage = "owner/employee/empList";
+		}else {
+			String frcsId = idService.getFrcsId();
+			frcsEmpVO.setFrcsId(frcsId);
+			ServiceResult result = service.frcsEmpInsert(req, frcsEmpVO);
+			if(result.equals(ServiceResult.OK)) {
+				ra.addFlashAttribute("message", "등록 완료!");
+				goPage = "redirect:/owner/emp.do";
+			}else {
+				model.addAttribute("message", "서버에러, 다시 시도해주세요.");
+				goPage = "owner/employee/empList";
+			}
+		}
+		return goPage;
+	}
+	
+	@RequestMapping(value = "/empUpdate.do", method = RequestMethod.POST)
+	public String ownerEmpUpdate(
+			HttpServletRequest req,
+			RedirectAttributes ra,
+			FrcsEmployeeVO frcsEmpVO, Model model) {
+		
+		String goPage = "";
+		ServiceResult result = service.empUpdate(req, frcsEmpVO);
+		if(result.equals(ServiceResult.OK)) {
+			ra.addFlashAttribute("message", "수정이 완료되었습니다!");
+			goPage = "redirect:/owner/emp.do";
+		}else {
+			ra.addFlashAttribute("message", "서버오류, 다시 시도해주세요!");
+			goPage = "owner/employee/empList";
+		}
+		return goPage;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/empDelete.do", method = RequestMethod.POST)
+	public ResponseEntity<List<FrcsEmployeeVO>> ownerEmpDelete(
+			@RequestBody List<FrcsEmployeeVO> empDelList,
+			HttpServletRequest req,
+			RedirectAttributes ra){
+		
+		for(FrcsEmployeeVO frcsEmpVO : empDelList) {
+			String frcsEmpCd = frcsEmpVO.getFrcsEmpCd();
+			ServiceResult result = service.empDelete(req, frcsEmpCd);
+			if(result.equals(ServiceResult.OK)) {
+				ra.addFlashAttribute("message", "삭제가 완료되었습니다!");
+			}else {
+				ra.addFlashAttribute("message", "서버오류, 다시 시도해주세요!");
+			}
+		}
+		return new ResponseEntity<List<FrcsEmployeeVO>>(HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/empDownload.do", method = RequestMethod.GET)
+	   public ResponseEntity<byte[]> fileDownload(int attachNo) throws IOException{
+		   InputStream in = null;
+		   ResponseEntity<byte[]> entity = null;
+		   
+		   String attachOrgname = null;
+		   AttachVO attachVO = service.selectFileInfo(attachNo);
+		   
+		   if(attachVO != null) {
+			   attachOrgname = attachVO.getAttachOrgname();
+			   try {
+				   String attachSavename = attachOrgname.substring(attachOrgname.lastIndexOf(".") + 1);
+				   MediaType mType = MediaUtils.getMediaType(attachSavename);
+				   HttpHeaders headers = new HttpHeaders();
+				   in = new FileInputStream(attachVO.getAttachSavename());
+				   
+				   if(mType != null) {
+					   headers.setContentType(mType);
+				   }else {
+					   attachOrgname = attachOrgname.substring(attachOrgname.indexOf("_") +1);
+					   headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+					   headers.add("content-Disposition", "attachment; attachOrgname=\""+
+					   new String(attachOrgname.getBytes("UTF-8"), "ISO-8859-1") + "\"");
+				   }
+					entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.CREATED);
+			   }catch(Exception e) {
+				   e.printStackTrace();
+				   entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+			   }finally {
+				if(in != null) {
+					in.close();
+				  }
+			   }
+		   }else{
+			   entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+		   }
+		   return entity;
+	   }
+	
+}

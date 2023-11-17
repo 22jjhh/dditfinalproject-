@@ -1,0 +1,9 @@
+package kr.or.ddit.mapper.member;
+
+import kr.or.ddit.vo.member.ReviewVO;
+
+public interface MemberReviewMapper {
+
+	public int create(ReviewVO reviewVO);
+
+}

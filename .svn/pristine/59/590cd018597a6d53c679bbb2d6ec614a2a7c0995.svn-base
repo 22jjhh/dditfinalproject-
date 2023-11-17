@@ -1,0 +1,26 @@
+package kr.or.ddit.controller.head.orderdeal;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/head")
+public class StoreOrderHistory {
+
+	@RequestMapping(value = "/storeOrderHistory.do", method=RequestMethod.GET)
+	public String storeOrderHistory(Model model) {
+		log.info("storeOrderHistory() GET -> 시작");
+		return "head/orderDeal/storeOrderHistory";
+	}
+	
+	@RequestMapping(value = "/storeOrderHistoryDetails.do", method=RequestMethod.GET)
+	public String storeOrderHistoryDetails(Model model) {
+		log.info("storeOrderHistoryDetails() GET -> 시작");
+		return "head/orderDeal/storeOrderHistoryDetails";
+	}
+}

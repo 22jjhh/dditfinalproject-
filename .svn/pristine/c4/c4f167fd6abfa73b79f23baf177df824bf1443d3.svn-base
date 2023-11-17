@@ -1,0 +1,215 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- ======= Hero Section ======= -->
+<section id="store_hero" class="d-flex align-items-center">
+	<div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+		<div class="row">
+			<div class="col-lg-8">
+				<h1>
+					단1%의 거짓도 없습니다! <span>1등 성공 신화!</span>
+				</h1>
+
+				<div class="btns">
+					<a href="#menu" class="btn-menu animated fadeInUp scrollto">메뉴 확인하기</a> 
+					<a href="#book-a-table" class="btn-book animated fadeInUp scrollto">예약 하기</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Hero -->
+
+<main id="main">
+	<div class="">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-2">
+				</div>
+				<div class="col-8">
+				
+					<!-- 개인정보 동의 수집 시작 -->
+					<h1 class="pt-5 pb-5">개인정보 수집 및 활용동의</h1>
+					<div class="border border-white pt-3">
+					<ol>
+					    <li class="">
+							개인정보의 수집 및 이용 목적<br>
+							가맹 관련 문의 확인 및 답변을 위한 연락통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
+					    </li>
+					    <li class="">
+							처리하는 개인정보 항목<br>
+							- 필수항목 : 이름, 연락처,창업희망지역,창업예상비용,상가 보유 유무,문의내용,문의내용상세 (접속 IP 정보, 쿠키, 서비스 이용 기록, 접속 로그)<br>
+							- 선택항목 : 나이, 이메일, 상가주소, 창업경험, 상담희망시간
+					    </li>
+					    <li class="">
+							개인정보의 처리 및 보유 기간<br>
+							① 법령에 따른 개인정보 보유.이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유, 이용기간 내에서 개인정보를 처리, 보유합니다.<br>
+							② 개인정보의 보유 기간은 5년입니다.
+					    </li>
+					</ol>
+					</div>
+					<div class="pt-3 pb-5">
+						<input type="checkbox" name="privacy_agree" id="inquiryPolicyCheck">
+						<label for="inquiryPolicyCheck" class="b_ff_m b_c_l">위 개인정보 수집 및 활용에 동의합니다.</label>
+					</div>
+					<!-- 개인정보 동의 수집 끝 -->
+					
+					<!-- 상담자 정보 시작 -->
+					<fieldset class="iqr_info">
+									<legend class="iqr_tit rel b_ff_h b_c_m">상담자 정보<small class="iqr_dot b_ff_m b_c_l"><span>동그라미 표시</span>는 필수입력항목입니다.</small></legend>
+									<table summary="상담자 정보 입력사항" class="inquiry_table">
+										<caption class="indent">상담자 정보 입력사항</caption>
+										<colgroup>
+											<col width="20%">
+											<col width="*">
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row" class="col1"><label for="iqr_name" class="required">이름</label></th>
+												<td class="col2"><input type="text" name="name" id="iqr_name" required="required"></td>
+											</tr>
+											<!-- <tr>
+												<th scope="row"><label for="iqr_hp" class="required">연락처</label></th>
+												<td>
+													<input type="text" name="hp" id="iqr_hp" required="required" />
+												</td>
+											</tr> -->
+											<tr>
+												<th scope="row"><label for="iqr_hp" class="required">연락처</label></th>
+												<td>
+													<input type="text" name="hp" id="iqr_hp" required="required" onkeyup="hero_key(this,1);">
+												</td>
+											</tr>
+																	<tr>
+												<th scope="row"><label for="iqr_special_01">나이</label></th>
+												<td>
+													<input type="text" name="special_01" id="iqr_special_01">
+												</td>
+											</tr>
+											
+											<tr>
+												<th scope="row"><label for="iqr_email_01" class="required">이메일</label></th>
+												<td>
+													
+						<input type="text" id="email_01" required="required" data-input="email" onkeyup="view3_email_value(this);">
+						<span class="bridge">@</span>
+						<input type="text" id="email_02" required="required" data-input="email" onkeyup="view3_email_value(this);">
+						<span class="nbsp"></span>
+						<select id="email_03" data-input="email" onchange="javascript:view3_email(this,this.options[this.selectedIndex].value);">
+							<option value="">직접입력</option>
+							<option value="naver.com">naver.com</option>
+							<option value="gmail.com">gmail.com</option>
+							<option value="nate.com">nate.com</option>
+							<option value="yahoo.co.kr">yahoo.co.kr</option>
+							<option value="hanmail.net">hanmail.net</option>
+							<option value="daum.net">daum.net</option>
+							<option value="dreamwiz.com">dreamwiz.com</option>
+							<option value="lycos.co.kr">lycos.co.kr</option>
+							<option value="empas.com">empas.com</option>
+							<option value="korea.com">korea.com</option>
+							<option value="paran.com">paran.com</option>
+							<option value="freechal.com">freechal.com</option>
+							<option value="hanmir.com">hanmir.com</option>
+							<option value="hotmail.com">hotmail.com</option>
+						</select>
+								<span class="iqr_email_ps b_ff_m b_c_l">※ 해외 가맹 상담 신청시 이메일 기재 필수</span>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="iqr_special_03" class="required">창업 희망 지역</label></th>
+										<td>
+											<!-- <input type="text" name="special_03" id="iqr_special_03" required="required" /> -->
+											<select id="iqr_special_03" name="special_03">
+												<option value="서울">서울</option>
+												<option value="인천">인천</option>
+												<option value="경기도">경기도</option>
+												<option value="충청도">충청도</option>
+												<option value="전라도">전라도</option>
+												<option value="경상도">경상도</option>
+												<option value="강원/제주">강원/제주</option>
+												<option value="해외">해외</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="iqr_special_04" class="required">창업 예상 비용</label></th>
+										<td>
+											<!-- <input type="text" name="special_04" id="iqr_special_04" required="required" />
+											<span class="text">만원 (숫자만 입력)</span> -->
+											<select id="iqr_special_04" name="special_04">
+												<option value="1억원 미만">1억원 미만</option>
+												<option value="1억 5천만원 미만">1억 5천만원 미만</option>
+												<option value="2억원">2억원</option>
+												<option value="2억 5천만원">2억 5천만원</option>
+												<option value="3억 이상">3억 이상</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="iqr_special_05_01" class="required">상가 보유 유무</label></th>
+										<td>
+											<input type="radio" name="special_05" id="iqr_special_05_02" value="유" checked="checked">
+											<label for="iqr_special_05_02">유</label>
+											<span class="nbsp"></span>
+											<input type="radio" name="special_05" id="iqr_special_05_01" value="무">
+											<label for="iqr_special_05_01">무</label>
+										</td>
+									</tr>
+															<tr>
+										<th scope="row"><label for="iqr_special_06">상가 주소</label></th>
+										<td>
+											<input type="text" name="special_06" id="iqr_special_06">
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="iqr_special_07">창업 경험</label></th>
+										<td>
+											<select id="iqr_special_07" name="special_07">
+												<option value="없음">없음</option>
+												<option value="치킨&amp;호프">치킨&amp;호프</option>
+												<option value="주류업">주류업</option>
+												<option value="일반음식점">일반음식점</option>
+												<option value="카페&amp;디저트">카페&amp;디저트</option>
+												<option value="기타">기타</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="iqr_special_08">상담 희망 시간</label></th>
+										<td>
+											<input type="text" name="special_08" id="iqr_special_08">
+										</td>
+									</tr>
+															<tr>
+										<th scope="row" class="v_top"><label for="iqr_command_02" class="required">문의 내용</label></th>
+										<td>
+											<input type="radio" name="command_02" id="command_02_01" value="신규창업" checked="checked">
+											<label for="command_02_01">신규창업</label>
+											<span class="nbsp"></span>
+											<input type="radio" name="command_02" id="command_02_02" value="업종변경">
+											<label for="command_02_02">업종변경</label>
+											<span class="nbsp"></span>
+											<input type="radio" name="command_02" id="command_02_03" value="단순문의">
+											<label for="command_02_03">단순문의</label>
+											<span class="nbsp"></span>
+											<input type="radio" name="command_02" id="command_02_04" value="입점제안">
+											<label for="command_02_04">입점제안</label>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row" class="v_top"><label for="iqr_command_01" class="required">문의 내용 상세</label></th>
+										<td>
+											<textarea name="command_01" id="iqr_command_01" required="required"></textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<button type="submit" class="b_btn01 bindInquirySubmit" onclick="inquiry(this.form);">문의하기</button>
+						</fieldset>
+						<!-- 상담자 정보 끝 -->
+				</div>
+				<div class="col-2">
+				</div>
+			</div>
+		</div>
+
+	</div>
+</main>

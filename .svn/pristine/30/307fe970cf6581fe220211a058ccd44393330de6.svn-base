@@ -1,0 +1,13 @@
+package kr.or.ddit.mapper.head;
+
+import java.util.List;
+
+import kr.or.ddit.vo.head.TotalInfoVO;
+
+public interface FoundationMapper {
+
+	public List<TotalInfoVO> selectAll(TotalInfoVO totalInfoVO);
+
+	public int totalCount();
+
+}

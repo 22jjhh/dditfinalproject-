@@ -1,0 +1,20 @@
+package kr.or.ddit.vo.head;
+
+import java.util.Date;
+
+import lombok.Data;
+
+@Data
+public class MenuVO {
+	
+	public String menuCd;
+	public String menuName;
+	public int menuPrice;
+	public String menuDes;
+	public String menuCg;
+	public String menuState;
+	public Date menuRsdate;
+	public Date menuDeldate;
+	public String tableName;
+	
+}

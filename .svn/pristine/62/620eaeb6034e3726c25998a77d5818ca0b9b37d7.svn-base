@@ -1,0 +1,13 @@
+package kr.or.ddit.mapper.member;
+
+import java.util.List;
+
+import kr.or.ddit.vo.member.ReviewVO;
+
+public interface MemberReviewMapper {
+
+	public int create(ReviewVO reviewVO);
+
+	public List<ReviewVO> myReviewList(String memId);
+
+}

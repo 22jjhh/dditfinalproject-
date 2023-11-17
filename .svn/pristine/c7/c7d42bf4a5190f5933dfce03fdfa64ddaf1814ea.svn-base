@@ -1,0 +1,64 @@
+package kr.or.ddit.controller.head.store;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.or.ddit.service.head.ISalesAnalysisService;
+import kr.or.ddit.vo.head.FeeVO;
+import kr.or.ddit.vo.head.HeadMonthVO;
+import kr.or.ddit.vo.head.HeadSalesTotalVO;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/head")
+public class SalesAnalysisController {
+	
+	@Inject
+	private ISalesAnalysisService service;
+
+	/**
+	 * 본사 매출 분석 페이지 로드시 년도별 매출 분석 기능
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/salesAnalysis.do", method=RequestMethod.GET)
+	public String storeDetails(Model model) {
+		
+//		FeeVO feeVO = service.headChart();
+//		
+//		List<FeeVO> allmonthfeeVO = service.allmonthheadChart();
+//		
+//		model.addAttribute("feeVO", feeVO);
+//		model.addAttribute("allmonthfeeVO", allmonthfeeVO);
+		
+		// 해당년도의 월별 매출 분석 기능
+		List<HeadMonthVO> headmonthVO = service.headmonthChart();
+		
+		model.addAttribute("monthList", headmonthVO);
+		
+		return "head/store/salesAnalysis";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/allmonth/salesAnalysis.do")
+	public ResponseEntity<List<FeeVO>> monthSalesDetails(@RequestBody HeadSalesTotalVO headsalesTotalVO){
+		
+		List<FeeVO> allmonthfeeVO = null;
+//		
+//		allmonthfeeVO = service.allmonthheadChart1(headsalesTotalVO);
+		
+		return new ResponseEntity<List<FeeVO>>(allmonthfeeVO, HttpStatus.OK);
+	}
+}

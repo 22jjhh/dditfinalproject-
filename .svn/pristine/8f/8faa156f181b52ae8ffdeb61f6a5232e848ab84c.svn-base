@@ -1,0 +1,174 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!-- Bootstrap Touchspin css -->
+<link href="${pageContext.request.contextPath }/resources/assets/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Bootstrap Touchspin js -->
+<script src="${pageContext.request.contextPath }/resources/assets/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+
+<div class="content-page">
+	<div class="content">
+		<!-- Start Content-->
+		<div class="container-fluid">
+		
+		    <!-- start page title -->
+		    <div class="row">
+		        <div class="col-12">
+		            <div class="page-title-box">
+		                <div class="page-title-right">
+		                    <ol class="breadcrumb m-0">
+		                        <li class="breadcrumb-item"><a href="javascript: void(0);">홈</a></li>
+		                        <li class="breadcrumb-item"><a href="javascript: void(0);">매입/매출 분석</a></li>
+		                        <li class="breadcrumb-item active">일일 매출 분석</li>
+		                    </ol>
+		                </div>
+		                <h4 class="page-title">일일 매출 분석</h4>
+		            </div>
+		        </div>
+		    </div>
+		    <!-- end page title -->
+		
+            <div class="row">
+                       <div class="col-12">
+                           <div class="card">
+                               <div class="card-body">
+                                   <div class="row">
+                                       <div class="col-lg-6">
+                                           <div class="table-responsive">
+ 				                          		<h3 class="my-1" style="text-align:center">2023년 10월 04일</h3><br>
+                                               <table class="table table-borderless table-nowrap table-centered mb-0">
+                                                   <thead class="table-light">
+                                                       <tr>
+                                                           <th style="text-align:center">메뉴명</th>
+                                                           <th style="text-align:center">판매수량</th>
+                                                           <th style="text-align:center">총 판매금액</th>
+                                                           <th style="width: 50px;"></th>
+                                                       </tr>
+                                                   </thead>
+                                                   <tbody>
+                                                       <tr>
+                                                           <td style="text-align:center">
+                                                           	     오징어 튀김
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               3개
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               300,000
+                                                           </td>
+                                                           <td>
+                                                               <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                           </td>
+                                                       </tr>
+														<tr>
+                                                           <td style="text-align:center">
+                                                           	     오징어 튀김
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               3개
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               300,000
+                                                           </td>
+                                                           <td>
+                                                               <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                           </td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td style="text-align:center">
+                                                           	     오징어 튀김
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               3개
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               300,000
+                                                           </td>
+                                                           <td>
+                                                               <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                           </td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td style="text-align:center">
+                                                           	     오징어 튀김
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               3개
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               300,000
+                                                           </td>
+                                                           <td>
+                                                               <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                           </td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td style="text-align:center">
+                                                           	     오징어 튀김
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               3개
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               300,000
+                                                           </td>
+                                                           <td>
+                                                               <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                           </td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td style="text-align:center">
+                                                           	     오징어 튀김
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               3개
+                                                           </td>
+                                                           <td style="text-align:center">
+                                                               300,000
+                                                           </td>
+                                                           <td>
+                                                               <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                           </td>
+                                                       </tr>                                                   </tbody>
+                                               </table>
+                                           </div> <!-- end table-responsive-->
+
+
+                                           <!-- action buttons-->
+                                           <div class="row mt-4">
+                                               <div class="col-sm-6">
+                                                   <a href="apps-ecommerce-products.html" class="btn text-muted d-none d-sm-inline-block btn-link fw-semibold">
+                                                       <i class="mdi mdi-arrow-left"></i> 이전 일일 매출 내역 </a>
+                                               </div> <!-- end col -->
+                                               <div class="col-sm-6">
+                                                   <div class="text-sm-end">
+                                                       <a href="apps-ecommerce-checkout.html" class="btn btn-danger">
+                                                           <i class="mdi mdi-cart-plus me-1"></i> 매출 수정 </a>
+                                                   </div>
+                                               </div> <!-- end col -->
+                                           </div> <!-- end row-->
+                                       </div>
+                                       <!-- end col -->
+
+                                       <div class="col-lg-6">
+                                           <div class="border p-3 mt-4 mt-lg-0 rounded" style="height:100%">
+                                               <h4 class="header-title mb-3">일별 매출 그래프</h4>
+													차트...
+                                               <!-- end table-responsive -->
+                                           </div>
+                                       </div> <!-- end col -->
+                                   </div> <!-- end row -->
+                               </div> <!-- end card-body-->
+                           </div> <!-- end card-->
+                       </div> <!-- end col -->
+                   </div>
+		</div> <!-- container -->
+	</div> <!-- content -->
+</div>
+<script type="text/javascript">
+$(function(){
+	$('.btn-danger').on("click", function(){
+		alert("납부");
+	});
+});
+</script>

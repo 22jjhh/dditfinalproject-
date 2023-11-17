@@ -1,0 +1,126 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="content-page">
+	<div class="content">
+
+		<div class="container-fluid">
+
+			<!-- start page title -->
+			<div class="row">
+				<div class="col-12">
+					<div class="page-title-box">
+						<div class="page-title-right">
+							<ol class="breadcrumb m-0">
+								<li class="breadcrumb-item"><a href="javascript: void(0);">가맹점페이지</a></li>
+								<li class="breadcrumb-item"><a href="javascript: void(0);">가맹점정보관리</a></li>
+								<li class="breadcrumb-item active">좌석관리</li>
+							</ol>
+						</div>
+						<h4 class="page-title">좌석관리</h4>
+					</div>
+				</div>
+			</div>
+			<!-- end page title -->
+
+		</div>
+
+		<!-- container -->
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="row mb-2">
+							<div class="col-sm-12">
+								<!-- 
+	                          <a href="javascript:void(0);" class="btn btn-danger mb-2">
+	                          <i class="mdi mdi-plus-circle me-2"></i>
+	                         	 좌석 생성하기
+	                          </a>
+	                          -->
+								<button type="button" class="btn btn-secondary"
+									data-bs-toggle="modal" data-bs-target="#seatmodal">
+									<i class="mdi mdi-plus-circle me-2"></i> 좌석 생성하기
+								</button>
+								
+								<div class="modal fade" id="seatmodal" tabindex="-1"
+									role="dialog" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title" id="myCenterModalLabel">좌석 생성하기</h4>
+												<button type="button" class="btn-close"
+													data-bs-dismiss="modal" aria-hidden="true"></button>
+											</div>
+											<div class="modal-body" id="modal">
+												<h5>각 좌석의 개수를 입력해 주세요.</h5><br>
+												
+	                                          	<form class="ps-3 pe-3" action="/owner/seatArrangement.do" method="post" id="seatForm">
+													<div class="mb-3">
+														<label class="form-label" name="">2인석</label>
+														<input id="t2" data-toggle="touchspin" type="number" min="0" max="20" value="0" class="form-control"> 
+													</div>
+	
+													<div class="mb-3">
+														<label class="form-label">4인석</label>
+														<input id="t4" data-toggle="touchspin" type="number" min="0" max="20" value="0" class="form-control">
+													</div>
+	
+													<div class="mb-3">
+														<label class="form-label">룸(8인석)</label>
+														<input id="t8" data-toggle="touchspin" type="number" min="0" max="10" value="0" class="form-control">
+													</div>
+	                                         	</form>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-light"	data-bs-dismiss="modal">닫기</button>
+												<button type="button" class="btn btn-primary" id="subBtn">좌석 배치하기</button>
+											</div>
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal-dialog -->
+								</div>
+								<!-- /.modal -->
+							</div>
+						</div>
+						<div class="card-body" style="display:flex; justify-content: center;">
+							<div id="seatspace"  style="width:800px; height:600px; background-color:#fafafd; border:1px solid lightgray; border-radius: 10px;"></div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- content -->
+
+</div>
+
+<script type="text/javascript">
+$(function(){
+	var subBtn = $("#subBtn");
+	
+	subBtn.on("click", function(){
+		var popupW = 1000;
+		var popupH = 800;
+		var left = Math.ceil((window.screen.width - popupW)/2);
+		var top = Math.ceil((window.screen.height - popupH)/2);
+		
+		var t2 = document.getElementById('t2').value;
+		var t4 = document.getElementById('t4').value;
+		var t8 = document.getElementById('t8').value;
+
+		window.open('${pageContext.request.contextPath }/owner/seatArrangement.do?t2='+ t2 +'&&t4='+ t4 +'&&t8='+ t8, '좌석 배치하기', 'location=no, top='+top+', left='+left+', width='+popupW+', height='+popupH+', status=no, menubar=no, toolbar=no, resizable=no');
+// 	    window.location.href = ''
+// 		location.href = "";
+// 		location :  주소창 표시 유무
+// 	    directories :  연결 표시 유무 
+// 	    resizable :  크기의 조절 가능 유무 
+// 	    status :  아래에 로딩 표시되는 바 유무
+// 	    toolbar :  뒤로 앞으로 각종 폴더등 도구상자 유무 
+// 	    menubar :  파일 편집.. 등 메뉴 유무
+// 	    scrollbars : 스크롤바 유무
+
+	});
+});
+
+</script>

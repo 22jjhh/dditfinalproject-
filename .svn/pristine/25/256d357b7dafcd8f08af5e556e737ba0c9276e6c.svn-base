@@ -1,0 +1,129 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="content-page">
+	<div class="content">
+
+		<div class="container-fluid">
+
+			<!-- start page title -->
+			<div class="row">
+				<div class="col-12">
+					<div class="page-title-box">
+						<div class="page-title-right">
+							<ol class="breadcrumb m-0">
+								<li class="breadcrumb-item"><a href="javascript: void(0);">가맹점페이지</a></li>
+								<li class="breadcrumb-item"><a href="javascript: void(0);">가맹점정보관리</a></li>
+								<li class="breadcrumb-item active">좌석관리</li>
+							</ol>
+						</div>
+						<h4 class="page-title">좌석관리</h4>
+					</div>
+				</div>
+			</div>
+			<!-- end page title -->
+
+		</div>
+
+		<!-- container -->
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="row mb-2">
+							<div class="col-sm-12">
+								<!-- 
+	                          <a href="javascript:void(0);" class="btn btn-danger mb-2">
+	                          <i class="mdi mdi-plus-circle me-2"></i>
+	                         	 좌석 생성하기
+	                          </a>
+	                          -->
+								<button type="button" class="btn btn-secondary"
+									data-bs-toggle="modal" data-bs-target="#centermodal">
+									<i class="mdi mdi-plus-circle me-2"></i> 좌석 생성하기
+								</button>
+								<div class="modal fade" id="centermodal" tabindex="-1"
+									role="dialog" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title" id="myCenterModalLabel">좌석 생성하기</h4>
+												<button type="button" class="btn-close"
+													data-bs-dismiss="modal" aria-hidden="true"></button>
+											</div>
+											<div class="modal-body">
+												<h5>각 좌석의 개수를 입력해 주세요.</h5><br>
+												<!--
+	                                          <form class="ps-3 pe-3" action="#"> -->
+
+												<div class="mb-3">
+													<label class="form-label">2인석</label>
+													<div
+														class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
+														<span class="input-group-btn input-group-prepend">
+															<button class="btn btn-primary bootstrap-touchspin-down"
+																type="button">-</button>
+														</span> <input data-toggle="touchspin" type="text" value="0"
+															class="form-control"> <span
+															class="input-group-btn input-group-append">
+															<button class="btn btn-primary bootstrap-touchspin-up"
+																type="button">+</button>
+														</span>
+													</div>
+												</div>
+
+												<div class="mb-3">
+													<label class="form-label">4인석</label>
+													<div
+														class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
+														<span class="input-group-btn input-group-prepend">
+															<button class="btn btn-primary bootstrap-touchspin-down"
+																type="button">-</button>
+														</span> <input data-toggle="touchspin" type="text" value="0"
+															class="form-control"> <span
+															class="input-group-btn input-group-append">
+															<button class="btn btn-primary bootstrap-touchspin-up"
+																type="button">+</button>
+														</span>
+													</div>
+												</div>
+
+												<div class="mb-3">
+													<label class="form-label">룸(8인석)</label>
+													<div
+														class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
+														<span class="input-group-btn input-group-prepend">
+															<button class="btn btn-primary bootstrap-touchspin-down"
+																type="button">-</button>
+														</span> <input data-toggle="touchspin" type="text" value="0"
+															class="form-control"> <span
+															class="input-group-btn input-group-append">
+															<button class="btn btn-primary bootstrap-touchspin-up"
+																type="button">+</button>
+														</span>
+													</div>
+												</div>
+
+												<!--
+	                                          </form> -->
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-light"
+													data-bs-dismiss="modal">닫기</button>
+												<button type="button" class="btn btn-primary">저장</button>
+											</div>
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal-dialog -->
+								</div>
+								<!-- /.modal -->
+							</div>
+						</div>
+						<canvas id="myCanvas" width="800px" height="600px"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- content -->
+
+</div>

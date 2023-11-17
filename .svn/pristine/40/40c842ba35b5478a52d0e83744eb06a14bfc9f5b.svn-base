@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.owner.FrcsBillMapper">
+
+	<!-- include를 처리하기 위한 동적 쿼리 -->
+	<sql id="duesSearch">
+		<if test="searchYear != null and searchYear != '' ">
+			and (dues_payde like '%'||#{searchYear}||'%')
+		</if>
+		<if test="searchMonth != null and searchMonth != '' ">
+			and (dues_payde like '_____'||#{searchMonth})
+		</if>
+	</sql>
+	
+	<select id="duesList" parameterType="string" resultType="duesVO">
+		select dues_payde, p.frcs_id, dues_elcty, dues_water, dues_gas, dues_mtht, dues_date, dues_mthtyn
+		from publicdues p, frcs_ownership f
+		where p.frcs_id  = f.frcs_id and f.mem_id= #{memId}
+		order by dues_payde desc
+	</select>
+	
+	<insert id="duesRegister" parameterType="duesVO">
+		insert into publicdues (
+			dues_payde, frcs_id, dues_elcty, dues_water, dues_gas, dues_mtht, dues_date, dues_mthtyn
+		) values (
+			 #{duesPayde}, #{frcsId}, #{duesElcty}, #{duesWater}, #{duesGas}, #{duesMtht}, sysdate , #{duesMthtYN}
+		)
+	</insert>
+	
+	<select id="duesPaydeCheck" parameterType="duesVO" resultType="int">
+		select count(dues_payde)
+	 	from publicdues
+	 	where dues_payde= #{duesPayde} and frcs_id = #{frcsId}
+	</select>
+	
+	<select id="frcsIdInfo" parameterType="String" resultType="String">
+		select frcs_id
+		from frcs_ownership
+		where mem_id = #{memId}
+	</select>
+	
+	<select id="average" parameterType="string" resultType="duesVO">
+		select avg(dues_elcty) as dues_elcty, avg(dues_gas) as dues_gas, avg(dues_water) as dues_water, avg(dues_mtht) as dues_mtht
+		from publicdues
+		where frcs_id = #{frcsId}
+	</select>
+	
+	<select id="totalAverage" parameterType="string" resultType="duesVO">
+		select avg(dues_elcty) as dues_elcty, avg(dues_gas) as dues_gas, avg(dues_water) as dues_water, avg(dues_mtht) as dues_mtht
+		from publicdues
+	</select>
+	
+	<delete id="duesRemove" parameterType="map">
+		delete from publicdues
+		where frcs_id = #{frcsId} and dues_payde = #{duesPayde}
+	</delete>
+
+	<select id="selectDuesCount" parameterType="ownerPagingVO" resultType="int">
+		select count(dues_payde)
+		from publicdues p, frcs_ownership f
+		where p.frcs_id  = f.frcs_id and f.mem_id= #{memId}
+		<include refid="duesSearch"/>
+	</select>
+	
+	<select id="selectDuesList" parameterType="ownerPagingVO" resultType="duesVO" >
+		select 
+			b.*
+		from (
+			select 
+				a.*, row_number() over (order by a.dues_payde desc) rnum
+			from(
+				select
+					dues_payde, p.frcs_id, dues_elcty, dues_water, dues_gas, dues_mtht, dues_date, dues_mthtyn
+				from publicdues p, frcs_ownership f
+				where p.frcs_id  = f.frcs_id and f.mem_id= #{memId}
+				<include refid="duesSearch"/>
+				order by dues_payde desc
+			)a
+		)b	
+		<![CDATA[	
+			where b.rnum >= #{startRow} and b.rnum <= #{endRow}
+		]]>
+	</select>
+	
+	<select id="duesDetail" parameterType="map" resultType="duesVO">
+		select dues_payde, frcs_id, dues_elcty, dues_water, dues_gas, dues_mtht, dues_date, dues_mthtyn
+		from publicdues
+		where frcs_id= #{frcsId} and dues_payde = #{duesPayde} 
+	</select>
+	
+	<!-- 차트 자료  -->
+	<select id="getData" parameterType="string" resultType="duesVO">
+		select dues_elcty, dues_gas, dues_water, dues_mtht, dues_payde
+		from publicdues
+		where frcs_id = #{frcsId} and dues_payde like to_char(sysdate,'yyyy')||'%'
+	</select>
+	
+	<!-- 로얄티  3% -->
+	<select id="getfrcsRowal" parameterType="map" resultType="int">
+		select nvl(sum(selng_qy* selng_price)*0.03,0) as frcs_rowal
+		from dailyselling d, head_menu h
+		where frcs_id = #{frcsId} and trunc(selng_date, 'MM') = trunc(#{thisMonth}, 'MM')
+		and d.menu_cd = h.menu_cd
+	</select>
+	
+	<!-- 제품 구입비 -->
+	<select id="getorderAmt" parameterType="map" resultType="int">
+		select nvl(sum(frcsorder_amt),0) as order_amt
+		from frcsorder
+		where frcs_id = #{frcsId} and trunc(frcsorder_date, 'MM') = trunc(#{thisMonth}, 'MM')
+		and frcsorder_confm = '승인'
+	</select>
+	
+	<!-- 트레이딩 추가비 -->
+	<select id="gettradAdd" parameterType="map" resultType="int">
+		select nvl(sum(trad_amt),0) as trad_add
+		from trading
+		where frcs_id = #{frcsId} and trunc(trad_date, 'MM') = trunc(#{thisMonth}, 'MM')
+		and trad_stts = '수락'
+	</select>
+	
+ 	<!-- 트레이딩 삭감비 --> 
+	<select id="gettradRedct" parameterType="map" resultType="int">
+		select nvl(sum(trad_amt),0) as trad_redct
+		from trading
+		where frcs_id2 = #{frcsId} and trunc(trad_date, 'MM') = trunc(#{thisMonth}, 'MM')
+		and trad_stts = '수락'
+	</select>
+
+
+	<!-- 가맹비 총괄 테이블에 존재하는지 존재하지 않는지 체크 -->
+	<select id="dupliCheck" parameterType="headfeeVO" resultType="int">
+		select count(fee_code) 
+		from fee
+		where frcs_id = #{frcsId} and fee_chargedate = #{feeChargedate}
+	</select>
+	
+	<select id="getFeecode" parameterType="headfeeVO" resultType="string">
+		select fee_code
+		from fee
+		where frcs_id = #{frcsId} and fee_chargedate = #{feeChargedate}
+	</select>
+	
+	<!-- 가맹비 총괄 테이블에 이미 존재한다면 총금액 업데이트 -->
+	<update id="updateFee" parameterType="headfeeVO">
+		update fee
+		set fee_totalpay = #{feeTotalpay}
+		where fee_code = #{feeCode}
+	</update>
+	
+	<update id="updateDetail" parameterType="billVO">
+		update frcsbill
+		set frcs_rowal = #{frcsRowal}, 
+			order_amt = #{orderAmt},
+			trad_add =  #{tradAdd},
+			trad_redct =  #{tradRedct}
+		where fee_code = #{feeCode}
+	</update>
+	
+	<!-- 가맹비 총괄 테이블에 존재하지 않으면 가맹비 총괄 테이블에 insert -->
+	<insert id="insertFee" parameterType="headfeeVO" useGeneratedKeys="true">
+		<selectKey keyProperty="feeCode" resultType="string" order="BEFORE">
+			select 'F'||to_char(#{thisMonth}, 'yyyyMM')||'_'|| to_char(seq_fee.nextval, 'FM00000') from dual
+		</selectKey>	
+		insert into fee(
+			fee_code, frcs_id, fee_dday, fee_totalpay, fee_status, fee_chargedate, fee_paydate
+			)values (
+			#{feeCode}, #{frcsId}, #{feeDday}, #{feeTotalpay}, 'O', #{feeChargedate}, sysdate
+			)
+	</insert>
+	
+	<!--  가맹비 디테일 테이블에 데이터 insert -->
+	<insert id="insertDetail" parameterType="billVO" useGeneratedKeys="true">
+		<selectKey keyProperty="feeCode" resultType="string" order="BEFORE">
+			select 'F'||to_char(#{thisMonth}, 'yyyyMM')||'_'|| to_char(seq_fee.currval, 'FM00000') from dual
+		</selectKey>	
+		insert into frcsbill(
+			fee_code, frcs_id, frcs_amt, frcs_rowal, order_amt, trad_add, trad_redct, frcs_nonpayment, frcs_nonpaydate, frcsbill_overdue, settle_at, settle_date
+			)values(
+			#{feeCode}, #{frcsId}, #{frcsAmt}, #{frcsRowal}, #{orderAmt}, #{tradAdd}, #{tradRedct}, 0, 'N', 0, 'Y', sysdate
+			)
+	</insert>
+	
+	
+	
+</mapper>

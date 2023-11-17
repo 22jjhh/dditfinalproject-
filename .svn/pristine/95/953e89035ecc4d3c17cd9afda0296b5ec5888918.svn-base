@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.owner.MyPageMapper">
+
+	<select id="detail" parameterType="String" resultType="FranchiseVO">
+ 		select
+ 			FRCS_ID, FRCS_NAME, FRCS_STATE, FRCS_TEL, FRCS_STDATE, 
+ 			FRCS_ENDDATE, FRCS_POST, FRCS_ADD1, FRCS_ADD2, FRCS_STTIME, 
+ 			FRCS_ENDTIME, FRCS_CDATE, FRCS_INSDATE, FRCS_INEDATE, FRCS_OPDATE, 
+ 			FRCS_XMAP, FRCS_YMAP, FRCS_STAR, FRCS_PSNCPA
+ 		from FRANCHISE
+ 		where FRCS_ID = 'aaabbb2'
+ 	</select>
+
+</mapper>

@@ -1,0 +1,54 @@
+package kr.or.ddit.service.head.impl;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.mapper.head.ProposalMapper;
+import kr.or.ddit.service.head.IProposalService;
+import kr.or.ddit.vo.AttachVO;
+import kr.or.ddit.vo.head.ProposalVO;
+import kr.or.ddit.vo.member.BoardVO;
+import kr.or.ddit.vo.member.PaginationInfoVO;
+
+@Service
+public class ProposalServiceImpl implements IProposalService {
+
+	@Inject
+	private ProposalMapper proposalMapper;
+	
+	@Override
+	public int selectBoardCount(PaginationInfoVO<BoardVO> pagingVO) {
+		return proposalMapper.selectBoardCount(pagingVO);
+	}
+
+	@Override
+	public List<BoardVO> selectBoardList(PaginationInfoVO<BoardVO> pagingVO) {
+		return proposalMapper.selectBoardList(pagingVO);
+	}
+
+	@Override
+	public BoardVO selectBoard(int tableNo) {
+		proposalMapper.incrementHit(tableNo);
+		return proposalMapper.selectBoard(tableNo);
+	}
+
+	@Override
+	public ServiceResult insertBoard(HttpServletRequest req, ProposalVO proposalVO) {
+	    ServiceResult result = null;
+	    int status = proposalMapper.insertBoard(proposalVO);
+	    if(status > 0) {
+	        
+	        result = ServiceResult.OK;
+	    } else {
+	        result = ServiceResult.FAILED;
+	    }
+	    return result;
+	}
+
+}

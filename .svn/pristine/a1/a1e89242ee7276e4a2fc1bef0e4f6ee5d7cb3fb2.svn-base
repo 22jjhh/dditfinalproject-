@@ -1,0 +1,10 @@
+package kr.or.ddit.service.member;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.vo.member.ReviewVO;
+
+public interface IMemberReviewService {
+
+	public ServiceResult create(ReviewVO reviewVO);
+
+}

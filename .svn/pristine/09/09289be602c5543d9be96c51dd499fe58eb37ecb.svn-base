@@ -1,0 +1,34 @@
+package kr.or.ddit.mapper.owner;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.vo.owner.FrcsInventoryVO;
+import kr.or.ddit.vo.owner.FrcsOrderDetailVO;
+import kr.or.ddit.vo.owner.FrcsOrderVO;
+import kr.or.ddit.vo.owner.OwnerPaginationInfoVO;
+
+public interface FrcsOrderMapper {
+	
+	// 빌주 가능 리스트 조회 (페이징x)
+	public List<FrcsInventoryVO> getInventList(String memId);
+	
+	// 검색
+	public List<FrcsInventoryVO> inventSearch(@Param("searchWord")String searchWord, @Param("searchType")String searchType, @Param("frcsId")String frcsId);
+
+	public String getFrcsId(String memId);
+	
+	// 발주
+	public int orderDetailInsert(FrcsOrderDetailVO detailVO);
+	public int orderInsert(FrcsOrderVO frcsOrderVO);
+
+	// 발주 내역 리스트 (페이징o)
+	public int selectOrderCount(OwnerPaginationInfoVO<FrcsOrderVO> pagingVO);
+	public List<FrcsOrderVO> selectOrderList(OwnerPaginationInfoVO<FrcsOrderVO> pagingVO);
+
+	// 발주 취소
+	public int orderCancel(String frcsOrderNo);
+	
+}

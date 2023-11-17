@@ -1,0 +1,96 @@
+package kr.or.ddit.controller.owner;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.or.ddit.service.owner.ISeatService;
+import kr.or.ddit.vo.owner.FrcsSeatVO;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/owner")
+public class OwnerSeatController {
+	
+	@Inject
+	private ISeatService service;
+
+	@RequestMapping(value="/seat.do", method = RequestMethod.GET )
+	public String ownerSeatContent(Model model) {
+//		List<FrcsSeatVO> frcsSeatList = service.frcsSeatList();
+//		model.addAttribute("list", frcsSeatList);
+		return "owner/info/seatContent";
+	}
+	
+	@RequestMapping(value="/seatArrangement.do", method = RequestMethod.GET )
+	public String ownerSeatArrangement() {
+		return "owner/info/notiles/seatArrangement";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/seatArrangement.do", method = RequestMethod.POST )
+	public ResponseEntity<List<FrcsSeatVO>> ownerSeatRegister(
+			@RequestBody List<FrcsSeatVO> frcsSeatList) {
+//		log.info(frcsSeatList.get(0).toString());
+		
+		for(FrcsSeatVO seatVO : frcsSeatList) {
+			
+			log.info("seatCd : " + seatVO.getSeatCd());
+			log.info("seatAngle : " + seatVO.getSeatAngle());
+			
+			String seatCd = seatVO.getSeatCd();
+//			String frcsId = seatVO.getFrcsId();
+//			int seatXmap = seatVO.getSeatXmap();
+//			int seatYmap = seatVO.getSeatYmap();
+			String seatAngle = seatVO.getSeatAngle();
+			
+			FrcsSeatVO seat = new FrcsSeatVO();
+			seat.setSeatCd(seatCd);
+//			seat.setFrcsId(frcsId);
+//			seat.setSeatXmap(seatXmap);
+//			seat.setSeatYmap(seatYmap);
+			seat.setSeatAngle(seatAngle);
+			
+			service.seatRegister(seat);
+		}
+		
+		return new ResponseEntity<List<FrcsSeatVO>>(HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/seatDelete.do", method = RequestMethod.POST )
+	public String ownerSeatDelete(String frcsId, Model model) {
+		service.seatDelete(frcsId);
+		return "/owner/info/seatContent";
+	}
+	
+	
+//	@ResponseBody
+//	@RequestMapping(value="/seatArrangement.do", method = RequestMethod.POST )
+//	public String ownerSeatRegister(@RequestBody List<Map<String, String>> seatData) {
+//		
+//		try {
+//			for (Map<String, String> seatInfo : seatData) {
+//				FrcsSeatVO seat = new FrcsSeatVO();
+//				seat.setSeatCd(seatInfo.get("id"));
+//				seat.setSeatAngle(seatInfo.get("style"));
+//				service.save(seat);
+//			}
+//			// 성공적으로 처리되었음을 클라이언트에게 응답으로 보냅니다.
+//			return "success";
+//		} catch (Exception e) {
+//			// 처리 중 오류가 발생하면 클라이언트에게 에러 응답을 보냅니다.
+//			return "error";
+//		}
+//	}
+	
+}

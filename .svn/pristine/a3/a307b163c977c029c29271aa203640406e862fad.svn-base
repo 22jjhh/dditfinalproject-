@@ -1,0 +1,13 @@
+package kr.or.ddit.service.owner;
+
+import java.util.List;
+
+import kr.or.ddit.vo.owner.FrcsOfficialDocVO;
+import kr.or.ddit.vo.owner.OwnerPaginationInfoVO;
+
+public interface IFrcsOfficialDocService {
+
+	public int selectOfldcCount(OwnerPaginationInfoVO<FrcsOfficialDocVO> pagingVO);
+	public List<FrcsOfficialDocVO> selectOfldcList(OwnerPaginationInfoVO<FrcsOfficialDocVO> pagingVO);
+
+}

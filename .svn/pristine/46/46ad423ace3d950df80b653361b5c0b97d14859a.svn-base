@@ -1,0 +1,49 @@
+package kr.or.ddit.service.head;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.head.SlaesAnalysisMapper;
+import kr.or.ddit.vo.head.FeeVO;
+import kr.or.ddit.vo.head.HeadSalesTotalVO;
+
+@Service
+public class SalesAnalysisServiceImpl implements ISalesAnalysisService {
+
+	@Inject
+	private SlaesAnalysisMapper mapper;
+
+	/**
+	 * 본사 매출 서비스 로직
+	 * 
+	 * @param FeeVO
+	 */
+	@Override
+	public FeeVO headChart() {
+		
+		FeeVO feeVO = new FeeVO();
+		
+		// 본사 년도별 총 (가맹비, 로얄티, 제품구입비) 조회
+		HeadSalesTotalVO headbillVO = mapper.headfrcsbillChart();
+		int frcsAmt = headbillVO.getFrcsAmt();
+		int frcsRowal = headbillVO.getFrcsRowal();
+		int orderAmt = headbillVO.getOrderAmt();
+		
+		// 가맹점 년도별 승인된 가격 조회
+		HeadSalesTotalVO headdailysellVO = mapper.headfrcsdailysellingChart();
+		int selngPrice = headdailysellVO.getSelngPrice();
+		
+		feeVO.setFrcsAmt(frcsAmt);
+		feeVO.setFrcsRowal(frcsRowal);
+		feeVO.setOrderAmt(orderAmt);
+		feeVO.setSelngPrice(selngPrice);
+		feeVO.setHeadyearTotalPrice(frcsAmt + frcsRowal + selngPrice);
+		
+		return feeVO;
+	}
+
+
+	
+
+}

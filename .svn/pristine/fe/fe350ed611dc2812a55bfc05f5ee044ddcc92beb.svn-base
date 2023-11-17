@@ -1,0 +1,77 @@
+package kr.or.ddit.controller.owner;
+
+import java.security.Principal;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.service.owner.IFrcsBillService;
+import kr.or.ddit.vo.owner.FrcsPublicDuesVO;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/owner")
+public class OwnerPublicDuesController {
+
+	@Inject
+	private IFrcsBillService service;
+	
+	@PreAuthorize("hasRole('ROLE_OWNER')")
+	@RequestMapping(value="/dues.do", method = RequestMethod.GET)
+	public String publicDuesList(Model model) {
+		
+		// 사용자 정보 가져오기
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String memId = user.getUsername();
+		
+		List<FrcsPublicDuesVO> duesList = service.duesList(memId);
+		
+		// memId값으로 프랜차이즈 아이디 얻어오기
+		String frcsId = service.frcsIdInfo(memId);
+//		duesVO.setFrcsId(frcsId);
+		
+		model.addAttribute("duesList",duesList);
+		model.addAttribute("frcsId",frcsId);
+		
+		return "owner/payment/publicDuesList";
+	}
+	
+	@RequestMapping(value="/dues/register.do", method = RequestMethod.POST)
+	public String publicDuesRegister(FrcsPublicDuesVO duesVO) {
+		
+		service.duesRegister(duesVO);
+		
+ 		return "redirect:/owner/dues.do";
+	}
+
+	// 페이지를 리턴하는 것이 아니라 데이터를 리턴하는 것이기 때문에 @RequestBody 어노테이션을 사용
+	@ResponseBody 
+	@RequestMapping(value="/dues/duesPaydeCheck.do", method = RequestMethod.POST)
+	public ResponseEntity<ServiceResult> duesPaydeCheck(String duesPayde){
+		ServiceResult result = service.duesPaydeCheck(duesPayde);
+		return new ResponseEntity<ServiceResult>(result, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/dues/delete.do", method = RequestMethod.POST)
+	public String publicDuesDelete(@RequestParam("duesPayde")String duesPayde, @RequestParam("frcsId")String frcsId) {
+		service.duesRemove(duesPayde,frcsId);
+		// 삭제 시 dusePayde랑 가맹점주 코드 같이 보내야한다.
+		return "redirect:/owner/dues.do";
+	}
+	
+	
+}

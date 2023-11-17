@@ -1,0 +1,31 @@
+package kr.or.ddit.service.owner.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.owner.FrcsBillMapper;
+import kr.or.ddit.service.owner.IFrcsBillService;
+import kr.or.ddit.vo.owner.FrcsPublicDuesVO;
+
+@Service
+public class FrcsBillServiceImpl implements IFrcsBillService {
+
+	@Inject
+	private FrcsBillMapper mapper;
+
+	@Override
+	public List<FrcsPublicDuesVO> duesList(String memId) {
+		return mapper.duesList(memId);
+		
+	}
+
+	@Override
+	public void duesRegister(FrcsPublicDuesVO duesVO) {
+		mapper.duesRegister(duesVO);
+		
+	}
+
+}

@@ -1,0 +1,65 @@
+package kr.or.ddit.controller.owner;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import kr.or.ddit.service.owner.IFrcsMyPageService;
+import kr.or.ddit.vo.owner.FranchiseVO;
+
+@Controller
+@RequestMapping("/owner")
+public class OwnerMyPageController {
+
+	@Inject
+	private IFrcsMyPageService service;
+	
+	@RequestMapping(value="/mypageDetail.do", method = RequestMethod.GET )
+	public String ownerMyPageDetail(String frcsId, Model model) {
+		FranchiseVO frcs = service.detail(frcsId);
+		model.addAttribute("frcs", frcs);
+		return "owner/info/mypageDetail";
+	}
+	
+	@RequestMapping(value="/mypageUpdate.do", method = RequestMethod.GET )
+	public String ownerMyPageForm(String frcsId, Model model) {
+		FranchiseVO frcs = service.detail(frcsId);
+		model.addAttribute("frcs", frcs);
+		return "owner/info/mypageForm";
+	}
+	
+	@RequestMapping(value="/mypageUpdate.do", method = RequestMethod.POST )
+	public String ownerMyPageUpdate(FranchiseVO franchiseVO, Model model) {
+		service.update(franchiseVO);
+		model.addAttribute("franchiseVO", franchiseVO);
+		return "owner/info/mypageDetail";
+	}
+//	@RequestMapping(value="/mypageUpdate.do", method = RequestMethod.POST )
+//	public String ownerMyPageUpdate(
+//			HttpServletRequest req,
+//			RedirectAttributes ra,
+//			FranchiseVO franchiseVO, Model model) {
+//		String goPage = "";
+//		ServiceResult result = service.update(req, franchiseVO);
+//		if(result.equals(ServiceResult.OK)) {
+//			ra.addFlashAttribute("message", "수정이 완료되었습니다!");
+//			goPage = "redirect:/owner/mypageDetail.do";
+//		}else {
+//			model.addAttribute("message", "수정에 실패했습니다!");
+//			model.addAttribute("frcs", franchiseVO);
+//			goPage = "owner/info/myPageForm";
+//		}
+//		return goPage;
+//	}
+	
+//	@RequestMapping(value="/mypageUpdate.do", method = RequestMethod.POST )
+//	public String ownerMyPageUpdate(String frcsId, Model model) {
+//		FranchiseVO frcs = service.update(frcsId);
+//		model.addAttribute("frcs", frcs);
+//		return "owner/info/mypageForm";
+//	}
+	
+}

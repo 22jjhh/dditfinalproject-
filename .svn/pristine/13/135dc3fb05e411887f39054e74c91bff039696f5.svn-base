@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.owner.FrcsMenuMapper">
+
+<!-- 	<resultMap type="FrcsMenuVO" id="frcsMenuMap"> -->
+<!-- 		<id property="menuCd" column="menu_cd"/> -->
+<!-- 		<result property="menuCd" column="menu_cd"/> -->
+<!-- 		<result property="frcsId" column="frcs_id"/> -->
+<!-- 		<result property="saleYn" column="sale_yn"/> -->
+<!-- 		<collection property="FrcsMenuList" ofType="MenuVO" resultMap="menuMap"/> -->
+<!-- 	</resultMap> -->
+	
+<!-- 	<resultMap type="MenuVO" id="menuMap"> -->
+<!-- 		<id property="menuCd" column="menu_cd"/> -->
+<!-- 		<result property="menuCd" column="menu_cd"/> -->
+<!-- 		<result property="menuName" column="menu_name"/> -->
+<!-- 		<result property="menuPrice" column="menu_price"/> -->
+<!-- 		<result property="menuDes" column="menu_des"/> -->
+<!-- 		<result property="menuCg" column="menu_cg"/> -->
+<!-- 		<result property="menuState" column="menu_state"/> -->
+<!-- 		<result property="menuRsdate" column="menu_rsdate"/> -->
+<!-- 		<result property="menuDeldate" column="menu_deldate"/> -->
+<!-- 		<result property="tableName" column="table_name"/> -->
+<!-- 	</resultMap> -->
+	
+	
+
+<!-- 	<select id="frcsMenuList" resultMap="frcsMenuMap"> -->
+<!-- 		SELECT -->
+<!-- 		    a.menu_cd -->
+<!-- 		  , a.frcs_id -->
+<!-- 		  , a.sale_yn -->
+<!-- 		  , b.MENU_NAME -->
+<!-- 		  , b.MENU_PRICE -->
+<!-- 		  , b.MENU_DES -->
+<!-- 		  , b.MENU_CG -->
+<!-- 		  , b.MENU_STATE -->
+<!-- 		  , b.MENU_RSDATE -->
+<!-- 		  , b.MENU_DELDATE -->
+<!-- 		  , b.TABLE_NAME -->
+<!-- 		FROM -->
+<!-- 		    frcs_menu a JOIN head_menu b  -->
+<!-- 		ON a.menu_cd = b.menu_cd -->
+<!-- 		where b.MENU_CG = #{menuCg} -->
+<!-- 	</select> -->
+
+	<resultMap type="resVO" id="resMap">
+		<id property="resvNo" column="resv_no"/>
+		<result property="resvNo" column="resv_no"/>
+		<result property="memId" column="mem_id"/>
+		<result property="resvMcnt" column="resv_mcnt"/>
+		<result property="resvTime" column="resv_time"/>
+		<result property="resvDate" column="resv_date"/>
+		<result property="resvYn" column="resv_yn"/>
+		<result property="resvState" column="resv_state"/>
+		<result property="resvAccDate" column="resv_acc_date"/>
+		<result property="resvNote" column="resv_note"/>
+		<result property="seatCd" column="seat_cd"/>
+		<result property="resvPrice" column="resv_price"/>
+		<collection property="menuList" resultMap="menuListMap"/>
+	</resultMap>
+	
+	<resultMap type="menuListVO" id="menuListMap">
+		<result property="menuCd" column="menu_cd"/>
+		<result property="frcsId" column="frcs_id"/>
+		<result property="menuCnt" column="menu_cnt"/>
+	</resultMap>
+
+	
+	<select id="frcsMenuList" parameterType="string" resultType="FrcsMenuVO">
+		SELECT
+		    a.menu_cd
+		  , a.frcs_id
+		  , a.sale_yn
+		  , b.MENU_NAME
+		  , b.MENU_PRICE
+		  , b.MENU_DES
+		  , b.MENU_CG
+		  , b.MENU_STATE
+		  , b.MENU_RSDATE
+		  , b.MENU_DELDATE
+		  , b.TABLE_NAME
+		FROM
+		    frcs_menu a JOIN head_menu b 
+		ON a.menu_cd = b.menu_cd
+		where a.frcs_id = #{frcsId}
+	</select>
+	
+	<select id="resfrcsMenuList" parameterType="string" resultType="FrcsMenuVO">
+		SELECT
+		    a.menu_cd
+		  , a.frcs_id
+		  , a.sale_yn
+		  , b.MENU_NAME
+		  , b.MENU_PRICE
+		  , b.MENU_DES
+		  , b.MENU_CG
+		  , b.MENU_STATE
+		  , b.MENU_RSDATE
+		  , b.MENU_DELDATE
+		  , b.TABLE_NAME
+		FROM
+		    frcs_menu a left join head_menu b 
+			on a.menu_cd = b.menu_cd
+			and a.frcs_id = #{frcsId}
+	</select>
+	
+	<insert id="resRegister" parameterType="resVO" useGeneratedKeys="true">
+		insert into reservation (
+			RESV_NO, MEM_ID, RESV_MCNT, RESV_TIME, RESV_DATE, RESV_YN, RESV_STATE, RESV_ACC_DATE, RESV_NOTE, SEAT_CD, RESV_PRICE
+		) values (
+			#{resvNo}, #{memId}, #{resvMcnt}, #{resvTime}, sysdate, 'N', 'Y', sysdate, '안녕하세요', #{seatCd}, #{resvPrice}
+		)
+	</insert>
+	
+	<insert id="menuInsert" parameterType="menuListVO" useGeneratedKeys="true">
+		insert into mem_menu (
+			MENU_CD, FRCS_ID, MENU_CNT
+		) values (
+			#{menuCd}, #{frcsId}, #{menuCnt}
+		)
+	</insert>
+
+</mapper>

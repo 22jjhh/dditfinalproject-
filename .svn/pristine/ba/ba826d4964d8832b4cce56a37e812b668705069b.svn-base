@@ -1,0 +1,53 @@
+package kr.or.ddit.service.owner.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.mapper.owner.FrcsDailyMapper;
+import kr.or.ddit.service.owner.IFrcsDailySaleService;
+import kr.or.ddit.vo.owner.FrcsDailySalesVO;
+import kr.or.ddit.vo.owner.FrcsMenuVO;
+
+@Service
+public class FrcsDailySaleServiceImpl implements IFrcsDailySaleService {
+
+	@Inject
+	private FrcsDailyMapper mapper;
+
+	// 가맹점 메뉴 정보
+	@Override
+	public List<FrcsMenuVO> getMenu(String frcsId) {
+		return mapper.getMenu(frcsId);
+	}
+
+	// 일일 매출 등록
+	@Override
+	public ServiceResult insertDailySales(List<FrcsDailySalesVO> salesList) {
+		ServiceResult result = null;
+		
+		for(int i=0; i<salesList.size(); i++) {
+			FrcsDailySalesVO salesVO= salesList.get(i);
+			int status = mapper.insertDailySales(salesVO);
+
+			if(status > 0) {
+				result = ServiceResult.OK;
+			}else {
+				result = ServiceResult.FAILED;
+			}
+		}
+		
+		return result;
+	}
+
+	// 일일 매출 리스트 출력
+	@Override
+	public List<FrcsDailySalesVO> getDailySalesList(String frcsId) {
+		return mapper.getDailySalesList(frcsId);
+	}
+	
+	
+}

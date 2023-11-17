@@ -1,0 +1,12 @@
+package kr.or.ddit.mapper.owner;
+
+import java.util.List;
+
+import kr.or.ddit.vo.owner.FrcsSeatVO;
+
+public interface SeatMapper {
+
+	public int register(FrcsSeatVO seatVO);
+//	public List<FrcsSeatVO> frcsSeatList();
+
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.head.MenuMapper">
+
+ 	<select id="selectMenuCount" parameterType="pagingVO" resultType="int">
+		select count(menu_cd)
+		from head_menu
+	</select>
+
+	<select id="selectMenuList" parameterType="pagingVO" resultType="menuVO">
+		select menu_name, menu_cg, menu_price, menu_rsdate, menu_des
+		from head_menu
+	</select>
+	
+	<insert id="menuRegister" parameterType="menuVO">
+		insert into head_menu (
+			menu_cd, menu_cg, menu_name, menu_des, menu_price
+		) values (
+			 #{menuCd}, #{menuCg}, #{menuName}, #{menuDes}, #{menuPrice}
+		)
+	</insert>
+	
+	<select id="menuDetail" parameterType="map" resultType="menuVO">
+		select  menu_cd, menu_cg, menu_name, menu_des, menu_price
+		from head_menu
+		where menu_cd = #{menuCd}
+	</select>
+	
+	<update id="menuUpdate" parameterType="menuVO">
+		update head_menu
+		set
+			menu_cd = #{menuCd},
+			menu_cg = #{menuCg},
+			menu_name = #{menuName},
+			menu_des = #{menuDes},
+			menu_price = #{menuPrice}
+		where menu_cd= #{menuCd} 
+	</update>
+	
+	<delete id="menuRemove" parameterType="map">
+		delete from head_menu
+		where menu_cd = #{menuCd}
+	</delete>
+	
+<!-- 	<select id="selectMenuList" parameterType="pagingVO" resultType="menuVO"> -->
+<!-- 	select hm.menu_cd, hm.menu_name, hm.menu_price, hm.menu_cg, hm.menu_state, -->
+<!--        a.attach_no, a.attach_orgname, a.attach_savename, a.attach_mime, a.attach_size, a.thumb_img -->
+<!-- 	from head_menu hm -->
+<!-- 	left join attach a on a.table_pk = hm.menu_cd and a.table_name = hm.table_name; -->
+<!-- 	</select> -->
+
+</mapper>

@@ -1,0 +1,40 @@
+package kr.or.ddit.service.head.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.mapper.head.CounselMapper;
+import kr.or.ddit.service.head.ICounselService;
+import kr.or.ddit.vo.head.HeadPaginationInfoVO;
+import kr.or.ddit.vo.owner.OwnerVO;
+
+@Service
+public class CounselServiceImpl implements ICounselService {
+
+	@Inject
+	private CounselMapper counselMapper;
+	
+	@Override
+	public int selectCounselCount(HeadPaginationInfoVO<OwnerVO> pagingVO) {
+		return counselMapper.selectCounselCount(pagingVO);
+	}
+
+	@Override
+	public List<OwnerVO> selectCounselList(HeadPaginationInfoVO<OwnerVO> pagingVO) {
+		return counselMapper.selectCounselList(pagingVO);
+	}
+
+	@Override
+	public OwnerVO counselDetail(OwnerVO ownerVO) {
+		return counselMapper.counselDetail(ownerVO);
+		
+	}
+
+	@Override
+	public void counselUpdate(OwnerVO ownerVO) {
+		counselMapper.counselUpdate(ownerVO);
+	}
+}

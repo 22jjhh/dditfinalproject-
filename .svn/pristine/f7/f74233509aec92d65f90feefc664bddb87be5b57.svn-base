@@ -1,0 +1,11 @@
+package kr.or.ddit.mapper.head;
+
+import java.util.List;
+
+import kr.or.ddit.vo.head.CouponVO;
+
+public interface CouponMapper {
+
+	public List<CouponVO> CouponList();
+
+}

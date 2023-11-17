@@ -1,0 +1,87 @@
+package kr.or.ddit.controller.owner;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import kr.or.ddit.ServiceResult;
+import kr.or.ddit.service.owner.IFrcsInquiryService;
+import kr.or.ddit.vo.owner.FrcsInquiryVO;
+import kr.or.ddit.vo.owner.FrcsOwnershipVO;
+
+@Controller
+@RequestMapping("/owner")
+public class OwnerInquiryController {
+
+	@Inject
+	private IFrcsInquiryService service;
+	
+	@RequestMapping(value="/inquiry.do", method = RequestMethod.GET )
+	public String ownerInquiryList(Model model) {
+		List<FrcsInquiryVO> frcsInqList = service.frcsInqList();
+		model.addAttribute("inqList", frcsInqList);
+		return "owner/board/inquiryList";
+	}
+	
+	@RequestMapping(value = "/inqDetail.do", method = RequestMethod.GET)
+	public String ownerInquiryDetail() {
+		return "owner/board/inquiryDetail";
+	}
+	
+	@RequestMapping(value = "/inqForm.do", method = RequestMethod.GET)
+	public String ownerInquiryForm() {
+		return "owner/board/inquiryForm";
+	}
+	
+	@RequestMapping(value = "/inqInsert.do", method = RequestMethod.POST)
+	public String ownerInquiryInsert(
+			HttpServletRequest req,
+			RedirectAttributes ra,
+			FrcsInquiryVO FrcsInqVO, Model model 
+			) {
+		String goPage = "";
+		Map<String, String> errors = new HashMap<String, String>();
+		if(StringUtils.isBlank(FrcsInqVO.getInqryTtl())) {
+			errors.put("inqryTtl", "제목을 입력해주세요.");
+		}
+		if(StringUtils.isBlank(FrcsInqVO.getInqryCn())) {
+			errors.put("boContent", "내용을 입력해주세요.");
+		}
+		
+		if(errors.size() > 0 ) {
+			model.addAttribute("errors", errors);
+			model.addAttribute("FrcsInqVO", FrcsInqVO);
+			goPage = "";
+		}else {
+			HttpSession session = req.getSession();
+			FrcsOwnershipVO ownershipVO =  (FrcsOwnershipVO) session.getAttribute("SessionInfo"); 
+			if(ownershipVO != null) {
+				FrcsInqVO.setFrcsId(ownershipVO.getFrcsId()); //로그인한 사용자 설정
+				ServiceResult result = service.inqInsert(req, FrcsInqVO);
+				if(result.equals(ServiceResult.OK)) {
+					ra.addFlashAttribute("message", "게시글 등록 완료!");
+					goPage = "redirect:/owner/inqDetail.do?inqryNo=" + FrcsInqVO.getInqryNo();
+				}else {
+					model.addAttribute("message", "서버에러, 다시 시도해주세요.");
+					goPage = "board/inquiryForm";
+				}
+			}else {
+				ra.addFlashAttribute("message", "로그인 후에 사용 가능합니다!");
+				goPage = "redirect:/elly/login.do";
+			}
+		}
+		return goPage;
+	}
+}

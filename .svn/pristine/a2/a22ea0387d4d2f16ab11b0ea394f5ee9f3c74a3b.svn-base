@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.member.MemberReviewMapper">
+
+<insert id="create" parameterType="reviewVO" useGeneratedKeys="true">
+	<selectKey keyProperty="reviewNo" resultType="int" order="BEFORE">
+		select seq_review.nextval from dual
+	</selectKey>
+	insert into review (
+		review_no, mem_id, resv_no, review_content, review_star, review_regdate, review_yn, frcs_id
+	) values (
+		#{reviewNo}, #{memId}, #{resvNo}, #{reviewContent}, #{reviewStar}, sysdate, "Y", #{frcsId}
+	)
+</insert>
+
+</mapper>
